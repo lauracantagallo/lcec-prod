@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <!-- Background -->
+  <rect width="300" height="300" fill="#e8e8e8"/>
+  
+  <!-- Head -->
+  <circle cx="150" cy="100" r="50" fill="#c0a080"/>
+  
+  <!-- Shoulders/body -->
+  <ellipse cx="150" cy="220" rx="80" ry="60" fill="#a4c639"/>
+  
+  <!-- Shirt -->
+  <path d="M 100 160 L 100 260 Q 150 280 200 260 L 200 160 Z" fill="#556b2f"/>
+  
+  <!-- Accent -->
+  <circle cx="150" cy="80" r="8" fill="#556b2f"/>
+</svg>
