@@ -16,6 +16,7 @@ assets/
 public/
 docs/
 scripts/
+fonts/
 
 # Node (if adding build tools later)
 node_modules/
@@ -33,8 +34,7 @@ build/
 .temporary/
 .cache/
 
-# Keep everything else (fonts, images, HTML, etc.)
-!fonts/
+# Keep everything else (images, HTML, etc.)
 !images/
 !*.html
 !*.js

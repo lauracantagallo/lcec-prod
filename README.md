@@ -32,13 +32,11 @@ lcec/
 
 ## Asset Inventory
 
-### Fonts (21 files)
-- **Cabin**: 700 weight, 3 unicode variants (vietnamese, latin-ext, latin)
-- **Lato**: Multiple weights (100, 300, 400, 700, 900), italic variants, 14 total files
-- **Bitter**: 5 variants with multiple unicode ranges
-- **Lobster Two**: 1 variant
-- **Format**: WOFF2 (modern, compressed)
-- **Location**: `public/assets/fonts/`
+### Fonts
+- **Source**: Google Fonts CDN (https://fonts.googleapis.com)
+- **Families**: Cabin, Lato, Bitter, Lobster Two
+- **Variants**: All weights (100, 300, 400, 700, 900) with italic options
+- **Benefits**: CDN delivery, automatic updates, no storage needed
 
 ### Images (5 files)
 - **favicon.svg** (335 bytes) - Scalable favicon with "LC" initials
