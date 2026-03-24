@@ -7,7 +7,8 @@
       "Bash(winget install:*)",
       "Bash(powershell -Command \"& ''C:\\\\Program Files\\\\nodejs\\\\npx.cmd'' --version\")",
       "Bash(powershell -Command \"& ''C:\\\\Program Files\\\\nodejs\\\\npx.cmd'' prettier --write ''*.html'' --parser html --print-width 100 --tab-width 2 --single-attribute-per-line false 2>&1\")",
-      "Bash(wc -c /c/Users/ilaga/OneDrive/localhost/lcec/*.html)"
+      "Bash(wc -c /c/Users/ilaga/OneDrive/localhost/lcec/*.html)",
+      "Bash(powershell -ExecutionPolicy Bypass -File \"C:\\\\Users\\\\ilaga\\\\OneDrive\\\\localhost\\\\lcec\\\\fix-blank-lines.ps1\")"
     ]
   }
 }
