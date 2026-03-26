@@ -1,8 +1,8 @@
-<header class="site-header" role="banner">
+<header class="site-header">
   <div class="header-inner">
     <div class="header-logo-row">
       <a href="{{ '/' | url }}" class="logo" title="LC Education Consulting">
-        <h1 class="logo__text">LC Education Consulting</h1>
+        <span class="logo__text">LC Education Consulting</span>
       </a>
       <div class="header-phone">
         <a href="tel:8563104483">856-310-4483</a>
@@ -24,13 +24,13 @@
             <a href="{{ '/why-choose-us/' | url }}" class="nav__link" {% if page.url == "/why-choose-us/" %}aria-current="page"{% endif %}>Why Choose Us</a>
           </li>
           <li class="nav__item">
-            <button class="nav__dropdown-btn" aria-haspopup="menu" aria-expanded="false" aria-controls="nav-services-dropdown">
+            <button class="nav__dropdown-btn" aria-expanded="false" aria-controls="nav-services-dropdown">
               <span>Services</span>
               <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true">
                 <path d="M7 10l5 5 5-5z"/>
               </svg>
             </button>
-            <div id="nav-services-dropdown" class="nav__dropdown" role="region">
+            <div id="nav-services-dropdown" class="nav__dropdown">
               <ul class="nav__dropdown-list">
                 <li class="nav__dropdown-item">
                   <a href="{{ '/accessibility-services/' | url }}" class="nav__dropdown-link" {% if page.url == "/accessibility-services/" %}aria-current="page"{% endif %}>

@@ -14,22 +14,26 @@ description: "Connect with LC Education Consulting. Fill out the contact form or
   <div class="container">
     <div class="contact-info">
       <h2 class="contact-info__heading">Office</h2>
-      <div class="contact-info__row">
-        <span class="contact-info__label">Location</span>
-        <span class="contact-info__value">Collingswood, New Jersey</span>
-      </div>
-      <div class="contact-info__row">
-        <span class="contact-info__label">Phone</span>
-        <span class="contact-info__value">
-          <a href="tel:8563104483">856-310-4483</a>
-        </span>
-      </div>
-      <div class="contact-info__row">
-        <span class="contact-info__label">E-Mail</span>
-        <span class="contact-info__value">
-          <a href="mailto:laura@lceducationconsulting.com">laura@lceducationconsulting.com</a>
-        </span>
-      </div>
+      <address>
+        <dl>
+          <div class="contact-info__row">
+            <dt class="contact-info__label">Location</dt>
+            <dd class="contact-info__value">Collingswood, New Jersey</dd>
+          </div>
+          <div class="contact-info__row">
+            <dt class="contact-info__label">Phone</dt>
+            <dd class="contact-info__value">
+              <a href="tel:8563104483">856-310-4483</a>
+            </dd>
+          </div>
+          <div class="contact-info__row">
+            <dt class="contact-info__label">E-Mail</dt>
+            <dd class="contact-info__value">
+              <a href="mailto:laura@lceducationconsulting.com">laura@lceducationconsulting.com</a>
+            </dd>
+          </div>
+        </dl>
+      </address>
     </div>
     <p class="intro-section__body mt-5">Looking to connect with a trusted accessibility consultant? You&rsquo;re in the right place! LC Education Consulting is here to answer questions, learn about your goals, and connect you with the right services for your organization.</p>
     <p class="intro-section__body mt-4">To get started, fill out the contact form below or schedule a free 30-minute discovery call. We&rsquo;re happy to schedule a free consultation.</p>
@@ -38,7 +42,8 @@ description: "Connect with LC Education Consulting. Fill out the contact form or
 
 <section class="contact-form-section">
   <div class="container">
-    <form class="contact-form" aria-live="polite" action="#" method="post">
+    <div role="status" aria-live="polite" aria-atomic="true" class="form-status"></div>
+    <form class="contact-form" action="#" method="post">
       <h2 class="contact-form__heading">Let&rsquo;s Talk About Your Needs</h2>
 
       {# Honeypot — hidden from real users #}
