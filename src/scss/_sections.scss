@@ -33,7 +33,10 @@
 // ─── Intro section (intro paragraph on inner pages) ───────────────────────────
 
 .intro-section {
-  padding: $space-6 0;
+  background-color: $color-accent;
+  color: $color-white;
+  padding: $space-6 $space-4;
+  text-align: center;
 
   &__heading {
     color: $color-white;
@@ -54,30 +57,35 @@
   }
 
   &__body {
-    color: $color-text-on-dark;
+    color: $color-white;
     font-size: $font-size-base;
     line-height: $line-height-loose;
+    margin: 0 auto;
     max-width: 720px;
     text-wrap: pretty;
+
+    &--spaced {
+      margin-top: $space-4;
+    }
   }
 }
 
 // ─── Philosophy Section ───────────────────────────────────────────────────────
 
 .philosophy-section {
-  padding: $space-6 0;
-
   &__heading {
-    color: $color-white;
+    color: $color-text;
     font-family: $font;
-    font-size: $font-size-3xl;
-    font-weight: 700;
+    font-size: $font-size-2xl;
+    font-weight: 400;
+    letter-spacing: $letter-spacing-wide;
     margin-bottom: $space-5;
+    text-transform: uppercase;
   }
 
   &__grid {
     display: grid;
-    gap: $space-5;
+    gap: $space-4;
     grid-template-columns: repeat(2, 1fr);
 
     @media (max-width: $bp-mobile) {
@@ -86,22 +94,33 @@
   }
 
   &__block {
-    &$font {
-      color: $color-primary-light;
-      font-family: $font;
-      font-size: $font-size-xl;
-      font-weight: 700;
-      letter-spacing: $letter-spacing-wider;
-      margin-bottom: $space-2;
-      text-transform: uppercase;
-    }
+    background-color: $color-primary-light;
+    padding: $space-4;
+    text-align: center;
+  }
 
-    p {
-      color: $color-text-on-dark;
-      font-size: $font-size-base;
-      line-height: $line-height-loose;
-      text-wrap: pretty;
-    }
+  &__block-heading {
+    color: $color-primary-dark;
+    font-family: $font;
+    font-size: $font-size-xl;
+    font-weight: 700;
+    letter-spacing: $letter-spacing-wider;
+    margin-bottom: $space-3;
+  }
+
+  &__image {
+    aspect-ratio: 16 / 9;
+    display: block;
+    margin-bottom: $space-3;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  &__block p {
+    color: $color-text;
+    font-size: $font-size-base;
+    line-height: $line-height-loose;
+    text-wrap: pretty;
   }
 }
 
