@@ -59,9 +59,14 @@
   display: inline-block;
   text-decoration: none;
 
-  &:hover,
+  &:hover {
+    color: $color-primary;
+  }
+
   &:focus {
     color: $color-primary;
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
   }
 
   @media (max-width: $bp-mobile) {
@@ -96,10 +101,6 @@
     color: $color-primary;
     font-size: $font-size-2xl;
     font-weight: 400;
-
-    @media (min-width: #{$bp-mobile + 1px}) {
-      font-size: $font-size-2xl;
-    }
 
     &:hover {
       color: $color-primary-dark;
@@ -137,7 +138,6 @@
 .nav__list {
   align-items: center;
   display: flex;
-  gap: 0;
   justify-content: center;
 }
 
@@ -159,10 +159,14 @@
   text-transform: uppercase;
   transition: $transition-base;
 
-  &:hover,
+  &:hover {
+    color: $color-primary;
+  }
+
   &:focus {
     color: $color-primary;
-    outline: none;
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
   }
 
   &.nav__link--active,
@@ -191,10 +195,14 @@
   text-transform: uppercase;
   transition: $transition-base;
 
-  &:hover,
+  &:hover {
+    color: $color-primary;
+  }
+
   &:focus {
     color: $color-primary;
-    outline: none;
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
   }
 
   svg {
@@ -209,7 +217,6 @@
 
 .nav__dropdown {
   background-color: $color-white;
-  border-radius: 0;
   box-shadow: $shadow-dropdown;
   display: none;
   left: auto;
@@ -249,10 +256,14 @@
   text-decoration: none;
   transition: $transition-base;
 
-  &:hover,
+  &:hover {
+    color: $color-primary;
+  }
+
   &:focus {
     color: $color-primary;
-    outline: none;
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
   }
 
   span {
@@ -346,10 +357,14 @@
   text-decoration: none;
   text-transform: uppercase;
 
-  &:hover,
+  &:hover {
+    color: $color-primary;
+  }
+
   &:focus {
     color: $color-primary;
-    outline: none;
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
   }
 }
 

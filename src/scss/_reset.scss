@@ -53,14 +53,12 @@ h1, h2, h3, h4, h5, h6 {
   line-height: $line-height-tight;
   margin-top: 0;
   overflow-wrap: break-word;
-  word-wrap: break-word;
 }
 
 p {
   margin: 0;
   overflow-wrap: break-word;
   text-wrap: pretty;
-  word-wrap: break-word;
 }
 
 ul, ol {
