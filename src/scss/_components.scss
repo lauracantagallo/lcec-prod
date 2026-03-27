@@ -18,7 +18,7 @@
   text-decoration: none;
   text-transform: uppercase;
   transition: $transition-base;
-  white-space: nowrap;
+  white-space: normal;
 
   &:focus {
     outline: 2px solid $color-primary-light;
