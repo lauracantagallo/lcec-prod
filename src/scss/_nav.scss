@@ -154,7 +154,7 @@
 }
 
 .nav__link {
-  border-bottom: 1px solid transparent;
+  border-bottom: 2px solid transparent;
   color: $color-text;
   display: block;
   font-size: $font-size-sm;
@@ -186,7 +186,7 @@
   align-items: center;
   background: none;
   border: none;
-  border-bottom: 1px solid transparent;
+  border-bottom: 2px solid transparent;
   color: $color-text;
   cursor: pointer;
   display: flex;
