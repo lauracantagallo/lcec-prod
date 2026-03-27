@@ -78,7 +78,7 @@
 }
 
 .logo__text {
-  font-family: $font-body;
+  font-family: $font;
   font-size: $font-size-2xl;
   font-weight: 700;
   letter-spacing: 2px;
@@ -91,7 +91,7 @@
 
 .header-phone {
   color: inherit;
-  font-family: $font-body;
+  font-family: $font;
   font-size: $font-size-base;
   position: absolute;
   right: $space-3;
@@ -142,7 +142,7 @@
 }
 
 .nav__item {
-  font-family: $font-heading;
+  font-family: $font;
   letter-spacing: $letter-spacing-nav;
   position: relative;
   white-space: nowrap;
@@ -152,7 +152,7 @@
   border-bottom: 1px solid transparent;
   color: $color-text;
   display: block;
-  font-size: $nav-font-size;
+  font-size: $font-size-sm;
   font-weight: 400;
   padding: $space-2 $space-3;
   text-decoration: none;
@@ -185,8 +185,8 @@
   color: $color-text;
   cursor: pointer;
   display: flex;
-  font-family: $font-heading;
-  font-size: $nav-font-size;
+  font-family: $font;
+  font-size: $font-size-sm;
   font-weight: 400;
   gap: $space-1;
   letter-spacing: $letter-spacing-nav;
@@ -247,7 +247,7 @@
   align-items: center;
   color: $color-text-medium;
   display: flex;
-  font-family: $font-body;
+  font-family: $font;
   font-size: $font-size-sm;
   font-weight: 400;
   letter-spacing: normal;
@@ -353,7 +353,7 @@
 .mobile-nav__link {
   color: $color-text;
   display: block;
-  font-family: $font-heading;
+  font-family: $font;
   font-size: $font-size-base;
   font-weight: 400;
   letter-spacing: $letter-spacing-nav;

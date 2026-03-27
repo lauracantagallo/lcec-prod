@@ -63,7 +63,7 @@
 
   &__eyebrow {
     color: $color-text-on-dark;
-    font-family: $font-body;
+    font-family: $font;
     font-size: $font-size-2xl;
     font-weight: 400;
     margin-bottom: $space-2;
@@ -72,7 +72,7 @@
 
   &__heading {
     color: $color-text-on-dark;
-    font-family: $font-body;
+    font-family: $font;
     font-size: $font-size-2xl;
     font-weight: 700;
     line-height: $line-height-base;
@@ -83,7 +83,7 @@
 
   &__subheading {
     color: $color-text-on-dark;
-    font-family: $font-body;
+    font-family: $font;
     font-size: $font-size-2xl;
     font-weight: 400;
     line-height: $line-height-loose;

@@ -11,7 +11,7 @@
 
   &__heading {
     color: $color-white;
-    font-family: $font-heading;
+    font-family: $font;
     font-size: $font-size-4xl;
     font-weight: 700;
     line-height: $line-height-tight;
@@ -23,7 +23,7 @@
 
   &__subheading {
     color: $color-primary-light;
-    font-family: $font-display;
+    font-family: $font;
     font-size: $font-size-lg;
     margin-top: $space-2;
     text-wrap: pretty;
@@ -37,7 +37,7 @@
 
   &__heading {
     color: $color-white;
-    font-family: $font-heading;
+    font-family: $font;
     font-size: $font-size-3xl;
     font-weight: 700;
     line-height: $line-height-snug;
@@ -46,7 +46,7 @@
 
   &__subheading {
     color: $color-primary-light;
-    font-family: $font-display;
+    font-family: $font;
     font-size: $font-size-lg;
     line-height: $line-height-loose;
     max-width: 720px;
@@ -69,7 +69,7 @@
 
   &__heading {
     color: $color-white;
-    font-family: $font-heading;
+    font-family: $font;
     font-size: $font-size-3xl;
     font-weight: 700;
     margin-bottom: $space-5;
@@ -86,9 +86,9 @@
   }
 
   &__block {
-    &-heading {
+    &$font {
       color: $color-primary-light;
-      font-family: $font-heading;
+      font-family: $font;
       font-size: $font-size-xl;
       font-weight: 700;
       letter-spacing: $letter-spacing-wider;
@@ -109,7 +109,7 @@
 // Large intro/lead text in a section (body font, not heading scale)
 
 .section-lead {
-  font-family: $font-body;
+  font-family: $font;
   font-size: $font-size-xl;
   font-weight: 400;
   line-height: $line-height-loose;
@@ -155,7 +155,7 @@
 
   &__heading {
     color: $color-white;
-    font-family: $font-heading;
+    font-family: $font;
     font-size: $font-size-3xl;
     font-weight: 700;
     margin-bottom: $space-4;
@@ -171,7 +171,7 @@
 
   &__heading {
     color: $color-text;
-    font-family: $font-heading;
+    font-family: $font;
     font-size: $font-size-2xl;
     font-weight: 400;
     letter-spacing: $letter-spacing-wide;

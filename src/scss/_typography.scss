@@ -4,7 +4,7 @@
 
 // Heading scale
 h1, .h1 {
-  font-family: $font-heading;
+  font-family: $font;
   font-size: $font-size-3xl;
   font-weight: 700;
   line-height: $line-height-tight;
@@ -23,7 +23,7 @@ h1, .h1 {
 }
 
 h2, .h2 {
-  font-family: $font-heading;
+  font-family: $font;
   font-size: $font-size-2xl;
   font-weight: 700;
 
@@ -37,7 +37,7 @@ h2, .h2 {
 }
 
 h3, .h3 {
-  font-family: $font-heading;
+  font-family: $font;
   font-size: $font-size-xl;
   font-weight: 700;
 
@@ -47,7 +47,7 @@ h3, .h3 {
 }
 
 h4, .h4 {
-  font-family: $font-heading;
+  font-family: $font;
   font-size: $font-size-lg;
   font-weight: 700;
 
@@ -57,13 +57,13 @@ h4, .h4 {
 }
 
 h5, .h5 {
-  font-family: $font-heading;
+  font-family: $font;
   font-size: $font-size-base;
   font-weight: 700;
 }
 
 h6, .h6 {
-  font-family: $font-heading;
+  font-family: $font;
   font-size: $font-size-sm;
   font-weight: 700;
   letter-spacing: $letter-spacing-wide;
@@ -79,20 +79,20 @@ h6, .h6 {
 .text-on-dark { color: $color-text-on-dark; }
 
 // Display / accent font
-.font-display {
-  font-family: $font-display;
+.font$font {
+  font-family: $font;
 }
 
 // Section headings
-.section-heading {
-  font-family: $font-heading;
+.section$font {
+  font-family: $font;
   font-weight: 700;
   line-height: $line-height-snug;
   margin-bottom: $space-3;
 }
 
 .section-subheading {
-  font-family: $font-display;
+  font-family: $font;
   font-size: $font-size-lg;
   line-height: $line-height-base;
   margin-bottom: $space-4;

@@ -31,7 +31,7 @@
 
   &__link {
     color: $color-text-on-dark;
-    font-family: $font-body;
+    font-family: $font;
     font-size: $font-size-sm;
     padding: $space-2 $space-3;
     text-decoration: none;
@@ -51,7 +51,7 @@
 
 .footer-brand {
   color: $color-text-on-dark;
-  font-family: $font-heading;
+  font-family: $font;
   font-size: $font-size-base;
   font-weight: 700;
   text-align: center;
@@ -62,7 +62,7 @@
 
   a {
     color: $color-text-on-dark;
-    font-family: $font-body;
+    font-family: $font;
     font-size: $font-size-sm;
     text-decoration: none;
     transition: color 0.2s ease;

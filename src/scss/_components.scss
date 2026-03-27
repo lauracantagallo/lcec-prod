@@ -7,7 +7,7 @@
   border: 2px solid transparent;
   cursor: pointer;
   display: inline-flex;
-  font-family: $font-body;
+  font-family: $font;
   font-size: $font-size-sm;
   font-weight: 400;
   justify-content: center;
@@ -77,7 +77,7 @@
 
   p {
     color: $color-white;
-    font-family: $font-body;
+    font-family: $font;
     font-size: $font-size-base;
     font-weight: 400;
     letter-spacing: $letter-spacing-wide;
@@ -110,7 +110,7 @@
 
   &__value {
     color: $color-text;
-    font-family: $font-body;
+    font-family: $font;
     font-size: 1.875rem;
     font-weight: 700;
     line-height: $line-height-tight;
@@ -119,7 +119,7 @@
 
   &__label {
     color: $color-text;
-    font-family: $font-body;
+    font-family: $font;
     font-size: $font-size-lg;
     line-height: $line-height-base;
   }
@@ -135,7 +135,7 @@
 
   &__text {
     color: $color-white;
-    font-family: $font-body;
+    font-family: $font;
     font-size: 1.875rem;
     font-weight: 700;
     letter-spacing: normal;
@@ -146,7 +146,7 @@
 
   &__attribution {
     color: $color-white;
-    font-family: $font-body;
+    font-family: $font;
     font-size: $font-size-sm;
     font-weight: 400;
   }
@@ -173,7 +173,7 @@
 
   &__heading {
     color: $color-primary;
-    font-family: $font-heading;
+    font-family: $font;
     font-size: $font-size-xl;
     font-weight: 700;
     line-height: $line-height-snug;
@@ -229,7 +229,7 @@
 
   &__heading {
     color: $color-primary;
-    font-family: $font-heading;
+    font-family: $font;
     font-size: $font-size-xl;
     font-weight: 700;
     margin-bottom: $space-2;
@@ -277,7 +277,7 @@
 .contact-info {
   &__heading {
     color: $color-text-on-dark;
-    font-family: $font-heading;
+    font-family: $font;
     font-size: $font-size-xl;
     font-weight: 700;
     margin-bottom: $space-3;
@@ -292,7 +292,7 @@
 
   &__label {
     color: $color-primary-light;
-    font-family: $font-heading;
+    font-family: $font;
     font-size: $font-size-sm;
     font-weight: 700;
     letter-spacing: $letter-spacing-wide;
@@ -323,7 +323,7 @@
 
   &__heading {
     color: $color-text-on-dark;
-    font-family: $font-heading;
+    font-family: $font;
     font-size: $font-size-3xl;
     font-weight: 700;
     margin-bottom: $space-2;
@@ -331,7 +331,7 @@
 
   &__subheading {
     color: $color-primary-light;
-    font-family: $font-display;
+    font-family: $font;
     font-size: $font-size-lg;
     margin-bottom: $space-4;
   }

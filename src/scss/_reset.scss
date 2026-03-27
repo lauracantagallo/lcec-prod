@@ -18,7 +18,7 @@ body {
   -webkit-font-smoothing: antialiased;
   background-color: $color-primary;
   color: $color-text;
-  font-family: $font-body;
+  font-family: $font;
   font-size: $font-size-base;
   line-height: $line-height-loose;
   margin: 0;
@@ -48,7 +48,7 @@ svg:not(:root) {
 
 // Typography reset
 h1, h2, h3, h4, h5, h6 {
-  font-family: $font-heading;
+  font-family: $font;
   font-weight: 700;
   line-height: $line-height-tight;
   margin-top: 0;
