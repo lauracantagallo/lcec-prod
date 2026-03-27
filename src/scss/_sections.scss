@@ -99,7 +99,6 @@
 
   &__block {
     background-color: $color-primary-light;
-    padding: $space-4;
     text-align: center;
   }
 
@@ -110,6 +109,7 @@
     font-weight: 400;
     letter-spacing: $letter-spacing-wider;
     margin-bottom: $space-3;
+    padding: $space-4 $space-4 0;
   }
 
   &__image {
@@ -124,6 +124,7 @@
     color: $color-text;
     font-size: $font-size-base;
     line-height: $line-height-loose;
+    padding: 0 $space-4 $space-4;
     text-wrap: pretty;
   }
 }
@@ -195,7 +196,7 @@
   &__heading {
     color: $color-text;
     font-family: $font;
-    font-size: $font-size-2xl;
+    font-size: $font-size-page-title;
     font-weight: 400;
     letter-spacing: $letter-spacing-wide;
     margin-bottom: $space-3;

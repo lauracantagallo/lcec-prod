@@ -107,7 +107,7 @@
   &__value {
     color: $color-text;
     font-family: $font;
-    font-size: 1.875rem;
+    font-size: $font-size-page-title;
     font-weight: 700;
     line-height: $line-height-tight;
     margin-bottom: $space-3;
@@ -132,7 +132,7 @@
   &__text {
     color: $color-white;
     font-family: $font;
-    font-size: 1.875rem;
+    font-size: $font-size-page-title;
     font-weight: 700;
     letter-spacing: normal;
     line-height: $line-height-loose;

@@ -5,7 +5,7 @@
 .hero {
   background-color: $color-white;
   color: $color-text;
-  padding: 0;
+  padding: $space-7 0;
 
   &__inner {
     align-items: center;
@@ -14,9 +14,8 @@
     text-align: center;
 
     @media (min-width: #{$bp-tablet + 1px}) {
-      align-items: center;
+      align-items: stretch;
       flex-direction: row;
-      gap: $space-6;
       justify-content: center;
     }
   }
@@ -39,11 +38,16 @@
       display: block;
       height: 548px;
       max-width: 100%;
+      object-fit: cover;
       width: 548px;
 
       @media (max-width: $bp-mobile) {
         height: 352px;
         width: 352px;
+      }
+
+      @media (min-width: #{$bp-tablet + 1px}) {
+        height: 100%;
       }
     }
   }
@@ -57,6 +61,9 @@
     text-align: center;
 
     @media (min-width: #{$bp-tablet + 1px}) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       padding: $space-6;
     }
   }
@@ -64,7 +71,7 @@
   &__eyebrow {
     color: $color-text-on-dark;
     font-family: $font;
-    font-size: $font-size-2xl;
+    font-size: $font-size-sm;
     font-weight: 400;
     margin-bottom: $space-2;
     text-transform: uppercase;
@@ -73,7 +80,7 @@
   &__heading {
     color: $color-text-on-dark;
     font-family: $font;
-    font-size: $font-size-2xl;
+    font-size: $font-size-page-title;
     font-weight: 700;
     line-height: $line-height-base;
     margin-bottom: $space-3;
@@ -84,7 +91,7 @@
   &__subheading {
     color: $color-text-on-dark;
     font-family: $font;
-    font-size: $font-size-2xl;
+    font-size: $font-size-lg;
     font-weight: 400;
     line-height: $line-height-loose;
     margin-bottom: $space-5;
