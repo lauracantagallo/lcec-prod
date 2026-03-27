@@ -30,12 +30,12 @@
 // ─── Sections ─────────────────────────────────────────────────────────────────
 
 .section {
-  padding-bottom: $space-6;
-  padding-top: $space-6;
+  padding-bottom: $space-5;
+  padding-top: $space-5;
 
-  @media (max-width: $bp-mobile) {
-    padding-bottom: $space-5;
-    padding-top: $space-5;
+  @media (min-width: #{$bp-mobile + 1px}) {
+    padding-bottom: $space-6;
+    padding-top: $space-6;
   }
 }
 

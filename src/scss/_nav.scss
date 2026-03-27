@@ -9,19 +9,22 @@
 }
 
 .header-inner {
+  align-items: center;
+  display: flex;
   margin-left: auto;
   margin-right: auto;
-  padding-top: $space-6;
+  padding-bottom: $space-3;
   padding-left: $space-4;
   padding-right: $space-4;
+  padding-top: $space-3;
+  position: relative;
   width: 100%;
 
-  @media (max-width: $bp-mobile) {
-    align-items: center;
-    display: flex;
-    padding-bottom: $space-3;
-    padding-top: $space-3;
-    position: relative;
+  @media (min-width: #{$bp-mobile + 1px}) {
+    display: block;
+    padding-bottom: 0;
+    padding-top: $space-6;
+    position: static;
   }
 
   @media (min-width: #{$bp-tablet + 1px}) {
@@ -42,23 +45,26 @@
 .header-logo-row {
   align-items: center;
   display: flex;
-  justify-content: center;
-  padding-bottom: $space-2;
-  padding-top: $space-3;
+  flex: 1;
   position: relative;
 
-  @media (max-width: $bp-mobile) {
-    flex: 1;
-    flex-direction: row;
-    padding: 0;
+  @media (min-width: #{$bp-mobile + 1px}) {
+    flex: initial;
+    justify-content: center;
+    padding-bottom: $space-2;
+    padding-top: $space-3;
   }
 }
 
 .logo {
   color: $color-text;
   display: inline-block;
+  left: 50%;
   padding: $space-2 $space-3;
+  position: absolute;
   text-decoration: none;
+  transform: translateX(-50%);
+  white-space: nowrap;
 
   &:hover {
     color: $color-primary;
@@ -70,11 +76,11 @@
     outline-offset: 2px;
   }
 
-  @media (max-width: $bp-mobile) {
-    left: 50%;
-    position: absolute;
-    transform: translateX(-50%);
-    white-space: nowrap;
+  @media (min-width: #{$bp-mobile + 1px}) {
+    left: auto;
+    position: static;
+    transform: none;
+    white-space: normal;
   }
 }
 
@@ -90,6 +96,7 @@
 
 .header-phone {
   color: inherit;
+  display: none;
   font-family: $font;
   font-size: $font-size-base;
   position: absolute;
@@ -113,8 +120,8 @@
     }
   }
 
-  @media (max-width: $bp-mobile) {
-    display: none;
+  @media (min-width: #{$bp-mobile + 1px}) {
+    display: block;
   }
 }
 
@@ -124,20 +131,20 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
-  min-height: $nav-height;
 
-  @media (max-width: $bp-mobile) {
-    min-height: 0;
+  @media (min-width: #{$bp-mobile + 1px}) {
+    min-height: $nav-height;
   }
 }
 
 // ─── Desktop nav ──────────────────────────────────────────────────────────────
 
 .nav {
-  width: 100%;
+  display: none;
 
-  @media (max-width: $bp-tablet) {
-    display: none;
+  @media (min-width: #{$bp-tablet + 1px}) {
+    display: block;
+    width: 100%;
   }
 }
 
@@ -280,11 +287,13 @@
 // ─── Mobile nav toggle ────────────────────────────────────────────────────────
 
 .mobile-nav-toggle {
+  align-items: center;
   background: none;
   border: none;
   color: $color-text;
   cursor: pointer;
-  display: none;
+  display: flex;
+  justify-content: center;
   padding: $space-2;
 
   &:focus {
@@ -292,10 +301,8 @@
     outline-offset: 2px;
   }
 
-  @media (max-width: $bp-tablet) {
-    align-items: center;
-    display: flex;
-    justify-content: center;
+  @media (min-width: #{$bp-tablet + 1px}) {
+    display: none;
   }
 
   svg {
@@ -309,7 +316,7 @@
 .mobile-nav {
   background-color: $color-primary-light;
   box-shadow: $shadow-card;
-  display: none;
+  display: flex;
   flex-direction: column;
   height: 100%;
   left: 0;
@@ -325,8 +332,8 @@
   width: 85vw;
   z-index: $nav-mobile-z;
 
-  @media (max-width: $bp-tablet) {
-    display: flex;
+  @media (min-width: #{$bp-tablet + 1px}) {
+    display: none;
   }
 
   &.is-open {

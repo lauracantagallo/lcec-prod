@@ -63,11 +63,10 @@
     justify-content: center;
     margin: 0 auto;
     max-width: 100%;
-    padding: $space-1 $space-6;
+    padding: $space-1 0;
 
-    @media (max-width: $bp-mobile) {
-      padding-left: 0;
-      padding-right: 0;
+    @media (min-width: #{$bp-mobile + 1px}) {
+      padding: $space-1 $space-6;
     }
   }
 
@@ -89,13 +88,13 @@
 
 .stats-grid {
   display: grid;
-  gap: $space-4;
-  grid-template-columns: repeat(3, 1fr);
+  gap: $space-3;
+  grid-template-columns: 1fr;
   margin-top: $space-4;
 
-  @media (max-width: $bp-tablet) {
-    gap: $space-3;
-    grid-template-columns: 1fr;
+  @media (min-width: #{$bp-tablet + 1px}) {
+    gap: $space-4;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -153,11 +152,11 @@
 .services-grid {
   display: grid;
   gap: $space-4;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   margin-top: $space-5;
 
-  @media (max-width: $bp-tablet) {
-    grid-template-columns: 1fr;
+  @media (min-width: #{$bp-tablet + 1px}) {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -209,11 +208,11 @@
 .training-grid {
   display: grid;
   gap: $space-4;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   margin-top: $space-4;
 
-  @media (max-width: $bp-tablet) {
-    grid-template-columns: 1fr;
+  @media (min-width: #{$bp-tablet + 1px}) {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

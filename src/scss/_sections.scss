@@ -90,10 +90,10 @@
   &__grid {
     display: grid;
     gap: $space-4;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
 
-    @media (max-width: $bp-mobile) {
-      grid-template-columns: 1fr;
+    @media (min-width: #{$bp-mobile + 1px}) {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 

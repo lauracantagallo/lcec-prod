@@ -21,14 +21,13 @@
   }
 
   &__logo {
-    flex-shrink: 0;
-    margin-bottom: $space-4;
     max-width: 100%;
-    width: 548px;
+    width: 100%;
 
-    @media (max-width: $bp-mobile) {
-      margin-bottom: 0;
-      width: 100%;
+    @media (min-width: #{$bp-mobile + 1px}) {
+      flex-shrink: 0;
+      margin-bottom: $space-4;
+      width: 548px;
     }
 
     @media (min-width: #{$bp-tablet + 1px}) {
@@ -37,14 +36,14 @@
 
     img {
       display: block;
-      height: 548px;
+      height: auto;
       max-width: 100%;
       object-fit: cover;
-      width: 548px;
+      width: 100%;
 
-      @media (max-width: $bp-mobile) {
-        height: auto;
-        width: 100%;
+      @media (min-width: #{$bp-mobile + 1px}) {
+        height: 548px;
+        width: 548px;
       }
 
       @media (min-width: #{$bp-tablet + 1px}) {
