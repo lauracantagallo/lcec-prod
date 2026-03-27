@@ -6,7 +6,8 @@
 .mt-4 { margin-top: $space-4; }
 .mt-5 { margin-top: $space-5; }
 
-.text-xl { font-size: $font-size-xl; }
+.text-xl        { font-size: $font-size-xl; }
+.text-uppercase { text-transform: uppercase; }
 
 // Skip link for accessibility
 .skip-link {
