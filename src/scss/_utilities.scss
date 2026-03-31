@@ -3,6 +3,15 @@
 
 // ─── Utility Classes ──────────────────────────────────────────────────────────
 
+.section--flush-bottom { padding-bottom: 0; }
+.section--flush-top { padding-top: 0; }
+
+.divider {
+  border: none;
+  border-top: 1px solid $color-primary-dark;
+  margin: 0;
+}
+
 .mt-4 { margin-top: $space-4; }
 .mt-5 { margin-top: $space-5; }
 

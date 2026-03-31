@@ -118,6 +118,11 @@
     margin-bottom: $space-3;
     object-fit: cover;
     width: 100%;
+
+    @media (min-width: #{$bp-tablet + 1px}) {
+      aspect-ratio: unset;
+      height: 548px;
+    }
   }
 
   &__block p {
@@ -202,7 +207,7 @@
     line-height: $line-height-loose;
 
     & + & {
-      margin-top: $space-3;
+      margin-top: 1em;
     }
   }
 }
@@ -244,6 +249,10 @@
 // ─── Credentials layout (Why Choose Us) ──────────────────────────────────────
 
 .credentials-layout {
+  .section-heading {
+    font-weight: 400;
+  }
+
   align-items: flex-start;
   display: flex;
   flex-direction: column;
@@ -256,6 +265,11 @@
 
   &__text {
     flex: 1;
+    order: 2;
+
+    @media (min-width: #{$bp-tablet + 1px}) {
+      order: 0;
+    }
   }
 
   &__photo {
@@ -264,11 +278,32 @@
     flex-shrink: 0;
     height: auto;
     object-fit: cover;
+    order: 1;
     width: 100%;
 
     @media (min-width: #{$bp-tablet + 1px}) {
+      order: 0;
       width: 320px;
     }
+  }
+}
+
+// ─── Why Choose Us quote ─────────────────────────────────────────────────────
+
+.why-quote {
+  padding: $space-5 $space-4;
+
+  &__text {
+    color: $color-text;
+    font-size: $font-size-base;
+    line-height: $line-height-loose;
+    margin-bottom: $space-3;
+  }
+
+  &__attribution {
+    color: $color-text-medium;
+    font-size: $font-size-sm;
+    font-weight: 700;
   }
 }
 

@@ -27,6 +27,4 @@ stats:
 quote:
   text: "Her turnaround time was prompt and the results were well organized into a prioritized to-do list that helped our team address the most important issues first."
   attribution: "American College of Physicians, ACP MKSAP Team"
-social_heading: "Connect With Us on Social Media"
-linkedin_url: "https://www.linkedin.com/company/lcedconsulting"
 ---

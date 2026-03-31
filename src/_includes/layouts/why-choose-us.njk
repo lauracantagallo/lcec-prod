@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 ---
-<section class="section section--white">
+<section class="section section--white section--flush-bottom">
   <div class="container">
     <h1 class="why-content__heading">{{ page_title.heading }}</h1>
     <div class="why-content">
@@ -16,7 +16,11 @@ layout: base.njk
   </div>
 </section>
 
-<section class="section section--white">
+<div class="container">
+  <hr class="divider" />
+</div>
+
+<section class="section section--white section--flush-top">
   <div class="container">
     <div class="credentials-layout">
       <div class="credentials-layout__text">
@@ -32,22 +36,14 @@ layout: base.njk
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section section--white">
   <div class="container">
-    <h2 class="reviews-section__heading">What Clients Have to Say</h2>
-    <blockquote class="quote-block">
-      <p class="quote-block__text">{{ quote.text }}</p>
-      <footer class="quote-block__attribution">&mdash; {{ quote.attribution }}</footer>
-    </blockquote>
-  </div>
-</section>
-
-<section class="section section--green">
-  <div class="container">
-    <div class="cta-block">
-      <h2 class="cta-block__heading">{{ cta.heading }}</h2>
-      <p class="cta-block__subheading">{{ cta.subheading }}</p>
-      <a href="{{ cta.button_url }}" class="btn btn--primary" target="_blank" rel="noopener">{{ cta.button_text }}</a>
+    <h2 class="philosophy-section__heading">What Clients Have to Say</h2>
+    <div class="philosophy-section__block why-quote">
+      <p class="why-quote__text">{{ quote.text }}</p>
+      <p class="why-quote__attribution">&mdash; {{ quote.attribution }}</p>
     </div>
   </div>
 </section>
+
+{% include "partials/social-section.njk" %}

@@ -15,6 +15,4 @@ philosophy:
     - heading: "Our Vision"
       image: "/img/our-story_our-vision.jpg"
       body: "Our vision is a world where digital content, learning environments, and technology are designed with accessibility in mind from the start, so every person can participate fully and independently."
-social_heading: "Connect With Us on Social Media"
-linkedin_url: "https://www.linkedin.com/company/lcedconsulting"
 ---
