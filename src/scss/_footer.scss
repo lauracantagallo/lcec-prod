@@ -55,6 +55,10 @@
       outline: $focus-outline-stroke $color-white;
       outline-offset: $focus-outline-offset;
     }
+
+    .external-link-icon {
+      color: inherit;
+    }
   }
 }
 
@@ -63,6 +67,7 @@
   font-family: $font;
   font-size: $font-size-sm;
   font-weight: 700;
+  letter-spacing: $letter-spacing-wide;
   text-align: center;
   text-transform: uppercase;
 }

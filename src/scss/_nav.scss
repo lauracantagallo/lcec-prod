@@ -221,7 +221,6 @@
   font-family: $font;
   font-size: $font-size-sm;
   font-weight: 400;
-  gap: $space-1;
   letter-spacing: $letter-spacing-nav;
   padding: $space-2 $space-3;
   text-decoration: none;
@@ -239,7 +238,9 @@
   }
 
   svg {
+    color: $color-text-medium;
     flex-shrink: 0;
+    margin-left: 0.15em;
     transition: transform 0.3s ease;
   }
 

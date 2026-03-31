@@ -53,6 +53,21 @@
   }
 }
 
+.btn--outline {
+  background-color: transparent;
+  border-color: $color-primary;
+  color: $color-primary;
+
+  .external-link-icon {
+    color: inherit;
+  }
+
+  &:hover {
+    background-color: $color-primary-dark;
+    color: $color-white;
+  }
+}
+
 // ─── Card Base ───────────────────────────────────────────────────────────────
 .card {
   background-color: $color-white;
@@ -324,8 +339,12 @@
 }
 
 .cta-block {
-  padding: $space-6 $space-4;
+  padding: $space-3 $space-4;
   text-align: center;
+
+  @media (min-width: #{$bp-tablet + 1px}) {
+    padding: $space-4 $space-4;
+  }
 
   &__heading {
     color: $color-text-on-dark;

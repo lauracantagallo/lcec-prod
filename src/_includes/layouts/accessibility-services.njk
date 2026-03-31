@@ -39,12 +39,4 @@ layout: base.njk
   </div>
 </section>
 
-<section class="section section--green">
-  <div class="container">
-    <div class="cta-block">
-      <h2 class="cta-block__heading">{{ cta.heading }}</h2>
-      <p class="cta-block__subheading">{{ cta.subheading }}</p>
-      <a href="{{ cta.button_url }}" class="btn btn--primary" target="_blank" rel="noopener">{{ cta.button_text }}</a>
-    </div>
-  </div>
-</section>
+{% include "partials/cta-schedule.njk" %}

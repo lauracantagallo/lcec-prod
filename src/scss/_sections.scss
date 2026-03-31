@@ -93,7 +93,15 @@
     grid-template-columns: 1fr;
 
     @media (min-width: #{$bp-tablet + 1px}) {
+      gap: $space-5;
       grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__grid--cols-3 {
+    @media (min-width: #{$bp-tablet + 1px}) {
+      gap: $space-5;
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
@@ -120,11 +128,25 @@
     width: 100%;
   }
 
+  &__block:has(.btn) {
+    padding-bottom: $space-4;
+  }
+
+  &__block .btn {
+    min-height: 36px;
+    padding: $space-1 $space-3;
+  }
+
   &__block p {
     color: $color-text;
     font-size: $font-size-base;
     line-height: $line-height-loose;
     padding: 0 $space-4 $space-4;
+
+    a {
+      color: $color-text;
+      text-decoration: underline;
+    }
 
   }
 }
@@ -308,8 +330,6 @@
 // ─── Portfolio intro ──────────────────────────────────────────────────────────
 
 .portfolio-intro {
-  padding: $space-5 0;
-
   p {
     color: $color-text-on-dark;
     font-size: $font-size-base;
@@ -353,6 +373,15 @@
     text-align: center;
     width: 100%;
 
+  }
+
+  .cta-block__heading {
+    margin-bottom: $space-4;
+  }
+
+  p:has(+ .btn),
+  p:has(+ p) {
+    margin-bottom: $space-4;
   }
 }
 

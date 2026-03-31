@@ -57,7 +57,14 @@
 .section--blue {
   background-color: $color-accent;
   color: $color-white;
+  padding-bottom: $space-4;
+  padding-top: $space-4;
   text-align: center;
+
+  @media (min-width: #{$bp-tablet + 1px}) {
+    padding-bottom: $space-5;
+    padding-top: $space-5;
+  }
 
   p {
     color: $color-white;
