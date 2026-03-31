@@ -1,34 +1,28 @@
 ---
 layout: base.njk
 ---
-<section class="page-title">
-  <div class="container">
-    <h1 class="page-title__heading">{{ page_title.heading }}</h1>
-  </div>
-</section>
-
 <section class="section section--blue">
   <div class="container">
     <div class="portfolio-intro">
-      <h2 class="portfolio-intro__heading">{{ page_title.heading }}</h2>
+      <h1 class="portfolio-intro__heading">{{ page_title.heading }}</h1>
       <p>{{ intro_body }}</p>
     </div>
   </div>
 </section>
 
-<section class="section section--dark">
+<section class="section section--white">
   <div class="container">
-    <h2 class="section-heading text-white">{{ projects_heading }}</h2>
-    <ul class="portfolio-list">
+    <h2 class="philosophy-section__heading">{{ projects_heading }}</h2>
+    <div class="philosophy-section__grid">
       {% for project in projects %}
-      <li class="portfolio-card">
+      <article class="philosophy-section__block">
         {% if project.image %}
-        <img src="{{ project.image | url }}" alt="" class="portfolio-card__image" aria-hidden="true" loading="lazy" />
+        <img src="{{ project.image | url }}" alt="" class="philosophy-section__image" aria-hidden="true" loading="lazy" />
         {% endif %}
-        <p class="portfolio-card__title">{{ project.title }}</p>
-      </li>
+        <p>{{ project.title }}</p>
+      </article>
       {% endfor %}
-    </ul>
+    </div>
   </div>
 </section>
 
