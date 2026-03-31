@@ -6,6 +6,18 @@
 .mt-4 { margin-top: $space-4; }
 .mt-5 { margin-top: $space-5; }
 
+.external-link-icon {
+  display: inline-block;
+  width: 0.85em;
+  height: 0.85em;
+  margin-left: 0.15em;
+  vertical-align: middle;
+  position: relative;
+  top: -0.4em;
+  opacity: 0.65;
+  flex-shrink: 0;
+}
+
 .text-xl        { font-size: $font-size-xl; }
 .text-uppercase { text-transform: uppercase; }
 
