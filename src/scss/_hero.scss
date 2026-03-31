@@ -29,6 +29,7 @@
     @media (min-width: #{$bp-tablet + 1px}) {
       flex-shrink: 0;
       margin-bottom: 0;
+      min-height: 548px;
       width: 548px;
     }
 
@@ -40,7 +41,8 @@
       width: 100%;
 
       @media (min-width: #{$bp-tablet + 1px}) {
-        height: 548px;
+        height: 100%;
+        min-height: 548px;
         width: 548px;
       }
     }
