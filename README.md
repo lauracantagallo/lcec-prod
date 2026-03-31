@@ -58,14 +58,15 @@ lcec/
 │   ├── img/                       # Images (copied to dist/img at build)
 │   ├── static/
 │   │   └── _headers               # Netlify HTTP headers config
-│   ├── index.md                   # Homepage content (frontmatter data)
-│   ├── our-story.md
-│   ├── why-choose-us.md
-│   ├── accessibility-services.md
-│   ├── portfolio.md
-│   ├── webinars-and-training.md
-│   ├── contact.md
-│   └── contact-success.md
+│   └── content/
+│       ├── index.md                   # Homepage content (frontmatter data)
+│       ├── our-story.md
+│       ├── why-choose-us.md
+│       ├── accessibility-services.md
+│       ├── portfolio.md
+│       ├── webinars-and-training.md
+│       ├── contact.md
+│       └── contact-success.md
 ├── build/
 │   ├── js.js                      # esbuild script (minifies on build, watches on dev)
 │   └── clean.js                   # Cleans dist/ before build
@@ -77,7 +78,8 @@ lcec/
 
 ## Page Content
 
-All page content (headings, body copy, CTA text, etc.) lives in the frontmatter of the `.md` files in `src/`. Layouts read these values via Nunjucks template variables. To update copy, edit the relevant `.md` file — no template changes needed.
+
+All page content (headings, body copy, CTA text, etc.) lives in the frontmatter of the `.md` files in `src/content/`. Layouts read these values via Nunjucks template variables. To update copy, edit the relevant `.md` file in `src/content/` — no template changes needed.
 
 Global data shared across all pages (site URL, phone, email, founder info) is in `src/_data/site.json`.
 
