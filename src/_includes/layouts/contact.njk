@@ -40,64 +40,75 @@ layout: base.njk
 <section class="contact-form-section">
   <div class="container">
     <div role="status" aria-live="polite" aria-atomic="true" class="form-status"></div>
-    <form class="contact-form" name="contact" action="/contact-success/" method="post" netlify data-netlify-honeypot="bot-field">
+    <form class="contact-form" name="contact" action="/contact-success/" method="post" netlify data-netlify-honeypot="bot-field" novalidate>
       <input type="hidden" name="form-name" value="contact" />
       <h2 class="contact-form__heading">{{ form.heading }}</h2>
+
+      <p class="form-required-note">All fields marked with * are required.</p>
 
       {# Honeypot — hidden from real users, used by Netlify spam filtering #}
       <input type="text" name="bot-field" autocomplete="off" tabindex="-1" value="" />
 
       <div class="form-field">
         <label class="form-label" for="org-name">Organization Name <span aria-hidden="true">*</span></label>
-        <input class="form-input" type="text" id="org-name" name="org_name" required autocomplete="organization" />
+        <input class="form-input" type="text" id="org-name" name="org_name" required autocomplete="organization" aria-describedby="org-name-error" />
+        <p class="form-error" id="org-name-error"></p>
       </div>
 
       <div class="form-field">
         <label class="form-label" for="your-name">Your Name <span aria-hidden="true">*</span></label>
-        <input class="form-input" type="text" id="your-name" name="your_name" required autocomplete="name" />
+        <input class="form-input" type="text" id="your-name" name="your_name" required autocomplete="name" aria-describedby="your-name-error" />
+        <p class="form-error" id="your-name-error"></p>
       </div>
 
       <div class="form-field">
         <label class="form-label" for="email">Email <span aria-hidden="true">*</span></label>
-        <input class="form-input" type="email" id="email" name="email" required autocomplete="email" />
+        <input class="form-input" type="email" id="email" name="email" required autocomplete="email" aria-describedby="email-error" />
+        <p class="form-error" id="email-error"></p>
       </div>
 
       <div class="form-field">
         <label class="form-label" for="phone">Phone Number <span aria-hidden="true">*</span></label>
-        <input class="form-input" type="tel" id="phone" name="phone" required autocomplete="tel" />
+        <input class="form-input" type="tel" id="phone" name="phone" required autocomplete="tel" aria-describedby="phone-error" />
+        <p class="form-error" id="phone-error"></p>
       </div>
 
       <div class="form-field">
         <label class="form-label" for="location">Location (City/State) <span aria-hidden="true">*</span></label>
-        <input class="form-input" type="text" id="location" name="location" required />
+        <input class="form-input" type="text" id="location" name="location" required aria-describedby="location-error" />
+        <p class="form-error" id="location-error"></p>
       </div>
 
       <div class="form-field">
         <label class="form-label" for="org-type">Type of Organization <span aria-hidden="true">*</span></label>
-        <textarea class="form-textarea" id="org-type" name="org_type" rows="4" required placeholder="School District / Company / Nonprofit / Higher Ed / Other"></textarea>
+        <textarea class="form-textarea" id="org-type" name="org_type" rows="4" required placeholder="School District / Company / Nonprofit / Higher Ed / Other" aria-describedby="org-type-error"></textarea>
+        <p class="form-error" id="org-type-error"></p>
       </div>
 
       <div class="form-field">
         <label class="form-label" for="service-interest">Service Interest <span aria-hidden="true">*</span></label>
-        <textarea class="form-textarea" id="service-interest" name="service_interest" rows="4" required placeholder="Accessibility Evaluation / Website Remediation / Training &amp; Webinars / VPAT Writing / Other"></textarea>
+        <textarea class="form-textarea" id="service-interest" name="service_interest" rows="4" required placeholder="Accessibility Evaluation / Website Remediation / Training &amp; Webinars / VPAT Writing / Other" aria-describedby="service-interest-error"></textarea>
+        <p class="form-error" id="service-interest-error"></p>
       </div>
 
       <div class="form-field">
         <label class="form-label" for="description">Brief description of need <span aria-hidden="true">*</span></label>
-        <textarea class="form-textarea" id="description" name="description" rows="4" required></textarea>
+        <textarea class="form-textarea" id="description" name="description" rows="4" required aria-describedby="description-error"></textarea>
+        <p class="form-error" id="description-error"></p>
       </div>
 
       <div class="form-field">
         <label class="form-label" for="contact-method">Preferred Contact Method <span aria-hidden="true">*</span></label>
-        <select class="form-input" id="contact-method" name="contact_method" required>
+        <select class="form-input" id="contact-method" name="contact_method" required aria-describedby="contact-method-error">
           <option value="">Select a method</option>
           <option value="Email">Email</option>
           <option value="Phone">Phone</option>
           <option value="Either">Either</option>
         </select>
+        <p class="form-error" id="contact-method-error"></p>
       </div>
 
-      <button type="submit" class="form-submit">Send</button>
+      <button type="submit" class="btn btn--primary">Send</button>
 
       <p class="form-privacy">{{ form.privacy_text }}</p>
     </form>

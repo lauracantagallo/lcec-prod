@@ -81,7 +81,7 @@ function initNavigation() {
     });
     closeBtn && closeBtn.addEventListener('click', closeNav);
     overlay  && overlay.addEventListener('click', closeNav);
-    onEscape(e => { if (nav.classList.contains('is-open')) closeNav(); });
+    onEscape(() => { if (nav.classList.contains('is-open')) closeNav(); });
   }
 
   // Dropdowns (event delegation)
@@ -156,16 +156,88 @@ function initCookieBanner() {
   });
 }
 
-// ─── Contact form placeholder ───────────────────────────────────────────────
+// ─── Contact form validation ─────────────────────────────────────────────────
 function initContactForm() {
-  const form   = document.querySelector('.contact-form');
-  const status = document.querySelector('.form-status');
+  const form = document.querySelector('.contact-form');
   if (!form) return;
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    if (status) {
-      status.textContent = 'Form submission is not yet available. Please call or email us directly.';
+
+  function getFieldLabel(field) {
+    const label = form.querySelector('label[for="' + field.id + '"]');
+    return label ? label.textContent.replace('*', '').trim() : 'This field';
+  }
+
+  function getErrorMessage(field) {
+    const value = field.value.trim();
+    if (!value) return getFieldLabel(field) + ' is required.';
+    if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      return 'Please enter a valid email address.';
     }
+    if (field.type === 'tel') {
+      const digits = value.replace(/\D/g, '');
+      if (digits.length < 7) return 'Please enter a valid phone number.';
+    }
+    return '';
+  }
+
+  function showError(field, message) {
+    const errorEl = document.getElementById(field.id + '-error');
+    const fieldEl = field.closest('.form-field');
+    if (errorEl) errorEl.textContent = message;
+    if (fieldEl) fieldEl.classList.add('has-error');
+    field.setAttribute('aria-invalid', 'true');
+  }
+
+  function clearError(field) {
+    const errorEl = document.getElementById(field.id + '-error');
+    const fieldEl = field.closest('.form-field');
+    if (errorEl) errorEl.textContent = '';
+    if (fieldEl) fieldEl.classList.remove('has-error');
+    field.removeAttribute('aria-invalid');
+  }
+
+  form.addEventListener('submit', e => {
+    const fields = form.querySelectorAll('.form-input, .form-textarea');
+    let firstError = null;
+    fields.forEach(field => {
+      const message = getErrorMessage(field);
+      if (message) {
+        showError(field, message);
+        if (!firstError) firstError = field;
+      } else {
+        clearError(field);
+      }
+    });
+    if (firstError) {
+      e.preventDefault();
+      firstError.focus();
+    }
+  });
+
+  // Format phone field to (XXX) XXX-XXXX as user types
+  const phoneField = form.querySelector('#phone');
+  if (phoneField) {
+    phoneField.addEventListener('input', () => {
+      const digits = phoneField.value.replace(/\D/g, '').slice(0, 10);
+      let formatted = digits;
+      if (digits.length > 6) {
+        formatted = '(' + digits.slice(0, 3) + ') ' + digits.slice(3, 6) + '-' + digits.slice(6);
+      } else if (digits.length > 3) {
+        formatted = '(' + digits.slice(0, 3) + ') ' + digits.slice(3);
+      } else if (digits.length > 0) {
+        formatted = '(' + digits;
+      }
+      phoneField.value = formatted;
+    });
+  }
+
+  // Clear error on a field as soon as the user corrects it
+  form.addEventListener('input', e => {
+    const field = e.target.closest('.form-input, .form-textarea');
+    if (field && !getErrorMessage(field)) clearError(field);
+  });
+  form.addEventListener('change', e => {
+    const field = e.target.closest('.form-input');
+    if (field && !getErrorMessage(field)) clearError(field);
   });
 }
 
@@ -173,7 +245,7 @@ function initContactForm() {
 function initExternalLinks() {
   const currentHost = location.hostname;
   document.querySelectorAll('a[href^="http"]').forEach(link => {
-    if (link.classList.contains('btn') || link.classList.contains('social-link')) return;
+    if (link.classList.contains('social-link')) return;
     if (!link.textContent.trim()) return;
     try {
       if (new URL(link.href).hostname === currentHost) return;

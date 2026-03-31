@@ -6,6 +6,11 @@
 .mt-4 { margin-top: $space-4; }
 .mt-5 { margin-top: $space-5; }
 
+.btn .external-link-icon {
+  top: -0.05em;
+  margin-left: 0.3em;
+}
+
 .external-link-icon {
   display: inline-block;
   width: 0.85em;

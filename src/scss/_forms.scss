@@ -86,16 +86,43 @@
   }
 
   &::placeholder {
-    color: $color-text-medium;
+    color: $color-gray;
+    font-style: italic;
   }
 }
 
-.form-submit {
-  @extend .btn--primary;
+
+.contact-form .btn[type="submit"] {
+  border-color: $color-overlay;
   width: 100%;
-  font-size: $font-size-base;
-  font-weight: 700;
-  padding: $space-2 $space-5;
+}
+
+.form-error {
+  color: $color-error;
+  display: none;
+  font-size: $font-size-sm;
+  margin-top: $space-1;
+}
+
+.form-field.has-error {
+  .form-label {
+    color: $color-error;
+  }
+
+  .form-input,
+  .form-textarea {
+    border-color: $color-error;
+  }
+
+  .form-error {
+    display: block;
+  }
+}
+
+.form-required-note {
+  color: $color-text-medium;
+  font-size: $font-size-sm;
+  margin-bottom: $space-4;
 }
 
 .form-privacy {
