@@ -1,4 +1,3 @@
----
 layout: why-choose-us.njk
 title: Why Choose Us
 description: "16 years of special education and assistive technology experience sets LC Education Consulting apart from technology-focused accessibility consultants."
@@ -30,4 +29,4 @@ cta:
   subheading: "Book a Free 30-Minute Discovery Call"
   button_text: "Schedule Call"
   button_url: "https://calendar.app.google/1HUZPbZWSLjXKS9b6"
----
+

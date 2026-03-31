@@ -1,4 +1,3 @@
----
 layout: our-story.njk
 title: Our Story
 description: "LC Education Consulting was founded in 2014 to support schools and organizations with accessibility, assistive technology, and inclusive practice."
@@ -15,4 +14,4 @@ philosophy:
     - heading: "Our Vision"
       image: "/img/our-story_our-vision.jpg"
       body: "Our vision is a world where digital content, learning environments, and technology are designed with accessibility in mind from the start, so every person can participate fully and independently."
----
+
