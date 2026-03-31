@@ -1,8 +1,8 @@
 
-# Contact
-
 ---
-
+layout: contact.njk
+title: Contact
+description: "Contact LC Education Consulting for accessibility consulting, training, or support."
 office:
   heading: "Office"
   location: "Collingswood, New Jersey"
@@ -28,5 +28,6 @@ cta:
   heading: "Ready to get started?"
   subheading: "Book a Free 30-Minute Discovery Call"
   button_text: "Schedule Call"
+---
   button_url: "<https://calendar.app.google/1HUZPbZWSLjXKS9b6>"
 ---

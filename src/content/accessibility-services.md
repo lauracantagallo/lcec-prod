@@ -1,3 +1,4 @@
+---
 layout: accessibility-services.njk
 title: Accessibility Services
 description: "Manual accessibility testing, VPAT writing, PDF remediation, and remediation roadmaps for schools, higher education, and organizations."
@@ -42,4 +43,5 @@ cta:
   subheading: "Book a Free 30-Minute Discovery Call"
   button_text: "Schedule Call"
   button_url: "https://calendar.app.google/1HUZPbZWSLjXKS9b6"
+---
 

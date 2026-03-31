@@ -1,3 +1,4 @@
+---
 layout: portfolio.njk
 title: Portfolio
 description: "Selected projects in digital accessibility, assistive technology, professional development, and inclusive educational support."
@@ -15,3 +16,4 @@ cta:
   subheading: "Ready to get started? Book a Free 30-Minute Discovery Call."
   button_text: "Schedule Call"
   button_url: "https://calendar.app.google/1HUZPbZWSLjXKS9b6"
+---
