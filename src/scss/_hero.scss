@@ -10,15 +10,11 @@
   // No top padding at any breakpoint to keep hero flush with subnav
 
   &__inner {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+    @include flexbox(column, center);
     text-align: center;
 
     @media (min-width: #{$bp-tablet + 1px}) {
-      align-items: stretch;
-      flex-direction: row;
-      justify-content: center;
+      @include flexbox(row, stretch, center);
     }
   }
 
@@ -56,8 +52,7 @@
     text-align: center;
 
     @media (min-width: #{$bp-tablet + 1px}) {
-      display: flex;
-      flex-direction: column;
+      @include flexbox(column);
       max-width: 600px;
       justify-content: center;
       padding: $space-40px;
@@ -68,7 +63,7 @@
     font-size: $font-size-base;
     font-weight: 400;
     margin-bottom: $space-8px;
-    text-transform: uppercase;
+    @include text-transform(uppercase);
 
     @media (min-width: #{$bp-tablet + 1px}) {
       font-size: 1.375rem;

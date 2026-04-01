@@ -18,9 +18,9 @@
 }
 
 .footer-inner {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+  @include flexbox(column, center);
+  gap: $space-24px;
+  text-align: center;
   gap: $space-24px;
   text-align: center;
   & p {
@@ -35,15 +35,14 @@
 
 .footer-nav {
   &__list {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+    @include flexbox(column);
+    gap: $space-8px;
     gap: $space-8px;
     margin: 0;
     padding: 0;
 
     @media (min-width: #{$bp-tablet + 1px}) {
-      flex-direction: row;
+      @include flexbox(row, stretch, center);
       flex-wrap: wrap;
       gap: $space-8px $space-16px;
       justify-content: center;
@@ -55,7 +54,7 @@
     font-size: $font-size-sm;
     padding: $space-8px $space-16px;
     text-decoration: none;
-    transition: color $transition-quick;
+    @include transition(color, 0.2s, ease);
 
     .external-link-icon {
       color: inherit;
@@ -82,7 +81,7 @@
   font-size: $font-size-sm;
   font-weight: 700;
   letter-spacing: $letter-spacing-body;
-  text-transform: uppercase;
+  @include text-transform(uppercase);
 }
 
 .footer-brand, .footer-phone {

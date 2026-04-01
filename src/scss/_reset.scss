@@ -71,7 +71,7 @@ ul, ol {
   &:not([class]) {
     list-style: revert;
     margin-bottom: $paragraph-spacing;
-    padding-left: 1.5em;
+    padding-left: $font-size-xl;
 
     li {
       line-height: $line-height-loose;
@@ -136,7 +136,7 @@ input:disabled {
 input {
   border-style: none;
   line-height: normal;
-  padding: 0.5em;
+  padding: 0.5rem;
   vertical-align: middle;
 
   &[type="checkbox"],
@@ -161,7 +161,7 @@ textarea {
   border: 0;
   line-height: $line-height-loose;
   overflow: auto;
-  padding: 0.5em;
+  padding: 0.5rem;
 
   &:focus {
     outline: none;
@@ -175,7 +175,7 @@ label {
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
+  padding: 0.35rem 0.625rem 0.75rem;
 }
 
 legend {
@@ -219,11 +219,11 @@ sub, sup {
 }
 
 sup {
-  top: -0.5em;
+  top: -0.5rem;
 }
 
 sub {
-  bottom: -0.25em;
+  bottom: -0.25rem;
 }
 
 abbr[title] {

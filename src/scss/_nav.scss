@@ -52,8 +52,9 @@
   }
 }
 
+// ...existing code...
 .logo {
-  @include wsize-minus($space-24px);
+  @include calc-add(width, 100%, -#{$space-24px});
   color: $color-text;
   display: inline-block;
   margin: $space-16px 0 $space-16px $space-24px;
@@ -83,7 +84,7 @@
 .logo__text {
   font-size: $font-size-xl;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: $letter-spacing-wider;
   line-height: $line-height-tight;
   margin: 0;
   text-transform: uppercase;
@@ -227,7 +228,7 @@
   svg {
     color: $color-text-medium;
     flex-shrink: 0;
-    margin-left: 0.15em;
+    margin-left: $letter-spacing-wider;
     transition: transform 0.3s ease;
   }
 
@@ -243,7 +244,7 @@
   left: 50%;
   min-width: 220px;
   position: absolute;
-  top: calc(100% + 4px);
+  @include calc-add(top, 100%, 4px);
   transform: translateX(-50%);
   z-index: $nav-dropdown-z;
 
@@ -362,8 +363,8 @@
   line-height: 0;
   padding: 0;
   position: absolute;
-  right: 15px;
-  top: 15px;
+  right: $space-16px;
+  top: $space-16px;
 
   svg {
     @include size-24x24;
@@ -412,10 +413,10 @@
       border-radius: 50%;
       content: '';
       display: inline-block;
-      height: 6px;
-      margin-right: 0.5em;
+      height: $space-8px;
+      margin-right: $space-8px;
       vertical-align: middle;
-      width: 6px;
+      width: $space-8px;
     }
   }
 }

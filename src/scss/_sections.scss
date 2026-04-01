@@ -125,7 +125,7 @@
     font-size: $font-size-base;
     font-weight: 700;
     letter-spacing: $letter-spacing-wider;
-    margin: 1.5em 1em;
+    margin: 1.5rem 1rem;
 
     @media (min-width: #{$bp-tablet + 1px}) {
       font-size: $font-size-xl;
@@ -165,12 +165,12 @@
     color: $color-text;
     font-size: $font-size-sm;
     line-height: $line-height-loose;
-    margin: auto 1em 0;
+    margin: auto 1rem 0;
     overflow-wrap: break-word;
-    padding: 0 0.5em 1.5em;
+    padding: 0 0.5rem 1.5rem;
 
     &:last-child {
-      padding-bottom: 1.5em;
+      padding-bottom: 1.5rem;
     }
 
     @media (min-width: #{$bp-tablet + 1px}) {
@@ -185,7 +185,7 @@
   }
 
   &__block ul {
-    margin: auto 1.5em 1.5em;
+    margin: auto 1.5rem 1.5rem;
 
     li {
       color: $color-text;
@@ -231,7 +231,7 @@
     }
 
     & + & {
-      margin-top: 1em;
+      margin-top: 1rem;
     }
   }
 

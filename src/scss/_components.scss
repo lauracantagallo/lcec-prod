@@ -83,7 +83,7 @@
 // ─── List Utility ────────────────────────────────────────────────────────────
 .list--disc {
   list-style: disc;
-  padding-left: 1.3em;
+  padding-left: $letter-spacing-wider;
   li {
     font-size: $font-size-sm;
     line-height: $line-height-loose;
@@ -192,14 +192,14 @@
 
   &::before {
     content: '\201C';
-    left: -0.05em;
-    top: -0.25em;
+    left: -0.05rem;
+    top: -0.25rem;
   }
 
   &::after {
-    bottom: -0.45em;
+    bottom: -0.45rem;
     content: '\201D';
-    right: -0.05em;
+    right: -0.05rem;
   }
 
   .container {

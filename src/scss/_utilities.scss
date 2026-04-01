@@ -12,7 +12,7 @@
   border-top: none;
 }
 .section--flush-top {
-  padding-top: 1em;
+  padding-top: 1rem;
   border-top: solid 1px $color-primary-dark;
   @media (min-width: #{$bp-tablet + 1px}) {
     padding-top: 0;
@@ -26,8 +26,8 @@
 }
 
 .btn .external-link-icon {
-  margin-left: 0.3em;
-  top: -0.05em;
+  margin-left: 0.3rem;
+  top: -0.05rem;
 }
 
 .btn--ghost .external-link-icon {
@@ -38,12 +38,12 @@
   color: $color-text-medium;
   display: inline-block;
   flex-shrink: 0;
-  height: 0.85em;
-  margin-left: 0.15em;
+  height: 0.85rem;
+  margin-left: $letter-spacing-body;
   position: relative;
-  top: -0.4em;
+  top: -0.4rem;
   vertical-align: middle;
-  width: 0.85em;
+  width: 0.85rem;
 }
 
 .text-xl        { font-size: $font-size-xl; }
