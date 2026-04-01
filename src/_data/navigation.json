@@ -1,0 +1,19 @@
+{
+  "links": [
+    { "text": "Home", "url": "/" },
+    { "text": "Our Story", "url": "/our-story/" },
+    { "text": "About", "url": "https://www.lauracantagallosportfolio.com/", "external": true },
+    { "text": "Why Choose Us", "url": "/why-choose-us/" },
+    {
+      "text": "Services",
+      "dropdown": true,
+      "id": "nav-services-dropdown",
+      "children": [
+        { "text": "Accessibility Services", "url": "/accessibility-services/" },
+        { "text": "Webinars & Training", "url": "/webinars-and-training/" }
+      ]
+    },
+    { "text": "Portfolio", "url": "/portfolio/" },
+    { "text": "Contact", "url": "/contact/" }
+  ]
+}

@@ -1,4 +1,4 @@
-<header class="site-header">
+<header class="site-header container">
   <div class="header-inner">
     <div class="header-logo-row">
       <a href="{{ '/' | url }}" class="logo" title="LC Education Consulting">
@@ -11,46 +11,33 @@
     <div class="header-nav-row">
       <nav class="nav" aria-label="Menu">
         <ul class="nav__list">
+          {% for link in navigation.links %}
           <li class="nav__item">
-            <a href="{{ '/' | url }}" class="nav__link" {% if page.url == "/" %}aria-current="page"{% endif %}>Home</a>
+            {% if link.dropdown %}
+              <button class="nav__dropdown-btn" aria-expanded="false" aria-controls="{{ link.id }}">
+                <span>{{ link.text }}</span>
+                <svg viewBox="7.5 9.5 9 5" fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round" width="12" height="7" aria-hidden="true">
+                  <polygon points="12,14 8,10 16,10"/>
+                </svg>
+              </button>
+              <div id="{{ link.id }}" class="nav__dropdown">
+                <ul class="nav__dropdown-list">
+                  {% for child in link.children %}
+                  <li class="nav__dropdown-item">
+                    <a href="{{ child.url | url }}" class="nav__dropdown-link" {% if page.url == child.url %}aria-current="page"{% endif %}>
+                      <span>{{ child.text }}</span>
+                    </a>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% elif link.external %}
+              <a href="{{ link.url }}" class="nav__link" target="_blank" rel="noopener">{{ link.text }}</a>
+            {% else %}
+              <a href="{{ link.url | url }}" class="nav__link" {% if page.url == link.url %}aria-current="page"{% endif %}>{{ link.text }}</a>
+            {% endif %}
           </li>
-          <li class="nav__item">
-            <a href="{{ '/our-story/' | url }}" class="nav__link" {% if page.url == "/our-story/" %}aria-current="page"{% endif %}>Our Story</a>
-          </li>
-          <li class="nav__item">
-            <a href="https://www.lauracantagallosportfolio.com/" class="nav__link" target="_blank" rel="noopener">About</a>
-          </li>
-          <li class="nav__item">
-            <a href="{{ '/why-choose-us/' | url }}" class="nav__link" {% if page.url == "/why-choose-us/" %}aria-current="page"{% endif %}>Why Choose Us</a>
-          </li>
-          <li class="nav__item">
-            <button class="nav__dropdown-btn" aria-expanded="false" aria-controls="nav-services-dropdown">
-              <span>Services</span>
-              <svg viewBox="7.5 9.5 9 5" fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round" width="12" height="7" aria-hidden="true">
-                <polygon points="12,14 8,10 16,10"/>
-              </svg>
-            </button>
-            <div id="nav-services-dropdown" class="nav__dropdown">
-              <ul class="nav__dropdown-list">
-                <li class="nav__dropdown-item">
-                  <a href="{{ '/accessibility-services/' | url }}" class="nav__dropdown-link" {% if page.url == "/accessibility-services/" %}aria-current="page"{% endif %}>
-                    <span>Accessibility Services</span>
-                  </a>
-                </li>
-                <li class="nav__dropdown-item">
-                  <a href="{{ '/webinars-and-training/' | url }}" class="nav__dropdown-link" {% if page.url == "/webinars-and-training/" %}aria-current="page"{% endif %}>
-                    <span>Webinars &amp; Training</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav__item">
-            <a href="{{ '/portfolio/' | url }}" class="nav__link" {% if page.url == "/portfolio/" %}aria-current="page"{% endif %}>Portfolio</a>
-          </li>
-          <li class="nav__item">
-            <a href="{{ '/contact/' | url }}" class="nav__link" {% if page.url == "/contact/" %}aria-current="page"{% endif %}>Contact</a>
-          </li>
+          {% endfor %}
         </ul>
       </nav>
       <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu">
@@ -71,29 +58,22 @@
     </svg>
   </button>
   <ul class="mobile-nav__list">
-    <li class="mobile-nav__item">
-      <a href="{{ '/' | url }}" class="mobile-nav__link">Home</a>
-    </li>
-    <li class="mobile-nav__item">
-      <a href="{{ '/our-story/' | url }}" class="mobile-nav__link">Our Story</a>
-    </li>
-    <li class="mobile-nav__item">
-      <a href="https://www.lauracantagallosportfolio.com/" class="mobile-nav__link" target="_blank" rel="noopener">About</a>
-    </li>
-    <li class="mobile-nav__item">
-      <a href="{{ '/why-choose-us/' | url }}" class="mobile-nav__link">Why Choose Us</a>
-    </li>
-    <li class="mobile-nav__item">
-      <a href="{{ '/accessibility-services/' | url }}" class="mobile-nav__link">Accessibility Services</a>
-    </li>
-    <li class="mobile-nav__item">
-      <a href="{{ '/webinars-and-training/' | url }}" class="mobile-nav__link">Webinars &amp; Training</a>
-    </li>
-    <li class="mobile-nav__item">
-      <a href="{{ '/portfolio/' | url }}" class="mobile-nav__link">Portfolio</a>
-    </li>
-    <li class="mobile-nav__item">
-      <a href="{{ '/contact/' | url }}" class="mobile-nav__link">Contact</a>
-    </li>
+    {% for link in navigation.links %}
+      {% if link.dropdown %}
+        {% for child in link.children %}
+        <li class="mobile-nav__item">
+          <a href="{{ child.url | url }}" class="mobile-nav__link">{{ child.text }}</a>
+        </li>
+        {% endfor %}
+      {% elif link.external %}
+        <li class="mobile-nav__item">
+          <a href="{{ link.url }}" class="mobile-nav__link" target="_blank" rel="noopener">{{ link.text }}</a>
+        </li>
+      {% else %}
+        <li class="mobile-nav__item">
+          <a href="{{ link.url | url }}" class="mobile-nav__link">{{ link.text }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
   </ul>
 </nav>

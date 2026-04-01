@@ -39,3 +39,6 @@ dist/
 
 # Claude Code local overrides
 .claude/settings.local.json
+
+# Misc
+TODO.md

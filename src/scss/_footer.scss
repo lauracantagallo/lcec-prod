@@ -19,12 +19,12 @@
 
 .footer-nav {
   &__list {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: $space-2;
-    padding: 0;
     margin: 0;
+    padding: 0;
 
     @media (min-width: #{$bp-tablet + 1px}) {
       flex-direction: row;

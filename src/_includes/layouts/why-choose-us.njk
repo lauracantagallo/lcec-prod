@@ -3,13 +3,13 @@ layout: base.njk
 ---
 <section class="section section--white section--flush-top section--flush-bottom">
   <div class="container">
-    <h1 class="why-content__heading">{{ page_title.heading }}</h1>
-    <div class="why-content">
-      <img src="{{ '/img/laura-cantagallo.webp' | url }}" alt="Laura Cantagallo, founder of LC Education Consulting" class="why-content__photo" width="400" height="400" />
-      <div class="why-content__text">
-        <p class="why-content__subheading">{{ page_title.subheading }}</p>
+    <h1 class="heading--section">{{ page_title.heading }}</h1>
+    <div class="bio-layout">
+      <img src="{{ '/img/laura-cantagallo.webp' | url }}" alt="Laura Cantagallo, founder of LC Education Consulting" class="bio-layout__photo" width="400" height="400" />
+      <div class="bio-layout__text">
+        <h2 class="bio-layout__subheading">{{ page_title.subheading }}</h2>
         {% for paragraph in body %}
-        <p class="why-content__body">{{ paragraph }}</p>
+        <p class="bio-layout__body">{{ paragraph }}</p>
         {% endfor %}
       </div>
     </div>
@@ -24,7 +24,7 @@ layout: base.njk
   <div class="container">
     <div class="credentials-layout">
       <div class="credentials-layout__text">
-        <h2 class="section-heading">{{ credentials_heading }}</h2>
+        <h2 class="bio-layout__subheading">{{ credentials_heading }}</h2>
         <ul class="credentials-list">
           {% for item in credentials %}
           <li>{{ item }}</li>
@@ -38,8 +38,8 @@ layout: base.njk
 
 <section class="section section--white section--flush-bottom">
   <div class="container">
-    <h2 class="philosophy-section__heading">What Clients Have to Say</h2>
-    <div class="philosophy-section__block why-quote">
+    <h2 class="content-blocks__heading">What Clients Have to Say</h2>
+    <div class="content-blocks__block why-quote">
       <p class="why-quote__text">{{ quote.text }}</p>
       <p class="why-quote__attribution">&mdash; {{ quote.attribution }}</p>
     </div>

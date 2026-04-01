@@ -19,10 +19,12 @@
   text-transform: uppercase;
   transition: $transition-base;
   white-space: normal;
-
+  width: 100%;
   &:focus {
-    outline: $focus-outline-stroke $color-primary-light;
-    outline-offset: $focus-outline-offset;
+    outline: $focus-outline-stroke $color-primary;
+  }
+  @media (min-width: #{$bp-tablet + 1px}) {
+    width: auto;
   }
 }
 
@@ -36,7 +38,7 @@
     border-color: $color-primary-light;
   }
   &:focus {
-    outline: $focus-outline-stroke $color-primary-light;
+    outline: $focus-outline-stroke $color-primary-dark;
     outline-offset: $focus-outline-offset;
   }
 }
@@ -90,12 +92,17 @@
 // ─── Section Heading Utility ────────────────────────────────────────────────
 .heading--section {
   font-family: $font;
-  font-weight: 400;
-  line-height: $line-height-snug;
-  letter-spacing: $letter-spacing-wide;
-  margin-bottom: $space-3;
   font-size: $font-size-3xl;
+  font-weight: 400;
+  letter-spacing: $letter-spacing-wide;
+  line-height: $line-height-snug;
+  margin-bottom: $space-3;
+  text-align: center;
   text-transform: uppercase;
+  @media (min-width: #{$bp-tablet + 1px}) {
+    font-size: $font-size-page-title;
+    text-align: left;
+  }
 }
 
 // ─── Announcement Bar ─────────────────────────────────────────────────────────
@@ -217,7 +224,7 @@
     color: $color-primary;
     font-family: $font;
     font-size: $font-size-xl;
-    font-weight: 700;
+    font-weight: 400;
     line-height: $line-height-snug;
     margin-bottom: $space-3;
   }
@@ -247,7 +254,7 @@
     color: $color-primary;
     font-family: $font;
     font-size: $font-size-xl;
-    font-weight: 700;
+    font-weight: 400;
     margin-bottom: $space-2;
   }
   &__description {
@@ -268,69 +275,6 @@
   }
 }
 
-// ─── Portfolio Projects ───────────────────────────────────────────────────────
-
-.portfolio-list {
-  margin-top: $space-4;
-
-  li {
-    border-left: 3px solid $color-primary-light;
-    color: $color-text-on-dark;
-    font-size: $font-size-base;
-    line-height: $line-height-loose;
-    margin-bottom: $space-3;
-    padding-left: $space-3;
-  }
-}
-
-// ─── Contact Info Block ───────────────────────────────────────────────────────
-
-.contact-info {
-  &__heading {
-    color: $color-text-on-dark;
-    font-family: $font;
-    font-size: $font-size-xl;
-    font-weight: 700;
-    margin-bottom: $space-3;
-  }
-
-  &__row {
-    align-items: center;
-    display: flex;
-    gap: $space-3;
-    margin-bottom: $space-3;
-  }
-
-  &__label {
-    color: $color-primary-light;
-    font-family: $font;
-    font-size: $font-size-sm;
-    font-weight: 700;
-    letter-spacing: $letter-spacing-wide;
-    min-width: 80px;
-    text-transform: uppercase;
-  }
-
-  &__value {
-    color: $color-text-on-dark;
-    font-size: $font-size-base;
-
-    a {
-      color: $color-text-on-dark;
-      text-decoration: underline;
-
-      &:hover {
-        color: $color-primary-light;
-      }
-
-      &:focus {
-        color: $color-primary-light;
-        outline: $focus-outline-stroke $color-white;
-        outline-offset: $focus-outline-offset;
-      }
-    }
-  }
-}
 
 // ─── CTA Block ────────────────────────────────────────────────────────────────
 
@@ -341,10 +285,6 @@
 .cta-block {
   padding: $space-3 $space-4;
   text-align: center;
-
-  @media (min-width: #{$bp-tablet + 1px}) {
-    padding: $space-4 $space-4;
-  }
 
   &__heading {
     color: $color-text-on-dark;
@@ -359,6 +299,10 @@
     font-family: $font;
     font-size: $font-size-lg;
     margin-bottom: $space-4;
+  }
+
+  @media (min-width: #{$bp-tablet + 1px}) {
+    padding: $space-4 $space-4;
   }
 }
 

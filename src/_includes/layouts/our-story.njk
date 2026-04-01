@@ -3,22 +3,22 @@ layout: base.njk
 ---
 <section class="section section--blue">
   <div class="container">
-    <div class="portfolio-intro">
-      <h1 class="portfolio-intro__heading">{{ intro.heading }}</h1>
+    <div class="page-intro">
+      <h1 class="page-intro__heading">{{ intro.heading }}</h1>
       <p>{{ intro.body1 }}</p>
       <p>{{ intro.body2 }}</p>
     </div>
   </div>
 </section>
 
-<section class="philosophy-section section section--white section--flush-bottom">
+<section class="content-blocks section section--white section--flush-bottom">
   <div class="container">
     <h2 class="heading--section">{{ philosophy.heading }}</h2>
-    <div class="philosophy-section__grid">
+    <div class="content-blocks__grid">
       {% for block in philosophy.blocks %}
-      <article class="philosophy-section__block">
-        <h3 class="philosophy-section__block-heading">{{ block.heading }}</h3>
-        <img src="{{ block.image | url }}" alt="" class="philosophy-section__image" width="16" height="9" aria-hidden="true" loading="lazy">
+      <article class="content-blocks__block">
+        <h3 class="content-blocks__block-heading">{{ block.heading }}</h3>
+        <img src="{{ block.image | url }}" alt="" class="content-blocks__image" width="16" height="9" aria-hidden="true" loading="lazy">
         <p>{{ block.body }}</p>
       </article>
       {% endfor %}

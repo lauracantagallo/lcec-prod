@@ -3,16 +3,11 @@
 
 // ─── Utility Classes ──────────────────────────────────────────────────────────
 
-.section--flush-bottom { padding-bottom: 0; }
-.section--flush-top    { padding-top: 0; }
-.section--compact-top  {
-  padding-top: $space-4;
-
-  @media (min-width: #{$bp-tablet + 1px}) {
-    padding-top: $space-5;
-  }
+.section--flush-bottom {
+  padding-bottom: 0;
+  .container > :last-child { margin-block-end: 0; }
 }
-
+.section--flush-top    { padding-top: 0; }
 .divider {
   border: none;
   border-top: 1px solid $color-primary-dark;
@@ -20,11 +15,10 @@
 }
 
 .mt-4 { margin-top: $space-4; }
-.mt-5 { margin-top: $space-5; }
 
 .btn .external-link-icon {
-  top: -0.05em;
   margin-left: 0.3em;
+  top: -0.05em;
 }
 
 .btn--ghost .external-link-icon {
@@ -34,13 +28,13 @@
 .external-link-icon {
   color: $color-text-medium;
   display: inline-block;
-  width: 0.85em;
+  flex-shrink: 0;
   height: 0.85em;
   margin-left: 0.15em;
-  vertical-align: middle;
   position: relative;
   top: -0.4em;
-  flex-shrink: 0;
+  vertical-align: middle;
+  width: 0.85em;
 }
 
 .text-xl        { font-size: $font-size-xl; }
@@ -52,11 +46,11 @@
   @extend .btn--primary;
   font-size: $font-size-sm;
   font-weight: 400;
+  left: 0;
   letter-spacing: $letter-spacing-wide;
   min-height: $nav-height;
-  text-transform: uppercase;
-  left: 0;
   position: absolute;
+  text-transform: uppercase;
   top: -100%;
   z-index: 5;
   &:focus {

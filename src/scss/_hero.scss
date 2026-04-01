@@ -26,13 +26,6 @@
     max-width: 100%;
     width: 100%;
 
-    @media (min-width: #{$bp-tablet + 1px}) {
-      flex-shrink: 0;
-      margin-bottom: 0;
-      min-height: 548px;
-      width: 548px;
-    }
-
     img {
       display: block;
       height: auto;
@@ -45,6 +38,13 @@
         min-height: 548px;
         width: 548px;
       }
+    }
+
+    @media (min-width: #{$bp-tablet + 1px}) {
+      flex-shrink: 0;
+      margin-bottom: 0;
+      min-height: 548px;
+      width: 548px;
     }
   }
 
@@ -95,25 +95,25 @@
   }
 
   &__actions {
+    align-items: stretch;
     display: flex;
     flex-direction: column;
     gap: $space-3;
-    align-items: stretch;
 
     // Make buttons full width on mobile
     .btn {
-      width: 100%;
-      display: flex;
       align-items: center;
+      display: flex;
       justify-content: center;
+      width: 100%;
     }
 
     @media (min-width: #{$bp-tablet + 1px}) {
-      flex-direction: row;
       align-items: center;
+      flex-direction: row;
       .btn {
-        width: auto;
         display: inline-flex;
+        width: auto;
       }
     }
   }

@@ -1,0 +1,17 @@
+---
+layout: base.njk
+---
+<section class="page-title">
+  <div class="container">
+    <h1 class="page-title__heading">{{ page_title.heading }}</h1>
+  </div>
+</section>
+
+<section class="section section--white">
+  <div class="container text-center">
+    <p class="section-lead">{{ body }}</p>
+    <a href="{{ '/' | url }}" class="btn btn--outline">{{ button_text }}</a>
+  </div>
+</section>
+
+{% include "partials/cta.njk" %}

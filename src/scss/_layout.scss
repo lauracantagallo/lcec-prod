@@ -44,11 +44,6 @@
   color: $color-text-on-dark;
 }
 
-.section--alt {
-  background-color: $color-bg-section-alt;
-  color: $color-text-on-dark;
-}
-
 .section--white {
   background-color: $color-white;
   color: $color-text;
@@ -61,17 +56,17 @@
   padding-top: $space-4;
   text-align: center;
 
-  @media (min-width: #{$bp-tablet + 1px}) {
-    padding-bottom: $space-5;
-    padding-top: $space-5;
-  }
-
   p {
     color: $color-white;
     font-family: $font;
     font-size: $font-size-xl;
     font-weight: 400;
     line-height: $line-height-loose;
+  }
+
+  @media (min-width: #{$bp-tablet + 1px}) {
+    padding-bottom: $space-5;
+    padding-top: $space-5;
   }
 }
 

@@ -5,30 +5,15 @@
 
 // Heading scale
 h1 {
-  font-family: $font;
   font-size: $font-size-3xl;
-  font-weight: 700;
-  line-height: $line-height-tight;
-
-  @media (min-width: #{$bp-desktop + 1px}) {
-    font-size: $font-size-display;
-  }
 }
 
 h2 {
-  font-family: $font;
   font-size: $font-size-xl;
-  font-weight: 700;
-
-  @media (min-width: #{$bp-desktop + 1px}) {
-    font-size: $font-size-display;
-  }
 }
 
 h3 {
-  font-family: $font;
   font-size: $font-size-xl;
-  font-weight: 700;
 
   @media (min-width: #{$bp-tablet + 1px}) {
     font-size: $font-size-3xl;
@@ -36,9 +21,7 @@ h3 {
 }
 
 h4 {
-  font-family: $font;
   font-size: $font-size-lg;
-  font-weight: 700;
 
   @media (min-width: #{$bp-tablet + 1px}) {
     font-size: $font-size-xl;
@@ -46,15 +29,11 @@ h4 {
 }
 
 h5 {
-  font-family: $font;
   font-size: $font-size-base;
-  font-weight: 700;
 }
 
 h6 {
-  font-family: $font;
   font-size: $font-size-sm;
-  font-weight: 700;
   letter-spacing: $letter-spacing-wide;
   text-transform: uppercase;
 }
@@ -105,9 +84,9 @@ address a {
   font-family: $font;
   font-size: $font-size-3xl;
   font-weight: 700;
+  line-height: $line-height-snug;
   margin-bottom: $space-5;
   text-align: center;
-  line-height: $line-height-snug;
   /* No uppercase, no letter-spacing */
 }
 

@@ -16,184 +16,13 @@ Source repository for the LC Education Consulting website, built with Eleventy, 
 
 ## Project Structure
 
-lcec/
-├── src/
-│   ├── _data/
-│   │   └── site.json              # Global site metadata (URL, phone, email, etc.)
-│   ├── _includes/
-│   │   ├── layouts/               # Page-level Nunjucks layouts
-│   │   │   ├── base.njk           # Base HTML shell
-│   │   │   ├── index.njk          # Homepage
-│   │   │   ├── our-story.njk
-│   │   │   ├── why-choose-us.njk
-│   │   │   ├── accessibility-services.njk
-│   │   │   ├── portfolio.njk
-│   │   │   ├── webinars-and-training.njk
-│   │   │   ├── contact.njk
-│   │   │   └── contact-success.njk
-│   │   └── partials/              # Reusable Nunjucks partials
-│   │       ├── head.njk           # &lt;head&gt; with SEO, OG, JSON-LD
-│   │       ├── header.njk         # Site header and nav
-│   │       ├── footer.njk         # Site footer
-│   │       ├── social-section.njk # "Connect With Us" LinkedIn section
-│   │       ├── cta-schedule.njk   # "Ready to Get Started?" blue CTA banner
-│   │       └── cookie-banner.njk  # Cookie consent banner
-│   ├── scss/
-│   │   ├── main.scss              # Entry point — imports all partials
-│   │   ├── _variables.scss        # Design tokens (colors, spacing, type)
-│   │   ├── _reset.scss # CSS reset and base element styles
-│   │   ├── _layout.scss # Page wrap, container, section modifiers
-│   │   ├── _typography.scss # Heading scale, body link styles
-│   │   ├── _nav.scss # Site header and navigation
-│   │   ├── _hero.scss # Homepage hero section
-│   │   ├── _sections.scss # Page section components
-│   │   ├── _components.scss # Buttons, cards, CTA blocks, social links
-│   │   ├── _forms.scss # Contact form styles
-│   │   ├── _footer.scss # Site footer
-│   │   ├── _utilities.scss # Utility classes and external link icon
-│   │   └── _cookie-banner.scss # Cookie banner styles
-│   ├── js/
-│   │   └── main.js                # Nav, cookie banner, form validation, external links
-│   ├── img/                       # Images (copied to dist/img at build)
-│   ├── static/
-│   │   └── _headers               # Netlify HTTP headers config
-│   └── content/
-│       ├── index.md                   # Homepage content (frontmatter data)
-│       ├── our-story.md
-│       ├── why-choose-us.md
-│       ├── accessibility-services.md
-│       ├── portfolio.md
-│       ├── webinars-and-training.md
-│       ├── contact.md
-│       └── contact-success.md
-├── build/
-│   ├── js.js                      # esbuild script (minifies on build, watches on dev)
-│   └── clean.js                   # Cleans dist/ before build
-├── dist/                          # Compiled output (not committed)
-├── .eleventy.js                   # Eleventy config (HTML minification, passthrough)
-├── manifest.webmanifest           # PWA manifest
-└── package.json
-lcec/
-├── src/
-│   ├── _data/
-│   │   └── site.json              # Global site metadata (URL, phone, email, etc.)
-│   ├── _includes/
-│   │   ├── layouts/               # Page-level Nunjucks layouts
-│   │   │   ├── base.njk           # Base HTML shell
-│   │   │   ├── index.njk          # Homepage
-│   │   │   ├── our-story.njk
-│   │   │   ├── why-choose-us.njk
-│   │   │   ├── accessibility-services.njk
-│   │   │   ├── portfolio.njk
-│   │   │   ├── webinars-and-training.njk
-│   │   │   ├── contact.njk
-│   │   │   └── contact-success.njk
-│   │   └── partials/              # Reusable Nunjucks partials
-│   │       ├── head.njk           # &lt;head&gt; with SEO, OG, JSON-LD
-│   │       ├── header.njk         # Site header and nav
-│   │       ├── footer.njk         # Site footer
-│   │       ├── social-section.njk # "Connect With Us" LinkedIn section
-│   │       ├── cta-schedule.njk   # "Ready to Get Started?" blue CTA banner
-│   │       └── cookie-banner.njk  # Cookie consent banner
-│   ├── scss/
-│   │   ├── main.scss # Entry point — imports all partials
-│   │   ├── _variables.scss # Design tokens (colors, spacing, type)
-│   │   ├── _reset.scss # CSS reset and base element styles
-│   │   ├── _layout.scss # Page wrap, container, section modifiers
-│   │   ├── _typography.scss # Heading scale, body link styles
-│   │   ├── _nav.scss # Site header and navigation
-│   │   ├── _hero.scss # Homepage hero section
-│   │   ├── _sections.scss # Page section components
-│   │   ├── _components.scss # Buttons, cards, CTA blocks, social links
-│   │   ├── _forms.scss # Contact form styles
-│   │   ├── _footer.scss # Site footer
-│   │   ├── _utilities.scss # Utility classes and external link icon
-│   │   └── _cookie-banner.scss # Cookie banner styles
-│   ├── js/
-│   │   └── main.js                # Nav, cookie banner, form validation, external links
-│   ├── img/                       # Images (copied to dist/img at build)
-│   ├── static/
-│   │   └── _headers               # Netlify HTTP headers config
-│   └── content/
-│       ├── index.md                   # Homepage content (frontmatter data)
-│       ├── our-story.md
-│       ├── why-choose-us.md
-│       ├── accessibility-services.md
-│       ├── portfolio.md
-│       ├── webinars-and-training.md
-│       ├── contact.md
-│       └── contact-success.md
-├── build/
-│   ├── js.js                      # esbuild script (minifies on build, watches on dev)
-│   └── clean.js                   # Cleans dist/ before build
-├── dist/                          # Compiled output (not committed)
-├── .eleventy.js                   # Eleventy config (HTML minification, passthrough)
-├── manifest.webmanifest           # PWA manifest
-└── package.json
-```
-lcec/
-├── src/
-│   ├── _data/
-│   │   └── site.json              # Global site metadata (URL, phone, email, etc.)
-│   ├── _includes/
-│   │   ├── layouts/               # Page-level Nunjucks layouts
-│   │   │   ├── base.njk           # Base HTML shell
-│   │   │   ├── index.njk          # Homepage
-│   │   │   ├── our-story.njk
-│   │   │   ├── why-choose-us.njk
-│   │   │   ├── accessibility-services.njk
-│   │   │   ├── portfolio.njk
-│   │   │   ├── webinars-and-training.njk
-│   │   │   ├── contact.njk
-│   │   │   └── contact-success.njk
-│   │   └── partials/              # Reusable Nunjucks partials
-│   │       ├── head.njk           # <head> with SEO, OG, JSON-LD
-│   │       ├── header.njk         # Site header and nav
-│   │       ├── footer.njk         # Site footer
-│   │       ├── social-section.njk # "Connect With Us" LinkedIn section
-│   │       ├── cta-schedule.njk   # "Ready to Get Started?" blue CTA banner
-│   │       └── cookie-banner.njk  # Cookie consent banner
-│   ├── scss/
-│   │   ├── main.scss              # Entry point — imports all partials
-│   │   ├── _variables.scss        # Design tokens (colors, spacing, type)
-│   │   ├── _reset.scss            # CSS reset and base element styles
-│   │   ├── _layout.scss           # Page wrap, container, section modifiers
-│   │   ├── _typography.scss       # Heading scale, body link styles
-│   │   ├── _nav.scss              # Site header and navigation
-│   │   ├── _hero.scss             # Homepage hero section
-│   │   ├── _sections.scss         # Page section components
-│   │   ├── _components.scss       # Buttons, cards, CTA blocks, social links
-│   │   ├── _forms.scss            # Contact form styles
-│   │   ├── _footer.scss           # Site footer
-│   │   ├── _utilities.scss        # Utility classes and external link icon
-│   │   └── _cookie-banner.scss    # Cookie banner styles
-│   ├── js/
-│   │   └── main.js                # Nav, cookie banner, form validation, external links
-│   ├── img/                       # Images (copied to dist/img at build)
-│   ├── static/
-│   │   └── _headers               # Netlify HTTP headers config
-│   └── content/
-│       ├── index.md                   # Homepage content (frontmatter data)
-│       ├── our-story.md
-│       ├── why-choose-us.md
-│       ├── accessibility-services.md
-│       ├── portfolio.md
-│       ├── webinars-and-training.md
-│       ├── contact.md
-│       └── contact-success.md
-├── build/
-│   ├── js.js                      # esbuild script (minifies on build, watches on dev)
-│   └── clean.js                   # Cleans dist/ before build
-├── dist/                          # Compiled output (not committed)
-├── .eleventy.js                   # Eleventy config (HTML minification, passthrough)
-├── manifest.webmanifest           # PWA manifest
-└── package.json
-```
 ```text
 lcec/
 ├── src/
 │   ├── _data/
-│   │   └── site.json              # Global site metadata (URL, phone, email, etc.)
+│   │   ├── site.json              # Global site metadata (URL, phone, email, etc.)
+│   │   ├── navigation.json        # Nav link data (desktop + mobile navs)
+│   │   └── cta.json               # Default CTA block content
 │   ├── _includes/
 │   │   ├── layouts/               # Page-level Nunjucks layouts
 │   │   │   ├── base.njk           # Base HTML shell
@@ -209,8 +38,8 @@ lcec/
 │   │       ├── head.njk           # <head> with SEO, OG, JSON-LD
 │   │       ├── header.njk         # Site header and nav
 │   │       ├── footer.njk         # Site footer
+│   │       ├── cta.njk            # CTA banner (uses page cta data or _data/cta.json)
 │   │       ├── social-section.njk # "Connect With Us" LinkedIn section
-│   │       ├── cta-schedule.njk   # "Ready to Get Started?" blue CTA banner
 │   │       └── cookie-banner.njk  # Cookie consent banner
 │   ├── scss/
 │   │   ├── main.scss              # Entry point — imports all partials
@@ -232,7 +61,7 @@ lcec/
 │   ├── static/
 │   │   └── _headers               # Netlify HTTP headers config
 │   └── content/
-│       ├── index.md                   # Homepage content (frontmatter data)
+│       ├── index.md               # Homepage content (frontmatter data)
 │       ├── our-story.md
 │       ├── why-choose-us.md
 │       ├── accessibility-services.md
@@ -249,11 +78,11 @@ lcec/
 └── package.json
 ```
 
-└── package.json
-```
+All page content (headings, body copy, CTA text, etc.) lives in the frontmatter of the `.md` files in `src/content/`. Layouts read these values via Nunjucks template variables. To update copy, edit the relevant `.md` file — no template changes needed.
 
+Pages that define a `cta:` block in their frontmatter use that content in the CTA banner. Pages without one fall back to the default in `src/_data/cta.json`.
 
-All page content (headings, body copy, CTA text, etc.) lives in the frontmatter of the `.md` files in `src/content/`. Layouts read these values via Nunjucks template variables. To update copy, edit the relevant `.md` file in `src/content/` — no template changes needed.
+Nav links (desktop and mobile) are defined once in `src/_data/navigation.json`.
 
 Global data shared across all pages (site URL, phone, email, founder info) is in `src/_data/site.json`.
 
@@ -301,7 +130,7 @@ Key tokens:
 
 The site deploys to Netlify. Build command: `npm run build`. Publish directory: `dist/`.
 
-Netlify Features in use:
+Netlify features in use:
 
 - **Forms** — Contact form with reCAPTCHA (enable reCAPTCHA in Netlify dashboard under Site configuration → Forms → Spam filters)
 - **Headers** — Custom HTTP headers via `src/static/_headers`
@@ -309,5 +138,4 @@ Netlify Features in use:
 ## Notes
 
 - Umami analytics ID must be set in `src/_includes/partials/head.njk` (search `YOUR_WEBSITE_ID`)
-- The Map button on the contact page uses `href="#"` as a placeholder — replace with a real Google Maps URL when available
 - `site.url` is defined in both `.eleventy.js` (as `addGlobalData`) and `src/_data/site.json` — keep these in sync

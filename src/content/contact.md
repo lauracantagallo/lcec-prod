@@ -25,7 +25,7 @@ contact_block:
   heading: "LC Education Consulting"
   phone: "856-310-4483"
   phone_href: "tel:8563104483"
-  email: "<laura@lceducationconsulting.com>"
+  email: "laura@lceducationconsulting.com"
   email_href: "mailto:laura@lceducationconsulting.com"
 cta:
   heading: "Ready to get started?"

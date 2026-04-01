@@ -7,21 +7,21 @@ layout: base.njk
   </div>
 </section>
 
-<section class="philosophy-section section section--white">
+<section class="content-blocks section section--white">
   <div class="container">
-    <div class="philosophy-section__grid philosophy-section__grid--cols-3">
-      <article class="philosophy-section__block">
-        <h3 class="philosophy-section__block-heading">Location</h3>
+    <div class="content-blocks__grid content-blocks__grid--cols-3">
+      <article class="content-blocks__block">
+        <h3 class="content-blocks__block-heading">Office</h3>
         <p>{{ office.location }}</p>
         <a href="{{ office.map_url }}" class="btn btn--outline">Map</a>
       </article>
-      <article class="philosophy-section__block">
-        <h3 class="philosophy-section__block-heading">Phone</h3>
+      <article class="content-blocks__block">
+        <h3 class="content-blocks__block-heading">Phone</h3>
         <p><a href="{{ office.phone_href }}">{{ office.phone }}</a></p>
         <a href="{{ office.phone_href }}" class="btn btn--outline">Call Now</a>
       </article>
-      <article class="philosophy-section__block">
-        <h3 class="philosophy-section__block-heading">Email</h3>
+      <article class="content-blocks__block">
+        <h3 class="content-blocks__block-heading">Email</h3>
         <p><a href="{{ office.email_href }}">{{ office.email }}</a></p>
         <a href="{{ office.email_href }}" class="btn btn--outline">Email</a>
       </article>
@@ -31,7 +31,7 @@ layout: base.njk
 
 <section class="section section--blue">
   <div class="container">
-    <div class="portfolio-intro">
+    <div class="page-intro">
       <h2 class="cta-block__heading">{{ intro_heading }}</h2>
       <p>{{ intro_body1 }}</p>
       <p>{{ intro_body2 }}</p>
@@ -46,7 +46,7 @@ layout: base.njk
     <div role="status" aria-live="polite" aria-atomic="true" class="form-status"></div>
     <form class="contact-form" name="contact" action="/contact-success/" method="post" netlify data-netlify-honeypot="bot-field" data-netlify-recaptcha="true" novalidate>
       <input type="hidden" name="form-name" value="contact" />
-      <h2 class="contact-form__heading">{{ form.heading }}</h2>
+      <h2 class="section-heading">{{ form.heading }}</h2>
 
       <p class="form-required-note">All fields marked with * are required.</p>
 
@@ -124,11 +124,14 @@ layout: base.njk
 </section>
 
 <section class="section section--white text-center">
+<div class="container">
+  <hr class="divider">
+</div>
   <div class="container">
-    <h2 class="contact-form__heading">{{ contact_block.heading }}</h2>
+    <h2 class="section-heading">{{ contact_block.heading }}</h2>
     <p><a href="{{ contact_block.phone_href }}">{{ contact_block.phone }}</a></p>
     <p><a href="{{ contact_block.email_href }}">{{ contact_block.email }}</a></p>
   </div>
 </section>
 
-{% include "partials/cta-schedule.njk" %}
+{% include "partials/cta.njk" %}

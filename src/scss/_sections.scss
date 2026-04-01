@@ -14,7 +14,7 @@
     color: $color-white;
     font-family: $font;
     font-size: $font-size-page-title;
-    font-weight: 700;
+    font-weight: 400;
     line-height: $line-height-tight;
 
     @media (min-width: #{$bp-tablet + 1px}) {
@@ -77,13 +77,11 @@
 
 // ─── Philosophy Section ───────────────────────────────────────────────────────
 
-.philosophy-section {
+.content-blocks {
   &__heading {
-    color: $color-text;
     @extend .heading--section;
+    color: $color-text;
     font-size: $font-size-page-title;
-    font-weight: 700;
-    letter-spacing: $letter-spacing-wide;
     margin-bottom: $space-5;
   }
 
@@ -117,7 +115,6 @@
     font-weight: 400;
     letter-spacing: $letter-spacing-wider;
     margin-bottom: $space-3;
-    padding: $space-4 $space-4 0;
   }
 
   &__image {
@@ -129,12 +126,17 @@
   }
 
   &__block:has(.btn) {
-    padding-bottom: $space-4;
+    padding: $space-4;
+
   }
 
   &__block .btn {
     min-height: 36px;
     padding: $space-1 $space-3;
+    &:focus {
+      color: $color-white;
+      background-color: $color-primary-dark;
+    }
   }
 
   &__block p {
@@ -166,19 +168,14 @@
 
 }
 
-// ─── Why Choose Us content ────────────────────────────────────────────────────
+// ─── Bio layout (photo + text) ───────────────────────────────────────────────
 
-.why-content {
+.bio-layout {
   align-items: center;
   display: flex;
   flex-direction: column;
   gap: $space-5;
   padding: $space-5 0;
-
-  @media (min-width: #{$bp-tablet + 1px}) {
-    flex-direction: row;
-    align-items: flex-start;
-  }
 
   &__photo {
     border-radius: 50%;
@@ -197,22 +194,8 @@
     flex: 1;
   }
 
-  &__heading {
-    color: $color-text;
-    font-family: $font;
-    font-size: $font-size-page-title;
-    font-weight: 400;
-    letter-spacing: $letter-spacing-wide;
-    line-height: $line-height-snug;
-    margin-bottom: $space-5;
-    text-transform: uppercase;
-  }
-
   &__subheading {
-    color: $color-text;
-    font-family: $font;
     font-size: $font-size-page-title;
-    font-weight: 400;
     letter-spacing: $letter-spacing-wide;
     line-height: $line-height-snug;
     margin-bottom: $space-3;
@@ -227,6 +210,11 @@
       margin-top: 1em;
     }
   }
+
+  @media (min-width: #{$bp-tablet + 1px}) {
+    align-items: flex-start;
+    flex-direction: row;
+  }
 }
 
 // ─── Webinars intro layout ────────────────────────────────────────────────────
@@ -236,11 +224,6 @@
   display: flex;
   flex-direction: column;
   gap: $space-5;
-
-  @media (min-width: #{$bp-tablet + 1px}) {
-    flex-direction: row;
-    align-items: flex-start;
-  }
 
   &__photo {
     border-radius: 8px;
@@ -257,9 +240,14 @@
 
   .intro-section {
     background-color: transparent;
+    flex: 1;
     padding: 0;
     text-align: left;
-    flex: 1;
+  }
+
+  @media (min-width: #{$bp-tablet + 1px}) {
+    align-items: flex-start;
+    flex-direction: row;
   }
 }
 
@@ -274,11 +262,6 @@
   display: flex;
   flex-direction: column;
   gap: $space-5;
-
-  @media (min-width: #{$bp-tablet + 1px}) {
-    flex-direction: row;
-    align-items: center;
-  }
 
   &__text {
     flex: 1;
@@ -303,6 +286,11 @@
       width: 320px;
     }
   }
+
+  @media (min-width: #{$bp-tablet + 1px}) {
+    align-items: center;
+    flex-direction: row;
+  }
 }
 
 // ─── Why Choose Us quote ─────────────────────────────────────────────────────
@@ -324,36 +312,9 @@
   }
 }
 
-// ─── Portfolio project cards ──────────────────────────────────────────────────
+// ─── Page intro ───────────────────────────────────────────────────────────────
 
-
-// ─── Portfolio intro ──────────────────────────────────────────────────────────
-
-.portfolio-intro {
-  p {
-    color: $color-text-on-dark;
-    font-size: $font-size-base;
-    line-height: $line-height-loose;
-
-  }
-}
-
-// ─── Reviews section heading ──────────────────────────────────────────────────
-
-.reviews-section {
-  &__heading {
-    color: $color-white;
-    font-family: $font;
-    font-size: $font-size-3xl;
-    font-weight: 700;
-    margin-bottom: $space-4;
-    text-align: center;
-  }
-}
-
-// ─── Portfolio intro ─────────────────────────────────────────────────────────
-
-.portfolio-intro {
+.page-intro {
   &__heading {
     color: $color-white;
     font-family: $font;
@@ -362,6 +323,10 @@
     line-height: $line-height-snug;
     margin-bottom: $space-3;
     text-transform: uppercase;
+
+    .section--blue & {
+      font-weight: 700;
+    }
   }
 
   p {
@@ -384,19 +349,3 @@
   }
 }
 
-// ─── Connect/Social section ───────────────────────────────────────────────────
-
-.social-section {
-  padding: $space-5 0;
-  text-align: center;
-
-  &__heading {
-    color: $color-text;
-    @extend .heading--section;
-    font-size: $font-size-page-title;
-    font-weight: 400;
-    letter-spacing: $letter-spacing-wide;
-    margin-bottom: $space-3;
-    text-align: left;
-  }
-}
