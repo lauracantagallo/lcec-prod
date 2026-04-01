@@ -5,7 +5,7 @@
 .hero {
   background-color: $color-white;
   color: $color-text;
-  padding-bottom: $space-7;
+  padding-bottom: $space-48px;
   padding-top: 0;
   // No top padding at any breakpoint to keep hero flush with subnav
 
@@ -53,52 +53,55 @@
     color: $color-text-on-dark;
     flex: 1;
     max-width: 600px;
-    padding: $space-5 $space-4;
+    padding: $space-32px $space-24px;
     text-align: center;
 
     @media (min-width: #{$bp-tablet + 1px}) {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: $space-6;
+      padding: $space-40px;
     }
   }
 
   &__eyebrow {
-    color: $color-text-on-dark;
-    font-family: $font;
-    font-size: 1.375rem; // 22px equivalent
+    font-size: $font-size-lg;
     font-weight: 400;
-    margin-bottom: $space-2;
+    margin-bottom: $space-8px;
     text-transform: uppercase;
+
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: 1.375rem;
+    }
   }
 
   &__heading {
-    color: $color-text-on-dark;
-    font-family: $font;
-    font-size: $font-size-page-title;
+    font-size: $font-size-3xl;
     font-weight: 700;
-    line-height: $line-height-base;
-    margin-bottom: $space-3;
+    line-height: $line-height-loose;
+    margin-bottom: $space-16px;
     text-transform: uppercase;
 
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-page-title;
+    }
   }
 
   &__subheading {
-    color: $color-text-on-dark;
-    font-family: $font;
-    font-size: $font-size-lg;
-    font-weight: 400;
+    font-size: $font-size-base;
     line-height: $line-height-loose;
-    margin-bottom: $space-5;
+    margin-bottom: $space-32px;
 
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-lg;
+    }
   }
 
   &__actions {
     align-items: stretch;
     display: flex;
     flex-direction: column;
-    gap: $space-3;
+    gap: $space-16px;
 
     // Make buttons full width on mobile
     .btn {

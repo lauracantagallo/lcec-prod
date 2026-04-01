@@ -43,7 +43,7 @@ layout: base.njk
 <section class="contact-form-section">
   <div class="container">
     <h2 class="heading--section">{{ contact_section.heading }}</h2>
-    <div role="status" aria-live="polite" aria-atomic="true" class="form-status"></div>
+    <div role="status" aria-live="polite" aria-atomic="true"></div>
     <form class="contact-form" name="contact" action="/contact-success/" method="post" netlify data-netlify-honeypot="bot-field" data-netlify-recaptcha="true" novalidate>
       <input type="hidden" name="form-name" value="contact" />
       <h2 class="section-heading">{{ form.heading }}</h2>

@@ -1,7 +1,7 @@
 <header class="site-header container">
   <div class="header-inner">
     <div class="header-logo-row">
-      <a href="{{ '/' | url }}" class="logo" title="LC Education Consulting">
+      <a href="{{ '/' | url }}" class="logo">
         <span class="logo__text">LC Education Consulting</span>
       </a>
       <div class="header-phone">
@@ -51,7 +51,7 @@
 
 <div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true"></div>
 
-<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+<nav class="mobile-nav" id="mobile-nav" aria-label="Menu" aria-hidden="true">
   <button class="mobile-nav__close" aria-label="Close Menu">
     <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
       <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
@@ -61,16 +61,16 @@
     {% for link in navigation.links %}
       {% if link.dropdown %}
         {% for child in link.children %}
-        <li class="mobile-nav__item">
+        <li>
           <a href="{{ child.url | url }}" class="mobile-nav__link">{{ child.text }}</a>
         </li>
         {% endfor %}
       {% elif link.external %}
-        <li class="mobile-nav__item">
+        <li>
           <a href="{{ link.url }}" class="mobile-nav__link" target="_blank" rel="noopener">{{ link.text }}</a>
         </li>
       {% else %}
-        <li class="mobile-nav__item">
+        <li>
           <a href="{{ link.url | url }}" class="mobile-nav__link">{{ link.text }}</a>
         </li>
       {% endif %}

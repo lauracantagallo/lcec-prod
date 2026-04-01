@@ -6,10 +6,10 @@
 .contact-form-section {
   background-color: $color-white;
   color: $color-text;
-  padding: $space-5 $space-3 0;
+  padding: $space-32px $space-16px 0;
 
   @media (min-width: #{$bp-tablet + 1px}) {
-    padding: $space-6 $space-4 0;
+    padding: $space-40px $space-24px 0;
   }
 }
 
@@ -19,11 +19,14 @@
 
   &__heading {
     color: $color-primary;
-    font-family: $font;
-    font-size: $font-size-3xl;
+    font-size: $font-size-xl;
     font-weight: 400;
-    margin-bottom: $space-5;
+    margin-bottom: $space-32px;
     text-align: center;
+
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-3xl;
+    }
   }
 
   @media (min-width: #{$bp-desktop + 1px}) {
@@ -32,7 +35,7 @@
 }
 
 .form-field {
-  margin-bottom: $space-4;
+  margin-bottom: $space-24px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -41,11 +44,10 @@
 .form-label {
   color: $color-text;
   display: block;
-  font-family: $font;
   font-size: $font-size-sm;
   font-weight: 700;
   letter-spacing: $letter-spacing-wider;
-  margin-bottom: $space-1;
+  margin-bottom: $space-4px;
   text-transform: uppercase;
 }
 
@@ -54,7 +56,6 @@
   border: 1px solid $color-overlay;
   color: $color-text;
   display: block;
-  font-family: $font;
   font-size: $font-size-base;
   line-height: normal;
   margin-left: auto;
@@ -79,7 +80,6 @@
   border: 1px solid $color-overlay;
   color: $color-text;
   display: block;
-  font-family: $font;
   font-size: $font-size-base;
   line-height: 1.75;
   margin-left: auto;
@@ -105,7 +105,7 @@
 .contact-form .btn[type="submit"] {
   border-color: $color-overlay;
   display: block;
-  margin: $space-3 auto 0;
+  margin: $space-16px auto 0;
   width: 100%;
 }
 
@@ -113,7 +113,7 @@
   color: $color-error;
   display: none;
   font-size: $font-size-sm;
-  margin-top: $space-1;
+  margin-top: $space-4px;
 }
 
 .form-field.has-error {
@@ -134,13 +134,13 @@
 .form-required-note {
   color: $color-text-medium;
   font-size: $font-size-sm;
-  margin-bottom: $space-4;
+  margin-bottom: $space-24px;
 }
 
 .form-privacy {
   color: $color-text-medium;
   font-size: $font-size-sm;
-  margin-top: $space-3;
+  margin-top: $space-16px;
   text-align: center;
 
   a {

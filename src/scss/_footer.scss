@@ -6,14 +6,14 @@
   background-color: $color-primary;
   color: $color-text-on-dark;
   margin-top: auto;
-  padding: $space-5 0 $space-4;
+  padding: $space-32px 0 $space-24px;
 }
 
 .footer-inner {
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: $space-4;
+  gap: $space-24px;
   text-align: center;
 }
 
@@ -22,14 +22,14 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    gap: $space-2;
+    gap: $space-8px;
     margin: 0;
     padding: 0;
 
     @media (min-width: #{$bp-tablet + 1px}) {
       flex-direction: row;
       flex-wrap: wrap;
-      gap: $space-2 $space-3;
+      gap: $space-8px $space-16px;
       justify-content: center;
     }
   }
@@ -40,11 +40,14 @@
 
   &__link {
     color: $color-text-on-dark;
-    font-family: $font;
-    font-size: $font-size-base;
-    padding: $space-2 $space-3;
+    font-size: $font-size-sm;
+    padding: $space-8px $space-16px;
     text-decoration: none;
     transition: color $transition-quick;
+
+    .external-link-icon {
+      color: inherit;
+    }
 
     &:hover {
       color: $color-primary-light;
@@ -56,15 +59,14 @@
       outline-offset: $focus-outline-offset;
     }
 
-    .external-link-icon {
-      color: inherit;
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-base;
     }
   }
 }
 
 .footer-brand {
   color: $color-text-on-dark;
-  font-family: $font;
   font-size: $font-size-sm;
   font-weight: 700;
   letter-spacing: $letter-spacing-wide;
@@ -77,9 +79,8 @@
 
   a {
     color: $color-text-on-dark;
-    font-family: $font;
     font-size: $font-size-sm;
-    padding: $space-2 $space-3;
+    padding: $space-8px $space-16px;
     text-decoration: none;
     transition: color $transition-quick;
 

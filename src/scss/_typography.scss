@@ -5,14 +5,6 @@
 
 // Heading scale
 h1 {
-  font-size: $font-size-3xl;
-}
-
-h2 {
-  font-size: $font-size-xl;
-}
-
-h3 {
   font-size: $font-size-xl;
 
   @media (min-width: #{$bp-tablet + 1px}) {
@@ -20,7 +12,7 @@ h3 {
   }
 }
 
-h4 {
+h2 {
   font-size: $font-size-lg;
 
   @media (min-width: #{$bp-tablet + 1px}) {
@@ -28,8 +20,28 @@ h4 {
   }
 }
 
-h5 {
+h3 {
+  font-size: $font-size-lg;
+
+  @media (min-width: #{$bp-tablet + 1px}) {
+    font-size: $font-size-3xl;
+  }
+}
+
+h4 {
   font-size: $font-size-base;
+
+  @media (min-width: #{$bp-tablet + 1px}) {
+    font-size: $font-size-xl;
+  }
+}
+
+h5 {
+  font-size: $font-size-sm;
+
+  @media (min-width: #{$bp-tablet + 1px}) {
+    font-size: $font-size-base;
+  }
 }
 
 h6 {
@@ -77,22 +89,29 @@ address a {
 // Section headings
 .section-heading {
   color: $color-primary;
+  font-size: $font-size-xl;
+  font-weight: 700;
+  line-height: $line-height-snug;
+  margin-bottom: $space-32px;
+  text-align: center;
+  /* No uppercase, no letter-spacing */
+
   // Contextual override for blue sections
   .section--blue & {
     color: $color-white;
   }
-  font-family: $font;
-  font-size: $font-size-3xl;
-  font-weight: 700;
-  line-height: $line-height-snug;
-  margin-bottom: $space-5;
-  text-align: center;
-  /* No uppercase, no letter-spacing */
+
+  @media (min-width: #{$bp-tablet + 1px}) {
+    font-size: $font-size-3xl;
+  }
 }
 
 .section-subheading {
-  font-family: $font;
-  font-size: $font-size-lg;
-  line-height: $line-height-base;
-  margin-bottom: $space-4;
+  font-size: $font-size-base;
+  line-height: $line-height-loose;
+  margin-bottom: $space-24px;
+
+  @media (min-width: #{$bp-tablet + 1px}) {
+    font-size: $font-size-lg;
+  }
 }

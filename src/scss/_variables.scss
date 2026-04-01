@@ -29,22 +29,38 @@ $font-size-display:    2.75rem;
 
 $line-height-tight:  1;
 $line-height-snug:   1.25;
-$line-height-base:   1.4;
 $line-height-loose:  1.5;
 
+$letter-spacing-body:  0.12em;  // WCAG 1.4.12 minimum
 $letter-spacing-nav:   0.214em;
 $letter-spacing-wide:  0.136em;
 $letter-spacing-wider: 2px;
 
+$word-spacing-body:    0.16em;  // WCAG 1.4.12 minimum
+$paragraph-spacing:    2em;     // WCAG 1.4.12 minimum (2× font size)
+
 // ─── Spacing ──────────────────────────────────────────────────────────────────
-$space-1:   4px;
-$space-2:   8px;
-$space-3:   16px;
-$space-4:   24px;
-$space-5:   32px;
-$space-6:   40px;
-$space-7:   48px;
-$space-8:   56px;
+$space-4px:   4px;
+$space-8px:   8px;
+$space-16px:   16px;
+$space-24px:   24px;
+$space-32px:   32px;
+$space-40px:   40px;
+$space-48px:   48px;
+$space-56px:   56px;
+
+// ─── Sizes ───────────────────────────────────────────────────────────────────
+
+@mixin size-24x24 {
+  height: $space-24px;
+  width: $space-24px;
+}
+
+@mixin wsize-minus($minus-value) {
+  width: calc(100% - #{$minus-value});
+}
+
+
 
 // ─── Layout ───────────────────────────────────────────────────────────────────
 $container-md:   984px;

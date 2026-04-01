@@ -22,6 +22,7 @@ body {
   font-size: $font-size-base;
   line-height: $line-height-loose;
   margin: 0;
+  word-spacing: $word-spacing-body;
 }
 
 // Block-level semantics for HTML5 elements
@@ -55,9 +56,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  margin: 0;
+  margin: 0 0 $paragraph-spacing;
   overflow-wrap: break-word;
-
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 ul, ol {

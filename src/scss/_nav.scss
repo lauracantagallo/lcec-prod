@@ -3,15 +3,19 @@
 // ─── Navigation ───────────────────────────────────────────────────────────────
 
 .site-header {
-  padding-bottom: $space-2;
   z-index: $nav-dropdown-z;
   @media (min-width: #{$bp-tablet + 1px}) {
-    padding-bottom: $space-3;
-    padding-top: $space-4;
+    padding-bottom: $space-16px;
+    padding-top: $space-24px;
+    &.container {
+      border: none;
+      margin-bottom: 0;
+    }
   }
 }
 
 .header-inner {
+  height: 100%;
   margin: 0 auto;
   padding: 0;
   position: relative;
@@ -21,28 +25,18 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-left: auto;
-    margin-right: auto;
     max-width: $container-md;
     padding-left: 0;
     padding-right: 0;
   }
   @media (min-width: #{$bp-desktop + 1px}) {
     max-width: $container-lg;
-    padding-left: 0;
-    padding-right: 0;
   }
 }
 
 // ─── Logo row ─────────────────────────────────────────────────────────────────
 
 .header-logo-row {
-  display: block;
-  margin: 0 auto $space-3;
-  max-width: 100%;
-  padding-top: $space-7;
-  position: relative;
-  text-align: center;
   @media (min-width: #{$bp-tablet + 1px}) {
     align-items: center;
     display: flex;
@@ -59,15 +53,13 @@
 }
 
 .logo {
+  @include wsize-minus($space-24px);
   color: $color-text;
-  display: block;
-  margin: 0 auto;
-  max-width: 60%;
+  display: inline-block;
+  margin: $space-16px 0 $space-16px $space-24px;
   padding: 0;
   text-align: center;
-  text-decoration: none;
   white-space: normal;
-  width: auto;
   @media (min-width: #{$bp-tablet + 1px}) {
     display: block;
     margin: 0;
@@ -82,7 +74,6 @@
 }
 
 .logo__text {
-  font-family: $font;
   font-size: $font-size-xl;
   font-weight: 700;
   letter-spacing: 2px;
@@ -95,18 +86,7 @@
 }
 
 .header-phone {
-  color: $color-primary;
-  display: block;
-  font-family: $font;
-  font-size: $font-size-base;
-  font-weight: 700;
-  left: 0;
-  padding: $space-2 $space-3;
-  position: absolute;
-  text-align: center;
-  top: 0;
-  width: 100%;
-
+  display: none;
   a {
 
     &:hover {
@@ -120,12 +100,15 @@
     }
   }
 
-  // display: block is already set above; no need to repeat for breakpoints
   @media (min-width: #{$bp-tablet + 1px}) {
+    color: $color-primary;
+    display: block;
     flex-shrink: 0;
     font-size: $font-size-site-title;
+    font-weight: 700;
     margin-left: auto;
     order: 2;
+    padding: 0;
     position: static;
     right: auto;
     text-align: right;
@@ -173,7 +156,6 @@
 }
 
 .nav__item {
-  font-family: $font;
   letter-spacing: $letter-spacing-nav;
   position: relative;
   white-space: nowrap;
@@ -185,7 +167,7 @@
   display: block;
   font-size: $font-size-sm;
   font-weight: 400;
-  padding: $space-2 $space-3;
+  padding: $space-8px $space-16px;
   text-decoration: none;
   text-transform: uppercase;
   transition: $transition-base;
@@ -216,11 +198,10 @@
   color: $color-text;
   cursor: pointer;
   display: flex;
-  font-family: $font;
   font-size: $font-size-sm;
   font-weight: 400;
   letter-spacing: $letter-spacing-nav;
-  padding: $space-2 $space-3;
+  padding: $space-8px $space-16px;
   text-decoration: none;
   text-transform: uppercase;
   transition: $transition-base;
@@ -264,7 +245,7 @@
 }
 
 .nav__dropdown-list {
-  padding: $space-2 0;
+  padding: $space-8px 0;
 }
 
 .nav__dropdown-item {
@@ -279,12 +260,11 @@
   align-items: center;
   color: $color-text-medium;
   display: flex;
-  font-family: $font;
   font-size: $font-size-sm;
   font-weight: 400;
   letter-spacing: normal;
-  line-height: $line-height-base;
-  padding: $space-2 $space-3;
+  line-height: $line-height-loose;
+  padding: $space-8px $space-16px;
   text-decoration: none;
   transition: $transition-base;
 
@@ -306,17 +286,18 @@
 // ─── Mobile nav toggle ────────────────────────────────────────────────────────
 
 .mobile-nav-toggle {
-  position: absolute;
-  bottom: 0;
-  left: $space-3;
   align-items: center;
   background: none;
   border: none;
-  color: $color-text;
+  color: $color-primary;
   cursor: pointer;
   display: flex;
   justify-content: center;
-  padding: $space-2;
+  left: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 
   &:focus {
     outline: $focus-outline-stroke $color-primary;
@@ -324,8 +305,7 @@
   }
 
   svg {
-    height: 24px;
-    width: 24px;
+    @include size-24x24;
   }
 
   @media (min-width: #{$bp-tablet + 1px}) {
@@ -366,16 +346,16 @@
 .mobile-nav__close {
   background: none;
   border: none;
-  color: $color-text;
+  color: $color-primary;
   cursor: pointer;
-  padding: $space-2;
+  line-height: 0;
+  padding: 0;
   position: absolute;
   right: 15px;
   top: 15px;
 
   svg {
-    height: 20px;
-    width: 20px;
+    @include size-24x24;
   }
 
   &:focus {
@@ -387,19 +367,18 @@
 .mobile-nav__list {
   flex: 1;
   overflow-y: auto;
-  padding-bottom: $space-4;
+  padding-bottom: $space-24px;
   padding-top: $focus-outline-offset;
 }
 
 .mobile-nav__link {
   color: $color-text;
   display: block;
-  font-family: $font;
-  font-size: $font-size-base;
+  font-size: $font-size-sm;
   font-weight: 400;
   letter-spacing: $letter-spacing-nav;
-  line-height: $line-height-base;
-  padding: $space-3 $space-4;
+  line-height: $line-height-loose;
+  padding: $space-16px $space-24px;
   text-decoration: none;
   text-transform: uppercase;
 

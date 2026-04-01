@@ -7,14 +7,13 @@
   border: 2px solid transparent;
   cursor: pointer;
   display: inline-flex;
-  font-family: $font;
   font-size: $font-size-sm;
   font-weight: 400;
   justify-content: center;
   letter-spacing: $letter-spacing-wide;
   line-height: $line-height-tight;
   min-height: $nav-height;
-  padding: $space-2 $space-4;
+  padding: $space-8px $space-24px;
   text-decoration: none;
   text-transform: uppercase;
   transition: $transition-base;
@@ -75,7 +74,7 @@
   background-color: $color-white;
   box-shadow: $shadow-card;
   color: $color-text;
-  padding: $space-5;
+  padding: $space-32px;
 }
 
 // ─── List Utility ────────────────────────────────────────────────────────────
@@ -83,20 +82,23 @@
   list-style: disc;
   padding-left: 1.3em;
   li {
-    font-size: $font-size-base;
-    line-height: $line-height-base;
-    margin-bottom: $space-1;
+    font-size: $font-size-sm;
+    line-height: $line-height-loose;
+    margin-bottom: $space-4px;
+
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-base;
+    }
   }
 }
 
 // ─── Section Heading Utility ────────────────────────────────────────────────
 .heading--section {
-  font-family: $font;
-  font-size: $font-size-3xl;
+  font-size: $font-size-xl;
   font-weight: 400;
   letter-spacing: $letter-spacing-wide;
   line-height: $line-height-snug;
-  margin-bottom: $space-3;
+  margin-bottom: $space-16px;
   text-align: center;
   text-transform: uppercase;
   @media (min-width: #{$bp-tablet + 1px}) {
@@ -110,7 +112,7 @@
 .announcement-bar {
   background-color: $color-primary-dark;
   color: $color-white;
-  padding: $space-1 $space-3 $space-3;
+  padding: $space-4px $space-16px $space-16px;
 
   &__inner {
     align-items: center;
@@ -118,58 +120,64 @@
     justify-content: center;
     margin: 0 auto;
     max-width: 100%;
-    padding: $space-1 0;
+    padding: $space-4px 0;
 
     @media (min-width: #{$bp-tablet + 1px}) {
-      padding: $space-1 $space-6;
+      padding: $space-4px $space-40px;
     }
   }
 
   p {
-    color: $color-white;
-    font-family: $font;
-    font-size: $font-size-base;
-    font-weight: 400;
+    font-size: $font-size-sm;
     letter-spacing: $letter-spacing-wide;
     max-width: 36rem;
     text-align: center;
     text-transform: uppercase;
-
     white-space: pre-line;
+
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-base;
+    }
   }
 }
 
 // ─── Statistics ───────────────────────────────────────────────────────────────
 .stats-grid {
   display: grid;
-  gap: $space-3;
+  gap: $space-16px;
   grid-template-columns: 1fr;
-  margin-top: $space-4;
+  margin-top: $space-24px;
   @media (min-width: #{$bp-tablet + 1px}) {
-    gap: $space-4;
+    gap: $space-24px;
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 .stat {
   background-color: $color-gray;
-  padding: $space-5 $space-4;
+  padding: $space-32px $space-24px;
   text-align: center;
 
   &__value {
     color: $color-text;
-    font-family: $font;
-    font-size: $font-size-page-title;
+    font-size: $font-size-3xl;
     font-weight: 700;
     line-height: $line-height-tight;
-    margin-bottom: $space-3;
+    margin-bottom: $space-16px;
+
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-page-title;
+    }
   }
 
   &__label {
     color: $color-text;
-    font-family: $font;
-    font-size: $font-size-lg;
-    line-height: $line-height-base;
+    font-size: $font-size-base;
+    line-height: $line-height-loose;
+
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-lg;
+    }
   }
 }
 
@@ -178,27 +186,25 @@
 .quote-block {
   margin: 0 auto;
   max-width: 800px;
-  padding: $space-5 $space-4;
+  padding: $space-32px $space-24px;
   text-align: center;
 
   &__text {
     color: $color-white;
-    font-family: $font;
-    font-size: $font-size-3xl;
+    font-size: $font-size-xl;
     font-weight: 700;
     letter-spacing: 1px;
     line-height: $line-height-loose;
-    margin-bottom: $space-3;
+    margin-bottom: $space-16px;
     text-transform: uppercase;
 
     @media (min-width: #{$bp-tablet + 1px}) {
-      font-size: $font-size-page-title; // 30px on desktop
+      font-size: $font-size-page-title;
     }
   }
 
   &__attribution {
     color: $color-white;
-    font-family: $font;
     font-size: $font-size-sm;
     font-weight: 700;
   }
@@ -207,9 +213,9 @@
 // ─── Service Cards ────────────────────────────────────────────────────────────
 .services-grid {
   display: grid;
-  gap: $space-4;
+  gap: $space-24px;
   grid-template-columns: 1fr;
-  margin-top: $space-5;
+  margin-top: $space-32px;
   @media (min-width: #{$bp-tablet + 1px}) {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -222,21 +228,28 @@
 .service-card {
   &__heading {
     color: $color-primary;
-    font-family: $font;
-    font-size: $font-size-xl;
+    font-size: $font-size-lg;
     font-weight: 400;
     line-height: $line-height-snug;
-    margin-bottom: $space-3;
+    margin-bottom: $space-16px;
+
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-xl;
+    }
   }
   &__description {
     color: $color-text-medium;
-    font-size: $font-size-base;
+    font-size: $font-size-sm;
     line-height: $line-height-loose;
-    margin-bottom: $space-3;
+    margin-bottom: $space-16px;
+
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-base;
+    }
   }
   &__features {
     @extend .list--disc;
-    margin: $space-3 0;
+    margin: $space-16px 0;
     li {
       color: $color-text;
     }
@@ -245,33 +258,40 @@
     color: $color-text-medium;
     font-size: $font-size-sm;
     font-style: italic;
-    margin-top: $space-3;
+    margin-top: $space-16px;
   }
 }
 
 .training-card {
   &__heading {
     color: $color-primary;
-    font-family: $font;
-    font-size: $font-size-xl;
+    font-size: $font-size-lg;
     font-weight: 400;
-    margin-bottom: $space-2;
+    margin-bottom: $space-8px;
+
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-xl;
+    }
   }
   &__description {
     color: $color-text-medium;
-    font-size: $font-size-base;
+    font-size: $font-size-sm;
     line-height: $line-height-loose;
+
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-base;
+    }
   }
 }
 
 // ─── Profile / Background List ───────────────────────────────────────────────
 .credentials-list {
   @extend .list--disc;
-  margin: $space-4 0;
+  margin: $space-24px 0;
   li {
     color: $color-text-medium;
     line-height: $line-height-loose;
-    margin-bottom: $space-2;
+    margin-bottom: $space-8px;
   }
 }
 
@@ -283,26 +303,32 @@
 }
 
 .cta-block {
-  padding: $space-3 $space-4;
+  padding: $space-16px $space-24px;
   text-align: center;
 
   &__heading {
     color: $color-text-on-dark;
-    font-family: $font;
-    font-size: $font-size-3xl;
+    font-size: $font-size-xl;
     font-weight: 700;
-    margin-bottom: $space-2;
+    margin-bottom: $space-8px;
+
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-3xl;
+    }
   }
 
   &__subheading {
     color: $color-primary-light;
-    font-family: $font;
-    font-size: $font-size-lg;
-    margin-bottom: $space-4;
+    font-size: $font-size-base;
+    margin-bottom: $space-24px;
+
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-lg;
+    }
   }
 
   @media (min-width: #{$bp-tablet + 1px}) {
-    padding: $space-4 $space-4;
+    padding: $space-24px $space-24px;
   }
 }
 
@@ -310,9 +336,9 @@
 
 .social-links {
   display: flex;
-  gap: $space-3;
+  gap: $space-16px;
   justify-content: center;
-  margin-top: $space-3;
+  margin-top: $space-16px;
 }
 
 .social-link {

@@ -5,15 +5,15 @@
 
 .cookie-banner {
   background-color: $color-primary;
-  bottom: $space-4;
+  bottom: $space-24px;
   box-shadow: $shadow-card;
   color: $color-white;
   display: none;
   flex-direction: column;
-  gap: $space-3;
-  padding: $space-4;
+  gap: $space-16px;
+  padding: $space-24px;
   position: fixed;
-  right: $space-4;
+  right: $space-24px;
   width: 320px;
   z-index: 4;
 
@@ -22,15 +22,13 @@
   }
 
   &__message {
-    color: $color-white;
-    font-family: $font;
     font-size: $font-size-sm;
-    line-height: $line-height-base;
+    line-height: $line-height-loose;
 
     strong {
       display: block;
       font-weight: 700;
-      margin-bottom: $space-1;
+      margin-bottom: $space-4px;
     }
   }
 
@@ -40,11 +38,10 @@
     border: none;
     color: $color-text;
     cursor: pointer;
-    font-family: $font;
     font-size: $font-size-sm;
     font-weight: 400;
     letter-spacing: $letter-spacing-wider;
-    padding: $space-2 $space-4;
+    padding: $space-8px $space-24px;
     text-transform: uppercase;
     transition: $transition-base;
 

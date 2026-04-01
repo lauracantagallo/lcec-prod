@@ -7,13 +7,12 @@
 .page-title {
   background-color: $color-primary-dark;
   color: $color-text-on-dark;
-  padding: $space-6 0;
+  padding: $space-40px 0;
   text-align: center;
 
   &__heading {
     color: $color-white;
-    font-family: $font;
-    font-size: $font-size-page-title;
+    font-size: $font-size-3xl;
     font-weight: 400;
     line-height: $line-height-tight;
 
@@ -24,10 +23,12 @@
 
   &__subheading {
     color: $color-primary-light;
-    font-family: $font;
-    font-size: $font-size-lg;
-    margin-top: $space-2;
+    font-size: $font-size-base;
+    margin-top: $space-8px;
 
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-lg;
+    }
   }
 }
 
@@ -36,41 +37,44 @@
 .intro-section {
   background-color: $color-accent;
   color: $color-white;
-  padding: $space-8 $space-6;
+  padding: $space-56px $space-40px;
   text-align: center;
 
   &__heading {
-    color: $color-white;
-    font-family: $font;
-    font-size: $font-size-page-title;
+    font-size: $font-size-3xl;
     font-weight: 400;
     letter-spacing: $letter-spacing-wide;
     line-height: $line-height-snug;
-    margin-bottom: $space-3;
+    margin-bottom: $space-16px;
     text-transform: uppercase;
+
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-page-title;
+    }
   }
 
   &__subheading {
     color: $color-primary-light;
-    font-family: $font;
-    font-size: $font-size-lg;
+    font-size: $font-size-base;
     line-height: $line-height-loose;
     max-width: 100%;
 
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-lg;
+    }
   }
 
   &__body {
     color: $color-white;
-    font-size: $font-size-xl;
+    font-size: $font-size-lg;
     line-height: $line-height-loose;
     max-width: 100%;
-    padding-left: $space-4;
-    padding-right: $space-4;
+    padding-left: $space-24px;
+    padding-right: $space-24px;
     text-align: left;
 
-
-    &--spaced {
-      margin-top: $space-4;
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-xl;
     }
   }
 }
@@ -81,24 +85,27 @@
   &__heading {
     @extend .heading--section;
     color: $color-text;
-    font-size: $font-size-page-title;
-    margin-bottom: $space-5;
+    font-size: $font-size-3xl;
+    margin-bottom: $space-32px;
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-page-title;
+    }
   }
 
   &__grid {
     display: grid;
-    gap: $space-4;
+    gap: $space-24px;
     grid-template-columns: 1fr;
 
     @media (min-width: #{$bp-tablet + 1px}) {
-      gap: $space-5;
+      gap: $space-32px;
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
   &__grid--cols-3 {
     @media (min-width: #{$bp-tablet + 1px}) {
-      gap: $space-5;
+      gap: $space-32px;
       grid-template-columns: repeat(3, 1fr);
     }
   }
@@ -110,40 +117,47 @@
 
   &__block-heading {
     color: $color-primary-dark;
-    font-family: $font;
-    font-size: $font-size-xl;
+    font-size: $font-size-lg;
     font-weight: 400;
     letter-spacing: $letter-spacing-wider;
-    margin-bottom: $space-3;
+    margin: 0.5em auto;
+    + p {
+      margin-bottom: 0;
+    }
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-xl;
+    }
   }
 
   &__image {
     aspect-ratio: 3 / 2;
     display: block;
-    margin-bottom: $space-3;
+    margin-bottom: $space-16px;
     object-fit: cover;
     width: 100%;
   }
 
   &__block:has(.btn) {
-    padding: $space-4;
-
+    padding: $space-24px;
   }
 
   &__block .btn {
     min-height: 36px;
-    padding: $space-1 $space-3;
+    padding: $space-4px $space-16px;
     &:focus {
-      color: $color-white;
       background-color: $color-primary-dark;
+      color: $color-white;
     }
   }
 
   &__block p {
     color: $color-text;
-    font-size: $font-size-base;
+    font-size: $font-size-sm;
     line-height: $line-height-loose;
-    padding: 0 $space-4 $space-4;
+    padding: 0 $space-24px $space-24px;
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-base;
+    }
 
     a {
       color: $color-text;
@@ -157,15 +171,16 @@
 // Large intro/lead text in a section (body font, not heading scale)
 
 .section-lead {
-  font-family: $font;
-  font-size: $font-size-xl;
-  font-weight: 400;
+  font-size: $font-size-lg;
   line-height: $line-height-loose;
-  margin-bottom: $space-5;
+  margin-bottom: $space-32px;
   margin-left: auto;
   margin-right: auto;
   max-width: 720px;
 
+  @media (min-width: #{$bp-tablet + 1px}) {
+    font-size: $font-size-xl;
+  }
 }
 
 // ─── Bio layout (photo + text) ───────────────────────────────────────────────
@@ -174,8 +189,8 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: $space-5;
-  padding: $space-5 0;
+  gap: $space-32px;
+  padding: $space-32px 0;
 
   &__photo {
     border-radius: 50%;
@@ -195,16 +210,24 @@
   }
 
   &__subheading {
-    font-size: $font-size-page-title;
+    font-size: $font-size-3xl;
     letter-spacing: $letter-spacing-wide;
     line-height: $line-height-snug;
-    margin-bottom: $space-3;
+    margin-bottom: $space-16px;
+
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-page-title;
+    }
   }
 
   &__body {
     color: $color-text-medium;
-    font-size: $font-size-base;
+    font-size: $font-size-sm;
     line-height: $line-height-loose;
+
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-base;
+    }
 
     & + & {
       margin-top: 1em;
@@ -223,7 +246,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: $space-5;
+  gap: $space-32px;
 
   &__photo {
     border-radius: 8px;
@@ -254,14 +277,14 @@
 // ─── Credentials layout (Why Choose Us) ──────────────────────────────────────
 
 .credentials-layout {
-  .section-heading {
-    font-weight: 400;
-  }
-
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  gap: $space-5;
+  gap: $space-32px;
+
+  .section-heading {
+    font-weight: 400;
+  }
 
   &__text {
     flex: 1;
@@ -296,13 +319,17 @@
 // ─── Why Choose Us quote ─────────────────────────────────────────────────────
 
 .why-quote {
-  padding: $space-5 $space-4;
+  padding: $space-32px $space-24px;
 
   &__text {
     color: $color-text;
-    font-size: $font-size-base;
+    font-size: $font-size-sm;
     line-height: $line-height-loose;
-    margin-bottom: $space-3;
+    margin-bottom: $space-16px;
+
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-base;
+    }
   }
 
   &__attribution {
@@ -317,35 +344,39 @@
 .page-intro {
   &__heading {
     color: $color-white;
-    font-family: $font;
-    font-size: $font-size-page-title;
+    font-size: $font-size-3xl;
     letter-spacing: $letter-spacing-wide;
     line-height: $line-height-snug;
-    margin-bottom: $space-3;
+    margin-bottom: $space-16px;
     text-transform: uppercase;
 
     .section--blue & {
       font-weight: 700;
     }
+
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-page-title;
+    }
   }
 
   p {
     color: $color-white;
-    font-family: $font;
-    font-size: $font-size-lg;
+    font-size: $font-size-base;
     line-height: $line-height-loose;
     text-align: center;
     width: 100%;
 
+    @media (min-width: #{$bp-tablet + 1px}) {
+      font-size: $font-size-lg;
+    }
   }
 
   .cta-block__heading {
-    margin-bottom: $space-4;
+    margin-bottom: $space-24px;
   }
 
   p:has(+ .btn),
   p:has(+ p) {
-    margin-bottom: $space-4;
+    margin-bottom: $space-24px;
   }
 }
-
