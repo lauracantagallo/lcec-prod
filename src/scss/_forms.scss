@@ -103,10 +103,18 @@
 
 
 .contact-form .btn[type="submit"] {
+  color: $color-white;
+  background-color: $color-primary;
   border-color: $color-overlay;
   display: block;
+  font-weight: 700;
   margin: $space-16px auto 0;
   width: 100%;
+  &:focus {
+    outline: 2px solid $color-primary;
+    outline-offset: $focus-outline-offset;
+    border-radius: $focus-outline-radius;
+  }
 }
 
 .form-error {
