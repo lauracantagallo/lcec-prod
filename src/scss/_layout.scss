@@ -25,12 +25,12 @@
 // ─── Sections ─────────────────────────────────────────────────────────────────
 
 .section {
-  padding-bottom: $space-32px;
-  padding-top: $space-32px;
+  padding-bottom: $space-24px;
+  padding-top: $space-24px;
 
   @media (min-width: #{$bp-tablet + 1px}) {
-    padding-bottom: $space-40px;
-    padding-top: $space-40px;
+    padding-bottom: $space-32px;
+    padding-top: $space-32px;
   }
 }
 

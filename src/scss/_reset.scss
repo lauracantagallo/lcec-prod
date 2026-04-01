@@ -67,22 +67,28 @@ ul, ol {
   list-style: none;
   margin: 0;
   padding: 0;
+
+  &:not([class]) {
+    list-style: revert;
+    margin-bottom: $paragraph-spacing;
+    padding-left: 1.5em;
+
+    li {
+      line-height: $line-height-loose;
+      margin-bottom: $space-4px;
+      text-align: left;
+    }
+  }
 }
 
-figure {
-  margin: 0;
-}
-
-blockquote {
+figure,
+blockquote,
+dl, dd {
   margin: 0;
 }
 
 address {
   font-style: normal;
-}
-
-dl, dd {
-  margin: 0;
 }
 
 // Links
@@ -212,8 +218,13 @@ sub, sup {
   vertical-align: baseline;
 }
 
-sup { top: -0.5em; }
-sub { bottom: -0.25em; }
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
 
 abbr[title] {
   border-bottom: 1px dotted;

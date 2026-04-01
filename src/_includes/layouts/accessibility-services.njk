@@ -1,42 +1,33 @@
 ---
 layout: base.njk
 ---
-<section class="page-title">
+<section class="section section--blue">
   <div class="container">
-    <h1 class="page-title__heading">{{ page_title.heading }}</h1>
-    <p class="page-title__subheading">{{ page_title.subheading }}</p>
-  </div>
-</section>
-
-<section class="section section--green">
-  <div class="container">
-    <div class="intro-section">
-      <h2 class="intro-section__heading">{{ intro.heading }}</h2>
-      <p class="intro-section__subheading">{{ intro.subheading }}</p>
+    <div class="page-intro">
+      <h1 class="page-intro__heading">{{ intro.heading }}</h1>
+      <p>{{ intro.subheading }}</p>
     </div>
   </div>
 </section>
 
-<section class="section section--white">
+<section class="section section--white section--flush-bottom">
   <div class="container">
-    <h2 class="section-heading text-primary text-center">{{ services_heading }}</h2>
-    <div class="services-grid">
+    <h2 class="content-blocks__heading">{{ services_heading }}</h2>
+    <div class="content-blocks__grid">
       {% for service in services %}
-      <article class="service-card">
-        <h3 class="service-card__heading">{{ service.heading }}</h3>
-        <p class="service-card__description">{{ service.description }}</p>
-        <ul class="service-card__features">
+      <article class="content-blocks__block">
+        <h3 class="content-blocks__block-heading">{{ service.heading }}</h3>
+        <p>{{ service.description }}</p>
+        <ul>
           {% for feature in service.features %}
           <li>{{ feature }}</li>
           {% endfor %}
         </ul>
         {% if service.case_study %}
-        <p class="service-card__case-study">{{ service.case_study }}</p>
+        <p>{{ service.case_study }}</p>
         {% endif %}
       </article>
       {% endfor %}
     </div>
   </div>
 </section>
-
-{% include "partials/cta.njk" %}

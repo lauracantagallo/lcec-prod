@@ -9,6 +9,14 @@
   padding: $space-32px 0 $space-24px;
 }
 
+.section--white:last-child {
+  margin-bottom: 2rem;
+}
+
+.section--blue:last-child {
+  margin-bottom: 0;
+}
+
 .footer-inner {
   align-items: center;
   display: flex;
@@ -17,6 +25,11 @@
   text-align: center;
   & p {
     margin: 0;
+  }
+  .divider {
+    border-top-color: $color-primary-light;
+    opacity: 0.35;
+    width: 100%;
   }
 }
 
@@ -35,10 +48,6 @@
       gap: $space-8px $space-16px;
       justify-content: center;
     }
-  }
-
-  &__item {
-    // no extra styles needed
   }
 
   &__link {
@@ -73,7 +82,6 @@
   font-size: $font-size-sm;
   font-weight: 700;
   letter-spacing: $letter-spacing-wide;
-  text-align: center;
   text-transform: uppercase;
 }
 

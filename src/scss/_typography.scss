@@ -89,7 +89,7 @@ address a {
 // Section headings
 .section-heading {
   color: $color-primary;
-  font-size: $font-size-xl;
+  font-size: $font-size-base;
   font-weight: 700;
   line-height: $line-height-snug;
   margin-bottom: $space-32px;
@@ -113,5 +113,38 @@ address a {
 
   @media (min-width: #{$bp-tablet + 1px}) {
     font-size: $font-size-lg;
+  }
+}
+
+// ─── Section Heading Utility ─────────────────────────────────────────────────
+// Uppercase, letter-spaced heading used across section patterns.
+// Use .section-heading for title-case, non-uppercase variant.
+.heading--section {
+  font-size: $font-size-base;
+  font-weight: 400;
+  letter-spacing: $letter-spacing-wide;
+  line-height: $line-height-snug;
+  margin-bottom: $space-16px;
+  text-align: center;
+  text-transform: uppercase;
+
+  @media (min-width: #{$bp-tablet + 1px}) {
+    font-size: $font-size-page-title;
+    text-align: left;
+  }
+}
+
+// ─── Section Lead ─────────────────────────────────────────────────────────────
+// Large intro/lead text in a section (body font, not heading scale).
+.section-lead {
+  font-size: $font-size-base;
+  line-height: $line-height-loose;
+  margin-bottom: $space-32px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 720px;
+
+  @media (min-width: #{$bp-tablet + 1px}) {
+    font-size: $font-size-xl;
   }
 }

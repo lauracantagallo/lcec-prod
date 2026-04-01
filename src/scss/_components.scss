@@ -19,9 +19,11 @@
   transition: $transition-base;
   white-space: normal;
   width: 100%;
+
   &:focus {
     outline: $focus-outline-stroke $color-primary;
   }
+
   @media (min-width: #{$bp-tablet + 1px}) {
     width: auto;
   }
@@ -36,6 +38,7 @@
     background-color: $color-primary-light;
     border-color: $color-primary-light;
   }
+
   &:focus {
     outline: $focus-outline-stroke $color-primary-dark;
     outline-offset: $focus-outline-offset;
@@ -47,7 +50,7 @@
   border-color: $color-white;
   color: $color-white;
 
-  &:hover {
+  &:hover, &:focus {
     background-color: $color-white;
     border-color: $color-white;
     color: $color-text;
@@ -92,21 +95,6 @@
   }
 }
 
-// ─── Section Heading Utility ────────────────────────────────────────────────
-.heading--section {
-  font-size: $font-size-xl;
-  font-weight: 400;
-  letter-spacing: $letter-spacing-wide;
-  line-height: $line-height-snug;
-  margin-bottom: $space-16px;
-  text-align: center;
-  text-transform: uppercase;
-  @media (min-width: #{$bp-tablet + 1px}) {
-    font-size: $font-size-page-title;
-    text-align: left;
-  }
-}
-
 // ─── Announcement Bar ─────────────────────────────────────────────────────────
 
 .announcement-bar {
@@ -147,6 +135,7 @@
   gap: $space-16px;
   grid-template-columns: 1fr;
   margin-top: $space-24px;
+
   @media (min-width: #{$bp-tablet + 1px}) {
     gap: $space-24px;
     grid-template-columns: repeat(3, 1fr);
@@ -155,11 +144,11 @@
 
 .stat {
   background-color: $color-gray;
+  color: $color-text;
   padding: $space-32px $space-24px;
   text-align: center;
 
   &__value {
-    color: $color-text;
     font-size: $font-size-display;
     font-weight: 700;
     line-height: $line-height-tight;
@@ -167,7 +156,6 @@
   }
 
   &__label {
-    color: $color-text;
     font-size: $font-size-base;
     line-height: $line-height-loose;
 
@@ -212,6 +200,7 @@
   gap: $space-24px;
   grid-template-columns: 1fr;
   margin-top: $space-32px;
+
   @media (min-width: #{$bp-tablet + 1px}) {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -221,35 +210,47 @@
   @extend .card;
 }
 
+.service-card__heading,
+.training-card__heading {
+  color: $color-primary;
+  font-size: $font-size-lg;
+  font-weight: 400;
+
+  @media (min-width: #{$bp-tablet + 1px}) {
+    font-size: $font-size-xl;
+  }
+}
+
+.service-card__description,
+.training-card__description {
+  color: $color-text-medium;
+  font-size: $font-size-sm;
+  line-height: $line-height-loose;
+
+  @media (min-width: #{$bp-tablet + 1px}) {
+    font-size: $font-size-base;
+  }
+}
+
 .service-card {
   &__heading {
-    color: $color-primary;
-    font-size: $font-size-lg;
-    font-weight: 400;
     line-height: $line-height-snug;
     margin-bottom: $space-16px;
-
-    @media (min-width: #{$bp-tablet + 1px}) {
-      font-size: $font-size-xl;
-    }
   }
+
   &__description {
-    color: $color-text-medium;
-    font-size: $font-size-sm;
-    line-height: $line-height-loose;
     margin-bottom: $space-16px;
-
-    @media (min-width: #{$bp-tablet + 1px}) {
-      font-size: $font-size-base;
-    }
   }
+
   &__features {
     @extend .list--disc;
     margin: $space-16px 0;
+
     li {
       color: $color-text;
     }
   }
+
   &__case-study {
     color: $color-text-medium;
     font-size: $font-size-sm;
@@ -260,23 +261,7 @@
 
 .training-card {
   &__heading {
-    color: $color-primary;
-    font-size: $font-size-lg;
-    font-weight: 400;
     margin-bottom: $space-8px;
-
-    @media (min-width: #{$bp-tablet + 1px}) {
-      font-size: $font-size-xl;
-    }
-  }
-  &__description {
-    color: $color-text-medium;
-    font-size: $font-size-sm;
-    line-height: $line-height-loose;
-
-    @media (min-width: #{$bp-tablet + 1px}) {
-      font-size: $font-size-base;
-    }
   }
 }
 
@@ -346,8 +331,8 @@
   transition: $transition-base;
 
   svg {
-    height: 40px;
-    width: 40px;
+    height: $space-40px;
+    width: $space-40px;
   }
 
   &:hover {

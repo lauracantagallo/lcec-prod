@@ -65,7 +65,7 @@
   }
 
   &__eyebrow {
-    font-size: $font-size-lg;
+    font-size: $font-size-base;
     font-weight: 400;
     margin-bottom: $space-8px;
     text-transform: uppercase;
@@ -76,7 +76,7 @@
   }
 
   &__heading {
-    font-size: $font-size-3xl;
+    font-size: $font-size-base;
     font-weight: 700;
     line-height: $line-height-loose;
     margin-bottom: $space-16px;
