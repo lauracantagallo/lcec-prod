@@ -368,7 +368,7 @@ function initExitModal() {
         title: 'Downloading contact card',
         message: 'A .vcf contact file will be saved to your device.',
         hint: 'Open the file to add Laura Cantagallo to your contacts.',
-        countdownLabel: 'Downloading',
+        countdown: false,
         action: () => {
           const a = document.createElement('a');
           a.href = href;
