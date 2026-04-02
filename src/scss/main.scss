@@ -23,6 +23,7 @@
 // Chrome
 @use 'footer';
 @use 'cookie-banner';
+@use 'modal';
 
 // Utilities (last — highest specificity wins)
 @use 'utilities';

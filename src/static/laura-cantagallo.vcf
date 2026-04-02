@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Laura Cantagallo
+N:Cantagallo;Laura;;;
+ORG:LC Education Consulting
+TITLE:Founder
+EMAIL;TYPE=WORK,PREF:laura@lceducationconsulting.com
+TEL;TYPE=WORK,PREF:+13027507443
+TEL;TYPE=WORK:+18563104483
+URL;TYPE=WORK:https://www.lceducationconsulting.com
+URL;TYPE=HOME:https://www.lauracantagallosportfolio.com/
+ADR;TYPE=WORK:;;Collingswood;NJ;;US
+END:VCARD

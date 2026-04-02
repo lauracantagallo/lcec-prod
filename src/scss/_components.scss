@@ -376,6 +376,7 @@
 
 .social-links {
   display: flex;
+  gap: $space-16px;
   justify-content: center;
 }
 
@@ -399,5 +400,17 @@
   &:focus {
     color: $color-linkedin-dark;
     @include focus-outline($color-primary, $radius: true);
+  }
+}
+
+.social-link--vcard {
+  color: $color-primary;
+
+  &:hover {
+    color: $color-primary-dark;
+  }
+
+  &:focus {
+    color: $color-primary-dark;
   }
 }

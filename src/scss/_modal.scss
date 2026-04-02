@@ -1,0 +1,124 @@
+@use 'variables' as *;
+
+// ─── Exit Modal ───────────────────────────────────────────────────────────────
+// Centered overlay modal; matches cookie banner palette (green bg, white text)
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.exit-modal {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  display: none;
+  justify-content: center;
+  left: 0;
+  padding: $space-16px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 5;
+
+  &.is-visible {
+    display: flex;
+  }
+
+  &__panel {
+    background-color: $color-primary;
+    box-shadow: $shadow-card;
+    color: $color-white;
+    display: flex;
+    flex-direction: column;
+    gap: $space-16px;
+    max-width: 400px;
+    padding: $space-24px;
+    width: 100%;
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: 700;
+    letter-spacing: $letter-spacing-body;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  &__message,
+  &__hint,
+  &__countdown {
+    font-size: $font-size-sm;
+    line-height: $line-height-loose;
+    margin: 0;
+  }
+
+  &__hint {
+    font-style: italic;
+  }
+
+  &__countdown strong {
+    font-weight: 700;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: $space-8px;
+
+    @media (min-width: #{$bp-tablet + 1px}) {
+      flex-direction: row;
+    }
+  }
+
+  &__go {
+    background-color: $color-white;
+    border: none;
+    color: $color-text;
+    cursor: pointer;
+    font-size: $font-size-sm;
+    font-weight: 400;
+    letter-spacing: $letter-spacing-wider;
+    padding: $space-8px $space-24px;
+    text-transform: uppercase;
+    transition: $transition-base;
+    width: 100%;
+
+    &:hover {
+      background-color: $color-primary-light;
+    }
+
+    &:focus {
+      @include focus-outline($color-white);
+    }
+
+    @media (min-width: #{$bp-tablet + 1px}) {
+      width: auto;
+    }
+  }
+
+  &__cancel {
+    background: none;
+    border: none;
+    color: $color-white;
+    cursor: pointer;
+    font-size: $font-size-sm;
+    letter-spacing: $letter-spacing-wider;
+    padding: $space-8px $space-24px;
+    text-decoration: underline;
+    text-transform: uppercase;
+    transition: $transition-base;
+    width: 100%;
+
+    &:hover {
+      color: $color-primary-light;
+    }
+
+    &:focus {
+      @include focus-outline($color-white);
+    }
+
+    @media (min-width: #{$bp-tablet + 1px}) {
+      width: auto;
+    }
+  }
+}

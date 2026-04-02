@@ -294,6 +294,135 @@ function initFooterNavToggle() {
   if (localStorage.getItem(FOOTER_NAV_COLLAPSED_KEY) === '1') setCollapsed(true);
 
   btn.addEventListener('click', () => setCollapsed(!wrapper.classList.contains('is-collapsed')));
+// ─── Exit Modal ──────────────────────────────────────────────────────────────
+function initExitModal() {
+  const modal = document.getElementById('exit-modal');
+  if (!modal) return;
+
+  const panel       = modal.querySelector('.exit-modal__panel');
+  const titleEl     = document.getElementById('exit-modal-title');
+  const messageEl   = document.getElementById('exit-modal-message');
+  const hintEl      = document.getElementById('exit-modal-hint');
+  const countdownEl = document.getElementById('exit-modal-countdown');
+  const goBtn       = modal.querySelector('.exit-modal__go');
+  const cancelBtn   = modal.querySelector('.exit-modal__cancel');
+
+  let timer         = null;
+  let pendingAction = null;
+  let triggerEl     = null;
+
+  function openModal(config, trigger) {
+    triggerEl     = trigger;
+    pendingAction = config.action;
+
+    titleEl.textContent   = config.title;
+    messageEl.textContent = config.message;
+
+    if (config.hint) {
+      hintEl.textContent = config.hint;
+      hintEl.hidden = false;
+    } else {
+      hintEl.textContent = '';
+      hintEl.hidden = true;
+    }
+
+    if (config.countdown !== false) {
+      const label = config.countdownLabel || 'Continuing';
+      countdownEl.innerHTML = label + ' in <strong>5</strong>\u2026';
+      countdownEl.hidden = false;
+      const secEl = countdownEl.querySelector('strong');
+      let seconds = 5;
+      timer = setInterval(() => {
+        seconds--;
+        secEl.textContent = seconds;
+        if (seconds <= 0) {
+          clearInterval(timer);
+          timer = null;
+          doAction();
+        }
+      }, 1000);
+    } else {
+      countdownEl.innerHTML = '';
+      countdownEl.hidden = true;
+    }
+
+    modal.classList.add('is-visible');
+    document.body.classList.add('modal-open');
+    cancelBtn.focus();
+  }
+
+  function closeModal() {
+    if (timer) { clearInterval(timer); timer = null; }
+    modal.classList.remove('is-visible');
+    document.body.classList.remove('modal-open');
+    if (triggerEl) { triggerEl.focus(); triggerEl = null; }
+  }
+
+  function doAction() {
+    const action = pendingAction;
+    closeModal();
+    action();
+  }
+
+  goBtn.addEventListener('click', doAction);
+  cancelBtn.addEventListener('click', closeModal);
+
+  // Click outside panel to dismiss
+  modal.addEventListener('click', e => {
+    if (!panel.contains(e.target)) closeModal();
+  });
+
+  onEscape(() => { if (modal.classList.contains('is-visible')) closeModal(); });
+
+  // Focus trap
+  modal.addEventListener('keydown', e => {
+    if (e.key !== 'Tab' || !modal.classList.contains('is-visible')) return;
+    const focusable = Array.from(modal.querySelectorAll('button'));
+    const first = focusable[0];
+    const last  = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault(); last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault(); first.focus();
+    }
+  });
+
+  // Intercept LinkedIn links
+  document.querySelectorAll('a[href*="linkedin.com"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const href = link.href;
+      openModal({
+        title: 'You\'re leaving this site',
+        message: 'You\'re being redirected to LinkedIn in a new tab.',
+        countdownLabel: 'Taking you there',
+        action: () => window.open(href, '_blank', 'noopener noreferrer')
+      }, link);
+    });
+  });
+
+  // Intercept vCard download
+  document.querySelectorAll('.social-link--vcard').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const href = link.href;
+      openModal({
+        title: 'Downloading contact card',
+        message: 'A .vcf contact file will be saved to your device.',
+        hint: 'Open the file to add Laura Cantagallo to your contacts.',
+        countdown: false,
+        action: () => {
+          const a = document.createElement('a');
+          a.href = href;
+          a.download = 'laura-cantagallo.vcf';
+          document.body.appendChild(a);
+          a.click();
+
+          document.body.removeChild(a);
+        }
+      }, link);
+    });
+  });
 }
 
 // ─── Single Init Function ─────────────────────────────────────────────────--
@@ -304,6 +433,7 @@ function initUI() {
   initExternalLinks();
   initAnnouncementToggle();
   initFooterNavToggle();
+  initExitModal();
 }
 
 document.addEventListener('DOMContentLoaded', initUI);
