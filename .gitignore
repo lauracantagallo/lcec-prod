@@ -16,7 +16,6 @@ assets/
 public/
 docs/
 scripts/
-fonts/
 
 # Node
 node_modules/

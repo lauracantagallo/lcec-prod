@@ -2,6 +2,7 @@
 // Import order: tokens → reset → layout → patterns → components → pages → utils
 
 // Foundation
+@use 'fonts';
 @use 'variables';
 @use 'reset';
 

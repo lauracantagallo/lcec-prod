@@ -5,7 +5,7 @@ layout: base.njk
   <div class="container">
     <h1 class="heading--section">{{ page_title.heading }}</h1>
     <div class="bio-layout">
-      <img src="{{ '/img/about-laura-cantagallo.webp' | url }}" alt="Laura Cantagallo, founder of LC Education Consulting" class="bio-layout__photo" width="400" height="400" />
+      <img src="{{ '/img/about-laura-cantagallo.webp' | url }}" alt="Laura Cantagallo, founder of LC Education Consulting" class="bio-layout__photo" width="400" height="400" loading="lazy" />
       <div class="bio-layout__text">
         <h2 class="tagline">{{ page_title.subheading }}</h2>
         {% for paragraph in body %}

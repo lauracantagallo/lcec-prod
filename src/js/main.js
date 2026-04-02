@@ -330,9 +330,12 @@ function initExitModal() {
 
     if (config.countdown !== false) {
       const label = config.countdownLabel || 'Continuing';
-      countdownEl.innerHTML = label + ' in <strong>5</strong>\u2026';
+      const secEl = document.createElement('strong');
+      secEl.textContent = '5';
+      countdownEl.textContent = label + ' in ';
+      countdownEl.appendChild(secEl);
+      countdownEl.appendChild(document.createTextNode('\u2026'));
       countdownEl.hidden = false;
-      const secEl = countdownEl.querySelector('strong');
       let seconds = 5;
       timer = setInterval(() => {
         seconds--;
@@ -344,7 +347,7 @@ function initExitModal() {
         }
       }, 1000);
     } else {
-      countdownEl.innerHTML = '';
+      countdownEl.textContent = '';
       countdownEl.hidden = true;
     }
 
@@ -440,9 +443,3 @@ function initUI() {
 
 document.addEventListener('DOMContentLoaded', initUI);
 
-// ─── Performance Suggestions (not implemented, for future consideration) ────
-// 1. Defer non-critical JS: Add 'defer' to script tag in HTML for faster page load.
-// 2. Minify JS for production (already handled if using a bundler/minifier).
-// 3. Use passive event listeners for scroll/touch events if added in future.
-// 4. Consider code splitting if JS grows larger.
-// 5. Use IntersectionObserver for lazy-loading images or content if needed.

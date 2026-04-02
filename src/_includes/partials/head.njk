@@ -63,9 +63,9 @@
 <link rel="icon" type="image/svg+xml" href="{{ '/img/favicon.svg' | url }}" />
 <link rel="apple-touch-icon" sizes="180x180" href="{{ '/img/lc-logo.svg' | url }}" />
 <meta name="theme-color" content="#556b2f" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="preload" href="{{ '/fonts/lato-400.woff2' | url }}" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="{{ '/fonts/lato-700.woff2' | url }}" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="{{ '/css/main.css' | url }}" as="style" />
 <link rel="stylesheet" href="{{ '/css/main.css' | url }}" />
 <!-- Umami Analytics — replace YOUR_WEBSITE_ID with your site's ID from the Umami dashboard -->
 <script defer src="https://cloud.umami.is/script.js" data-website-id="YOUR_WEBSITE_ID"></script>
