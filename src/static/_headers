@@ -1,4 +1,4 @@
-# Cache headers — supported by Netlify and Cloudflare Pages.
+# Cache + security headers — supported by Netlify and Cloudflare Pages.
 # GitHub Pages ignores this file; migrate hosts to activate.
 
 /css/*
@@ -12,3 +12,8 @@
 
 /*
   Cache-Control: public, max-age=3600, must-revalidate
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'

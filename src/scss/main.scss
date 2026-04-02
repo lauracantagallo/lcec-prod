@@ -2,6 +2,7 @@
 // Import order: tokens → reset → layout → patterns → components → pages → utils
 
 // Foundation
+@use 'fonts';
 @use 'variables';
 @use 'reset';
 
@@ -23,6 +24,7 @@
 // Chrome
 @use 'footer';
 @use 'cookie-banner';
+@use 'modal';
 
 // Utilities (last — highest specificity wins)
 @use 'utilities';
