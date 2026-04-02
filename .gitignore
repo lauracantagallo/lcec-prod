@@ -37,8 +37,8 @@ dist/
 .temporary/
 .cache/
 
-# Claude Code local overrides
-.claude/settings.local.json
+# Claude Code
+.claude/
 
 # Misc
 TODO.md
