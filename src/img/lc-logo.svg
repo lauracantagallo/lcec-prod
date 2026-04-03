@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-  <!-- Background circle -->
-  <circle cx="100" cy="100" r="95" fill="#556b2f" stroke="#3d4f22" stroke-width="2"/>
-  <!-- LC text -->
-  <text x="100" y="120" font-family="Arial, sans-serif" font-size="80" font-weight="bold" fill="white" text-anchor="middle">LC</text>
-  <!-- Accent underline -->
-  <line x1="50" y1="140" x2="150" y2="140" stroke="#a4c639" stroke-width="3"/>
-</svg>
