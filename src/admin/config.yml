@@ -5,6 +5,8 @@ backend:
 # Local development: run `npx decap-server` alongside `npm run dev`
 local_backend: true
 
+logo_url: /img/logo-lcec.jpg
+
 media_folder: src/img
 public_folder: /img
 
@@ -13,250 +15,350 @@ collections:
   # ── Site-wide settings ───────────────────────────────────────────────────────
   - name: settings
     label: Settings
+    hint: "Global site data used across all pages — contact info, navigation, the announcement bar, and the default CTA block."
     files:
 
       - name: site
         label: Site Info
         file: src/_data/site.json
+        hint: "Used in JSON-LD structured data (SEO), Open Graph meta tags, and the site footer. Changing the URL or phone here updates every page automatically."
         fields:
-          - { label: Site Name, name: name, widget: string }
-          - { label: Site URL, name: url, widget: string }
-          - { label: Phone (E.164), name: phone, widget: string, hint: "e.g. +18563104483" }
-          - { label: Email, name: email, widget: string }
+          - { label: Site Name, name: name, widget: string, hint: "Shown in browser tab titles and OG share cards." }
+          - { label: Site URL, name: url, widget: string, hint: "Full URL with https://, no trailing slash. e.g. https://www.lceducationconsulting.com" }
+          - { label: Phone (E.164), name: phone, widget: string, hint: "Used in structured data only. Format: +1XXXXXXXXXX e.g. +18563104483" }
+          - { label: Email, name: email, widget: string, hint: "Used in structured data and JSON-LD schema." }
           - { label: City, name: city, widget: string }
-          - { label: State, name: state, widget: string }
-          - { label: Country, name: country, widget: string }
-          - { label: Founding Year, name: foundingDate, widget: string }
+          - { label: State, name: state, widget: string, hint: "Two-letter abbreviation, e.g. NJ" }
+          - { label: Country, name: country, widget: string, hint: "Two-letter code, e.g. US" }
+          - { label: Founding Year, name: foundingDate, widget: string, hint: "Four-digit year, e.g. 2014" }
           - { label: Founder Name, name: founder, widget: string }
 
       - name: office
         label: Office / Contact Info
         file: src/_data/office.json
+        hint: "Appears in the Contact page info cards, the contact form footer, and the Contact Success page. Update here to change it everywhere at once."
         fields:
-          - { label: Heading, name: heading, widget: string }
-          - { label: Location, name: location, widget: string }
-          - { label: Phone (display), name: phone, widget: string }
-          - { label: Phone (href), name: phone_href, widget: string, hint: "e.g. tel:8563104483" }
-          - { label: Email, name: email, widget: string }
-          - { label: Email (href), name: email_href, widget: string, hint: "e.g. mailto:laura@..." }
-          - { label: Google Maps URL, name: map_url, widget: string }
+          - { label: Heading, name: heading, widget: string, hint: "Displayed as the office section heading on the Contact page." }
+          - { label: Location, name: location, widget: string, hint: "City and state, e.g. Collingswood, New Jersey" }
+          - { label: Phone (display), name: phone, widget: string, hint: "The phone number shown as text, e.g. 856-310-4483" }
+          - { label: Phone (href), name: phone_href, widget: string, hint: "The tel: link value for the phone button. e.g. tel:8563104483" }
+          - { label: Email, name: email, widget: string, hint: "Displayed as the clickable email address." }
+          - { label: Email (href), name: email_href, widget: string, hint: "The mailto: link value. e.g. mailto:laura@lceducationconsulting.com" }
+          - { label: Google Maps URL, name: map_url, widget: string, hint: "Full Google Maps share URL for the Map button on the Contact page." }
 
       - name: announcement
         label: Announcement Bar
         file: src/_data/announcement.json
+        hint: "The slim banner at the very top of every page. Keep it short — one or two sentences. Supports basic HTML like <br> and <strong>."
         fields:
-          - { label: Announcement Text, name: announcement, widget: text, hint: "HTML allowed. Use <br> for line breaks." }
+          - { label: Announcement Text, name: announcement, widget: text, hint: "Appears in the top announcement bar on every page. HTML is allowed — use <br> for line breaks, <strong> for bold." }
 
       - name: cta
         label: Global CTA Block
         file: src/_data/cta.json
+        hint: "The call-to-action section that appears at the bottom of most pages (Our Story, Accessibility Services, Webinars, Contact, Why Choose Us). The Portfolio and Contact Success pages have their own separate CTAs — edit those under Pages."
         fields:
-          - { label: Heading, name: heading, widget: string }
-          - { label: Subheading, name: subheading, widget: string }
+          - { label: Heading, name: heading, widget: string, hint: "Large heading text in the green CTA block." }
+          - { label: Subheading, name: subheading, widget: string, hint: "Smaller text below the heading." }
           - { label: Button Text, name: button_text, widget: string }
-          - { label: Button URL, name: button_url, widget: string }
+          - { label: Button URL, name: button_url, widget: string, hint: "Full URL for the button link. e.g. https://calendar.app.google/..." }
+
+      - name: navigation
+        label: Navigation
+        file: src/_data/navigation.json
+        hint: "Controls both the desktop header nav and the mobile slide-out menu. Changes here update both menus automatically."
+        fields:
+          - label: Nav Links
+            name: links
+            widget: list
+            hint: "Order here is the order links appear in the nav bar."
+            fields:
+              - { label: Text, name: text, widget: string, hint: "The visible link label." }
+              - { label: URL, name: url, widget: string, required: false, hint: "Leave blank if this is a dropdown parent." }
+              - { label: External Link, name: external, widget: boolean, default: false, required: false, hint: "Enable for links that go to other websites — opens in a new tab." }
+              - { label: Is Dropdown, name: dropdown, widget: boolean, default: false, required: false, hint: "Enable to make this a dropdown menu with child links below." }
+              - { label: Dropdown ID, name: id, widget: string, required: false, hint: "Unique ID for the dropdown element, e.g. nav-services-dropdown. Required if Is Dropdown is on." }
+              - label: Dropdown Children
+                name: children
+                widget: list
+                required: false
+                hint: "Child links shown in the dropdown. Only used when Is Dropdown is enabled."
+                fields:
+                  - { label: Text, name: text, widget: string }
+                  - { label: URL, name: url, widget: string }
 
   # ── Testimonials ─────────────────────────────────────────────────────────────
   - name: testimonials
     label: Testimonials
-    file: src/_data/testimonials.json
-    fields:
-      - label: Testimonials
-        name: items
-        widget: list
+    hint: "Testimonials pulled from this list appear on the Homepage and Why Choose Us page as pull quotes."
+    files:
+      - name: testimonials
+        label: Testimonials
+        file: src/_data/testimonials.json
+        hint: "Add, edit, or reorder client testimonials here. The Full Quote appears on Why Choose Us; the Short Quote is used in condensed pull quote blocks."
         fields:
-          - { label: ID, name: id, widget: string, hint: "Unique slug, e.g. acp-mksap" }
-          - { label: Attribution, name: attribution, widget: string }
-          - { label: Full Quote, name: text, widget: text }
-          - { label: Short Quote, name: short, widget: text, hint: "Used in condensed testimonial blocks" }
+          - label: Testimonials
+            name: items
+            widget: list
+            fields:
+              - { label: ID, name: id, widget: string, hint: "Unique slug used internally to reference this testimonial. Use lowercase with dashes, e.g. acp-mksap" }
+              - { label: Attribution, name: attribution, widget: string, hint: "Client name and/or organization — shown below the quote." }
+              - { label: Full Quote, name: text, widget: text, hint: "The complete testimonial text. Appears on the Why Choose Us page." }
+              - { label: Short Quote, name: short, widget: text, hint: "A condensed version of the quote. Used in the pull quote block on the Homepage and other pages." }
 
   # ── Pages ────────────────────────────────────────────────────────────────────
   - name: pages
     label: Pages
+    hint: "Edit the content of each page on the site. SEO fields (Title, Description) are used for browser tab text and search engine previews."
     files:
 
       - name: homepage
         label: Homepage
         file: src/index.md
+        hint: "The main landing page at lceducationconsulting.com. Contains the hero section, announcement block, stats, and a pull quote."
         fields:
-          - { label: Description, name: description, widget: string }
+          - { label: Description, name: description, widget: string, hint: "SEO meta description — shown in Google search results. Keep under 160 characters." }
           - label: Hero
             name: hero
             widget: object
+            hint: "The large banner section at the top of the homepage with the logo, headline, and CTA buttons."
             fields:
-              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Eyebrow, name: eyebrow, widget: string, hint: "Small text above the main heading, e.g. 'Welcome'" }
+              - { label: Heading, name: heading, widget: string, hint: "The main H1 headline." }
+              - { label: Subheading, name: subheading, widget: text, hint: "Supporting text below the headline." }
+              - { label: Primary CTA Text, name: cta_primary_text, widget: string, hint: "Text on the first (primary) button." }
+              - { label: Primary CTA URL, name: cta_primary_url, widget: string, hint: "URL for the primary button — use full URL for external links." }
+              - { label: Secondary CTA Text, name: cta_secondary_text, widget: string, hint: "Text on the second button." }
+              - { label: Secondary CTA URL, name: cta_secondary_url, widget: string, hint: "URL for the secondary button — use a relative path for internal pages, e.g. /accessibility-services/" }
+          - label: Announcement Block
+            name: announcement
+            widget: object
+            hint: "The blue 'ADA Title II' section on the homepage — separate from the top announcement bar. Edit the top bar under Settings > Announcement Bar."
+            fields:
               - { label: Heading, name: heading, widget: string }
-              - { label: Subheading, name: subheading, widget: text }
-              - { label: Primary CTA Text, name: cta_primary_text, widget: string }
-              - { label: Primary CTA URL, name: cta_primary_url, widget: string }
-              - { label: Secondary CTA Text, name: cta_secondary_text, widget: string }
-              - { label: Secondary CTA URL, name: cta_secondary_url, widget: string }
-          - { label: Stats Heading, name: stats_heading, widget: string }
+              - { label: Subheading, name: subheading, widget: string }
+              - { label: Body, name: body, widget: string }
+              - { label: Link Text, name: link_text, widget: string, hint: "Text for the 'learn more' button." }
+              - { label: Link URL, name: link_url, widget: string, hint: "Full URL for the link button." }
+          - { label: Stats Heading, name: stats_heading, widget: string, hint: "Heading above the three statistics." }
           - label: Stats
             name: stats
             widget: list
+            hint: "The three data points in the stats grid (e.g. 98%, April 2026, 30–40%)."
             fields:
-              - { label: Value, name: value, widget: string }
-              - { label: Label, name: label, widget: string }
+              - { label: Value, name: value, widget: string, hint: "The large number or date shown prominently." }
+              - { label: Label, name: label, widget: string, hint: "The description below the value." }
           - label: Pull Quote
             name: quote
             widget: object
+            hint: "The testimonial pull quote shown in the dark quote section. To change whose quote appears here, update the Short Quote in the Testimonials section."
             fields:
-              - { label: Text, name: text, widget: text }
-              - { label: Attribution, name: attribution, widget: string }
+              - { label: Text, name: text, widget: text, hint: "The quote text — no quotation marks needed, they are added automatically." }
+              - { label: Attribution, name: attribution, widget: string, hint: "Name/organization shown below the quote." }
 
       - name: our-story
         label: Our Story
         file: src/content/our-story.md
+        hint: "The Our Story page — covers the founding history and philosophy blocks (Mission, Vision)."
         fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: string }
+          - { label: Title, name: title, widget: string, hint: "Browser tab and SEO page title." }
+          - { label: Description, name: description, widget: string, hint: "SEO meta description. Keep under 160 characters." }
           - label: Intro
             name: intro
             widget: object
+            hint: "The blue intro section at the top of the page."
             fields:
               - { label: Heading, name: heading, widget: string }
               - label: Body Paragraphs
                 name: body
                 widget: list
+                hint: "Each item is one paragraph. Add more items to add more paragraphs."
                 field: { label: Paragraph, name: item, widget: text }
           - label: Philosophy Section
             name: philosophy
             widget: object
+            hint: "The content blocks section with image cards for Mission, Vision, etc."
             fields:
-              - { label: Heading, name: heading, widget: string }
+              - { label: Heading, name: heading, widget: string, hint: "Section heading above the content blocks, e.g. 'Our Philosophy'" }
               - label: Blocks
                 name: blocks
                 widget: list
+                hint: "Each block is a card with a heading, image, and description. Typically Mission and Vision."
                 fields:
-                  - { label: Heading, name: heading, widget: string }
-                  - { label: Image, name: image, widget: image }
-                  - { label: Body, name: body, widget: text }
+                  - { label: Heading, name: heading, widget: string, hint: "Card heading, e.g. 'Our Mission'" }
+                  - { label: Image, name: image, widget: image, hint: "Upload an image for this card. Recommended size: 800×530px." }
+                  - { label: Body, name: body, widget: text, hint: "The descriptive paragraph for this card." }
 
       - name: why-choose-us
         label: Why Choose Us
         file: src/content/why-choose-us.md
+        hint: "The Why Choose Us page — Laura's background, credentials list, and a client pull quote."
         fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: string }
+          - { label: Title, name: title, widget: string, hint: "Browser tab and SEO page title." }
+          - { label: Description, name: description, widget: string, hint: "SEO meta description. Keep under 160 characters." }
           - label: Page Title
             name: page_title
             widget: object
+            hint: "The large heading shown at the top of the page."
             fields:
               - { label: Heading, name: heading, widget: string }
-              - { label: Subheading, name: subheading, widget: string }
+              - { label: Subheading, name: subheading, widget: string, hint: "Displayed below the main heading in a smaller style." }
           - label: Body Paragraphs
             name: body
             widget: list
+            hint: "The introductory paragraphs about Laura's background. Each item is one paragraph."
             field: { label: Paragraph, name: item, widget: text }
-          - { label: Credentials Heading, name: credentials_heading, widget: string }
+          - { label: Credentials Heading, name: credentials_heading, widget: string, hint: "Heading above the bullet-point credentials list, e.g. 'Professional Background'" }
           - label: Credentials
             name: credentials
             widget: list
+            hint: "Each item is one bullet point in the credentials list."
             field: { label: Credential, name: item, widget: string }
           - label: Pull Quote
             name: quote
             widget: object
+            hint: "The client testimonial shown in the quote section at the bottom of the page."
             fields:
-              - { label: Text, name: text, widget: text }
+              - { label: Text, name: text, widget: text, hint: "Quote text — no quotation marks needed." }
               - { label: Attribution, name: attribution, widget: string }
 
       - name: accessibility-services
         label: Accessibility Services
         file: src/content/accessibility-services.md
+        hint: "The Accessibility Services page — intro section and the list of service cards (Audits, VPAT, PDF Remediation, etc.)."
         fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: string }
+          - { label: Title, name: title, widget: string, hint: "Browser tab and SEO page title." }
+          - { label: Description, name: description, widget: string, hint: "SEO meta description. Keep under 160 characters." }
           - label: Intro
             name: intro
             widget: object
+            hint: "The blue intro section at the top of the page."
             fields:
               - { label: Heading, name: heading, widget: string }
               - { label: Subheading, name: subheading, widget: string }
-          - { label: Services Section Heading, name: services_heading, widget: string }
+          - { label: Services Section Heading, name: services_heading, widget: string, hint: "Heading above the service cards, e.g. 'Accessibility Services'" }
           - label: Services
             name: services
             widget: list
+            hint: "Each item is one service card with a heading, description, bullet-point features, and an optional case study label."
             fields:
-              - { label: Heading, name: heading, widget: string }
-              - { label: Description, name: description, widget: text }
+              - { label: Heading, name: heading, widget: string, hint: "Service name, e.g. 'Digital Accessibility Audits'" }
+              - { label: Description, name: description, widget: text, hint: "Short paragraph describing the service." }
               - label: Features
                 name: features
                 widget: list
+                hint: "Bullet points listing what's included in this service."
                 field: { label: Feature, name: item, widget: string }
-              - { label: Case Study Label, name: case_study, widget: string, required: false }
+              - { label: Case Study Label, name: case_study, widget: string, required: false, hint: "Optional. Shown as a case study reference at the bottom of the card, e.g. 'Case Study: ACP MKSAP'" }
 
       - name: webinars-and-training
         label: Webinars & Training
         file: src/content/webinars-and-training.md
+        hint: "The Webinars & Training page — intro section and training topic cards."
         fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: string }
+          - { label: Title, name: title, widget: string, hint: "Browser tab and SEO page title." }
+          - { label: Description, name: description, widget: string, hint: "SEO meta description. Keep under 160 characters." }
           - label: Intro
             name: intro
             widget: object
+            hint: "The blue intro section at the top of the page."
             fields:
               - { label: Heading, name: heading, widget: string }
-              - { label: Subheading, name: subheading, widget: text }
+              - { label: Subheading, name: subheading, widget: text, hint: "Longer descriptive text for this section." }
           - label: Training Topics
             name: trainings
             widget: list
+            hint: "Each item is one training topic with a heading and description. Displayed in the content layout beside the photo."
             fields:
-              - { label: Heading, name: heading, widget: string }
-              - { label: Description, name: description, widget: text }
+              - { label: Heading, name: heading, widget: string, hint: "Topic name, e.g. 'Assistive Technology'" }
+              - { label: Description, name: description, widget: text, hint: "One to two sentences describing this training topic." }
 
       - name: portfolio
         label: Portfolio
         file: src/content/portfolio.md
+        hint: "The Portfolio page — intro, featured project cards, and a page-specific CTA (separate from the global CTA in Settings)."
         fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: string }
+          - { label: Title, name: title, widget: string, hint: "Browser tab and SEO page title." }
+          - { label: Description, name: description, widget: string, hint: "SEO meta description. Keep under 160 characters." }
           - label: Page Title
             name: page_title
             widget: object
+            hint: "The large heading shown at the top of the page."
             fields:
               - { label: Heading, name: heading, widget: string }
-          - { label: Intro Body, name: intro_body, widget: text }
-          - { label: Projects Section Heading, name: projects_heading, widget: string }
+          - { label: Intro Body, name: intro_body, widget: text, hint: "The introductory paragraph in the blue section at the top of the page." }
+          - { label: Projects Section Heading, name: projects_heading, widget: string, hint: "Heading above the project cards grid, e.g. 'Featured Projects'" }
           - label: Projects
             name: projects
             widget: list
+            hint: "Each item is one project card shown in the portfolio grid."
             fields:
-              - { label: Title, name: title, widget: string }
-              - { label: Image, name: image, widget: image }
+              - { label: Title, name: title, widget: string, hint: "Project name — shown as caption below the image." }
+              - { label: Image, name: image, widget: image, hint: "Upload a project screenshot or cover image. Recommended size: 800×533px (3:2 ratio)." }
           - label: CTA
             name: cta
             widget: object
+            hint: "The call-to-action block at the bottom of the Portfolio page. This overrides the global CTA — edit the global default under Settings > Global CTA Block."
             fields:
-              - { label: Heading, name: cta_heading, name: heading, widget: string }
+              - { label: Heading, name: heading, widget: string }
               - { label: Subheading, name: subheading, widget: string }
               - { label: Button Text, name: button_text, widget: string }
-              - { label: Button URL, name: button_url, widget: string }
+              - { label: Button URL, name: button_url, widget: string, hint: "Full URL for the button. e.g. https://calendar.app.google/..." }
+
+      - name: contact-success
+        label: Contact Success
+        file: src/content/contact-success.md
+        hint: "The page shown after a contact form submission. Contains a thank-you message and a CTA to schedule a call."
+        fields:
+          - { label: Title, name: title, widget: string, hint: "Browser tab and SEO page title." }
+          - { label: Description, name: description, widget: string, hint: "SEO meta description. Keep under 160 characters." }
+          - label: Page Title
+            name: page_title
+            widget: object
+            hint: "The large heading shown at the top of the page."
+            fields:
+              - { label: Heading, name: heading, widget: string, hint: "e.g. 'Message Sent'" }
+          - { label: Body (paragraph 1), name: body1, widget: text, hint: "First paragraph — typically a thank-you confirmation." }
+          - { label: Body (paragraph 2), name: body2, widget: text, hint: "Second paragraph — optional follow-up, e.g. scheduling suggestion." }
+          - label: CTA
+            name: cta
+            widget: object
+            hint: "The call-to-action block shown below the thank-you message on this page only."
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Subheading, name: subheading, widget: string }
+              - { label: Button Text, name: button_text, widget: string }
+              - { label: Button URL, name: button_url, widget: string, hint: "Full URL for the button. e.g. https://calendar.app.google/..." }
 
       - name: contact
         label: Contact
         file: src/content/contact.md
+        hint: "The Contact page — intro text, contact info section headings, and form labels. The actual contact info (phone, email, location) is edited under Settings > Office / Contact Info."
         fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: string }
+          - { label: Title, name: title, widget: string, hint: "Browser tab and SEO page title." }
+          - { label: Description, name: description, widget: string, hint: "SEO meta description. Keep under 160 characters." }
           - label: Page Title
             name: page_title
             widget: object
+            hint: "The large heading at the top of the page."
             fields:
-              - { label: Heading, name: heading, widget: string }
-          - { label: Intro Heading, name: intro_heading, widget: string }
+              - { label: Heading, name: heading, widget: string, hint: "e.g. 'Start a Conversation'" }
+          - { label: Intro Heading, name: intro_heading, widget: string, hint: "Heading above the introductory paragraphs." }
           - label: Intro Body Paragraphs
             name: intro_body
             widget: list
+            hint: "Each item is one introductory paragraph above the contact form."
             field: { label: Paragraph, name: item, widget: text }
           - label: Contact Section
             name: contact_section
             widget: object
+            hint: "The section heading above the Office / Phone / Email info cards."
             fields:
-              - { label: Heading, name: heading, widget: string }
+              - { label: Heading, name: heading, widget: string, hint: "e.g. 'Contact Us'" }
           - label: Form
             name: form
             widget: object
+            hint: "Text content inside the contact form itself."
             fields:
-              - { label: Heading, name: heading, widget: string }
-              - { label: Privacy Text, name: privacy_text, widget: string }
+              - { label: Heading, name: heading, widget: string, hint: "Heading displayed at the top of the form, e.g. 'Let's Talk About Your Needs'" }
+              - { label: Privacy Text, name: privacy_text, widget: string, hint: "Privacy notice shown below the submit button." }
