@@ -1,43 +1,33 @@
-# IDE & Editor
-.vscode/
-.idea/
-*.code-workspace
-*.swp
-*.swo
-*~
-
-# OS
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# Empty/Unused directories
-assets/
-public/
-docs/
-scripts/
-
 # Node
 node_modules/
-npm-debug.log
-yarn-error.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Build output
+# 11ty output
 dist/
+_site/
 
-# Sass cache
-.sass-cache/
-*.css.map
+# Local env files
+.env
+.env.*
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
 
 # Logs
 *.log
 
-# OS temp files
-.temporary/
+# Temporary files
+.tmp/
 .cache/
 
-# Claude Code
-.claude/
+# Netlify (if used)
+.netlify/
 
-# Misc
-TODO.md
+# GitHub Pages artifacts (Actions handles these)
+.github/pages/
