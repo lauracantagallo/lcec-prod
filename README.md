@@ -170,11 +170,11 @@ This project uses two repositories for separate environments:
 | Repo | Branch | Host | URL |
 | ---- | ------ | ---- | --- |
 | `lcec-prod` | `main` | GitHub Pages | Custom domain (production) |
-| `lcec-dev` | `dev` | Netlify | Staging URL |
+| `lcec-dev` | `main` | Netlify | Staging URL |
 
 **Production** deploys automatically on push to `main` via `.github/workflows/pages-main.yml`.
 
-**Staging** deploys automatically on push to `dev` via Netlify's branch deploy.
+**Staging** deploys automatically on push to `main` via Netlify's branch deploy.
 
 Netlify features in use on staging (`lcec-dev`):
 
