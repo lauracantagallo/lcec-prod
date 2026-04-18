@@ -1,8 +1,10 @@
-[
-  {
-    "id": "acp-mksap",
-    "attribution": "American College of Physicians, ACP MKSAP Team",
-    "text": "ACP (American College of Physicians) worked with Laura to conduct an accessibility review of our cross-platform digital product, ACP MKSAP, not only to comply with customer requests for a VPAT, but to better serve our users. She met with our team, took the time to understand our product, and then conducted the full review using a combination of automated and manual testing, including the use of multiple different screen readers. Her turnaround time was prompt and the results were well organized into a prioritized to-do list that allowed our team to tackle the most important problems first. We plan to continue working with Laura as we make further improvements to our software or add new features, and we would enthusiastically recommend her to other organizations with similar needs.",
-    "short": "Her turnaround time was prompt and the results were well organized into a prioritized to-do list that helped our team address the most important issues first."
-  }
-]
+{
+  "items": [
+    {
+      "id": "acp-mksap",
+      "attribution": "American College of Physicians, ACP MKSAP Team",
+      "text": "ACP (American College of Physicians) worked with Laura to conduct an accessibility review of our cross-platform digital product, ACP MKSAP, not only to comply with customer requests for a VPAT, but to better serve our users. She met with our team, took the time to understand our product, and then conducted the full review using a combination of automated and manual testing, including the use of multiple different screen readers. Her turnaround time was prompt and the results were well organized into a prioritized to-do list that allowed our team to tackle the most important problems first. We plan to continue working with Laura as we make further improvements to our software or add new features, and we would enthusiastically recommend her to other organizations with similar needs.",
+      "short": "Her turnaround time was prompt and the results were well organized into a prioritized to-do list that helped our team address the most important issues first."
+    }
+  ]
+}

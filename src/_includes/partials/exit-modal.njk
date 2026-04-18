@@ -1,12 +1,12 @@
-<div class="exit-modal" id="exit-modal" role="dialog" aria-modal="true" aria-labelledby="exit-modal-title">
+<div class="exit-modal" id="exit-modal" role="dialog" aria-labelledby="exit-modal-title" tabindex="-1">
   <div class="exit-modal__panel">
     <h2 class="exit-modal__title" id="exit-modal-title"></h2>
     <p class="exit-modal__message" id="exit-modal-message"></p>
     <p class="exit-modal__hint" id="exit-modal-hint" hidden></p>
     <p class="exit-modal__countdown" id="exit-modal-countdown"></p>
     <div class="exit-modal__actions">
-      <button class="exit-modal__go">Continue</button>
-      <button class="exit-modal__cancel">Cancel</button>
+      <button class="exit-modal__go" aria-describedby="exit-modal-message">Continue</button>
+      <button class="exit-modal__cancel" aria-describedby="exit-modal-message">Cancel</button>
     </div>
   </div>
 </div>

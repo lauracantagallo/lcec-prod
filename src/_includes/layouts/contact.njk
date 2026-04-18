@@ -11,17 +11,17 @@ layout: base.njk
   <div class="container">
     <div class="content-blocks__grid content-blocks__grid--cols-3">
       <article class="content-blocks__block">
-        <h3 class="content-blocks__block-heading">Office</h3>
+        <h2 class="content-blocks__block-heading">Office</h2>
         <p>{{ office.location }}</p>
         <a href="{{ office.map_url }}" class="btn btn--outline">Map</a>
       </article>
       <article class="content-blocks__block">
-        <h3 class="content-blocks__block-heading">Phone</h3>
+        <h2 class="content-blocks__block-heading">Phone</h2>
         <p><a href="{{ office.phone_href }}">{{ office.phone }}</a></p>
         <a href="{{ office.phone_href }}" class="btn btn--outline">Call Now</a>
       </article>
       <article class="content-blocks__block">
-        <h3 class="content-blocks__block-heading">Email</h3>
+        <h2 class="content-blocks__block-heading">Email</h2>
         <p><a href="{{ office.email_href }}">{{ office.email }}</a></p>
         <a href="{{ office.email_href }}" class="btn btn--outline">Email</a>
       </article>
@@ -46,12 +46,12 @@ layout: base.njk
     <div role="status" aria-live="polite" aria-atomic="true"></div>
     <form class="contact-form" name="contact" action="/contact-success/" method="post" netlify data-netlify-honeypot="bot-field" data-netlify-recaptcha="true" novalidate>
       <input type="hidden" name="form-name" value="contact" />
-      <h2 class="section-heading">{{ form.heading }}</h2>
+      <h3 class="section-heading">{{ form.heading }}</h3>
 
       <p class="form-required-note">All fields marked with * are required.</p>
 
       {# Honeypot — hidden from real users, used by Netlify spam filtering #}
-      <input type="text" name="bot-field" autocomplete="off" tabindex="-1" value="" />
+      <input type="text" name="bot-field" autocomplete="off" tabindex="-1" value="" hidden />
 
       <div class="form-field">
         <label class="form-label" for="org-name">Organization Name <span aria-hidden="true">*</span></label>
@@ -116,7 +116,7 @@ layout: base.njk
 
       <button type="submit" class="btn btn--outline">Send</button>
 
-      <p class="form-privacy">This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply.</p>
+      <p class="form-privacy">This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a> apply.</p>
 
       <p class="form-privacy">{{ form.privacy_text }}</p>
     </form>

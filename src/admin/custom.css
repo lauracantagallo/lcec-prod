@@ -1,0 +1,150 @@
+/*
+  Decap CMS — LC Education Consulting branding overrides
+  Replaces default blue (#4e5d8a / #798bc1) with site olive green (#556b2f / #364519)
+  and improves focus/contrast for WCAG 2.2 AA compliance.
+*/
+
+/* ── Color tokens ─────────────────────────────────────────────────────────── */
+:root {
+  --lcec-green:       #556b2f;
+  --lcec-green-dark:  #364519;
+  --lcec-green-light: #e3fcc2;
+  --lcec-focus:       2px solid #364519;
+}
+
+/* ── Primary action buttons ──────────────────────────────────────────────── */
+[class*="button-"] [class*="isPrimary"],
+button[class*="isPrimary"],
+[data-testid="save-button"],
+[class*="ToolbarButton"] button[class*="active"],
+[class*="AppHeaderButton"],
+[class*="PublishedToolbarButton"] {
+  background-color: var(--lcec-green) !important;
+  border-color: var(--lcec-green) !important;
+}
+
+[class*="button-"] [class*="isPrimary"]:hover,
+button[class*="isPrimary"]:hover,
+[data-testid="save-button"]:hover {
+  background-color: var(--lcec-green-dark) !important;
+  border-color: var(--lcec-green-dark) !important;
+}
+
+/* ── Links and active states ─────────────────────────────────────────────── */
+a,
+[class*="NavLink"][class*="isActive"],
+[class*="CollectionLink"][class*="isActive"] {
+  color: var(--lcec-green) !important;
+}
+
+[class*="NavLink"]:hover,
+[class*="CollectionLink"]:hover,
+[class*="sidebar"] a:hover,
+[class*="Sidebar"] a:hover,
+[class*="sidebar"] button:hover,
+[class*="Sidebar"] button:hover,
+nav a:hover,
+nav button:hover,
+header button:hover,
+header [role="button"]:hover {
+  background-color: #c8dfa0 !important;
+  color: var(--lcec-green-dark) !important;
+}
+
+/* ── Sidebar / nav background ────────────────────────────────────────────── */
+[class*="Sidebar"],
+[class*="sidebar"] {
+  background-color: #f7f9f3 !important;
+  border-right: 1px solid #d6e4b8 !important;
+}
+
+[class*="NavLink"][class*="isActive"],
+[class*="CollectionLink"][class*="isActive"] {
+  background-color: var(--lcec-green-light) !important;
+  border-left: 3px solid var(--lcec-green) !important;
+}
+
+/* ── App header bar ──────────────────────────────────────────────────────── */
+[class*="AppHeader"],
+[class*="app-header"] {
+  background-color: var(--lcec-green) !important;
+}
+
+[class*="AppHeader"] * {
+  color: #ffffff !important;
+}
+
+/* ── Logo in CMS header ──────────────────────────────────────────────────── */
+[class*="AppHeaderContent"] img,
+[class*="logo"] img {
+  max-height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ── Focus indicators — WCAG 2.2 AA ─────────────────────────────────────── */
+*:not(input):not(textarea):not(select):not(a):not(button):focus-visible {
+  outline: var(--lcec-focus) !important;
+  outline-offset: 2px !important;
+}
+
+/* All interactive elements — inset box-shadow can't be clipped by overflow:hidden */
+a:focus-visible,
+button:focus-visible {
+  outline: none !important;
+  box-shadow: inset 0 0 0 2px var(--lcec-green-dark) !important;
+  border-radius: 0.3em;
+}
+
+/* Modal close button — restore whatever radius Decap had */
+dialog button:focus-visible,
+[role="dialog"] button:focus-visible {
+  border-radius: revert !important;
+}
+
+/* Header — override to white so the ring is visible on the olive background */
+header a:focus-visible,
+header button:focus-visible {
+  box-shadow: inset 0 0 0 2px #ffffff !important;
+}
+
+/* ── Login page (Netlify Identity Widget) ────────────────────────────────── */
+/* The login modal is rendered by netlify-identity-widget.js */
+.netlify-identity-modal,
+[class*="modal-container"] {
+  border-top: 4px solid var(--lcec-green) !important;
+}
+
+[class*="modal-title"],
+.netlify-identity-modal h2 {
+  color: var(--lcec-green) !important;
+}
+
+button.btn-success,
+button[type="submit"] {
+  background-color: var(--lcec-green) !important;
+  border-color: var(--lcec-green-dark) !important;
+}
+
+button.btn-success:hover,
+button[type="submit"]:hover {
+  background-color: var(--lcec-green-dark) !important;
+}
+
+/* ── Checkbox / radio accent ─────────────────────────────────────────────── */
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--lcec-green);
+}
+
+/* ── Selected text ───────────────────────────────────────────────────────── */
+::selection {
+  background-color: var(--lcec-green-light);
+  color: #151515;
+}
+
+/* ── Scrollbar (Chrome/Edge) ─────────────────────────────────────────────── */
+::-webkit-scrollbar-thumb {
+  background-color: var(--lcec-green);
+}
+

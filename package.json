@@ -6,6 +6,8 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "concurrently \"npm run dev:11ty\" \"npm run dev:sass\" \"npm run dev:js\"",
+    "dev:cms": "concurrently \"npm run dev:11ty\" \"npm run dev:sass\" \"npm run dev:js\" \"npm run dev:decap\"",
+    "dev:decap": "decap-server",
     "dev:11ty": "eleventy --serve --incremental --port 8080",
     "dev:sass": "sass src/scss/main.scss dist/css/main.css --watch --style=expanded --source-map",
     "dev:js": "node build/js.js --watch",
@@ -22,6 +24,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
     "concurrently": "^9.0.0",
+    "decap-server": "^3.6.0",
     "esbuild": "^0.25.0",
     "html-minifier-terser": "^7.2.0",
     "sass": "^1.99.0"
