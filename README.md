@@ -1,6 +1,6 @@
 # LC Education Consulting — Website
 
-Source repository for the LC Education Consulting website, built with Eleventy, Sass, and esbuild. Deployed via Netlify.
+Source repository for the LC Education Consulting website, built with Eleventy, Sass, and esbuild.
 
 ## Tech Stack
 
@@ -11,8 +11,8 @@ Source repository for the LC Education Consulting website, built with Eleventy, 
 | CSS | Sass (SCSS) → compiled to `dist/css/main.css` |
 | JavaScript | esbuild → compiled to `dist/js/main.js` |
 | Forms | Netlify Forms with reCAPTCHA |
-| Fonts | Google Fonts CDN — Lato 400 & 700 only |
-| Analytics | Umami (replace `YOUR_WEBSITE_ID` in `head.njk`) |
+| Fonts | Self-hosted — Lato 400 & 700 (woff2) |
+| Analytics | Umami (optional — set `umamiId` in `src/_data/site.json`) |
 
 ## Project Structure
 
@@ -56,10 +56,15 @@ lcec/
 │   │   ├── _utilities.scss        # Utility classes and external link icon
 │   │   └── _cookie-banner.scss    # Cookie banner styles
 │   ├── js/
-│   │   └── main.js                # Nav, cookie banner, form validation, external links
+│   │   ├── main.js                # Nav, cookie banner, form validation, external links
+│   │   └── utils/
+│   │       ├── dom.js             # toggleClass, setAria, onEscape helpers
+│   │       └── form.js            # formatPhoneNumber helper
 │   ├── img/                       # Images (copied to dist/img at build)
 │   ├── static/
-│   │   └── _headers               # Netlify HTTP headers config
+│   │   ├── _headers               # HTTP headers config (Netlify / Cloudflare)
+│   │   ├── robots.txt
+│   │   └── fonts/                 # Self-hosted Lato woff2 files
 │   └── content/
 │       ├── index.md               # Homepage content (frontmatter data)
 │       ├── our-story.md
@@ -97,7 +102,7 @@ Runs three watchers in parallel:
 
 - Eleventy dev server at `http://localhost:8080`
 - Sass (expanded, with source maps)
-- esbuild (unminified, with source maps)
+- esbuild (unminified, with inline source maps)
 
 ## Production Build
 
@@ -106,9 +111,9 @@ npm run build
 ```
 
 1. Cleans `dist/`
-2. Eleventy compiles templates → minifies HTML (removes comments, collapses whitespace)
+2. Eleventy compiles templates → minifies HTML (removes comments, collapses whitespace, minifies inline CSS/JS)
 3. Sass compiles → compressed CSS (comments stripped)
-4. esbuild bundles → minified JS (comments stripped)
+4. esbuild bundles → minified JS (no source maps)
 
 ## Design Tokens
 
@@ -128,7 +133,16 @@ Key tokens:
 
 ## Deployment
 
-The site deploys to Netlify. Build command: `npm run build`. Publish directory: `dist/`.
+This project uses two repositories for separate environments:
+
+| Repo | Branch | Host | URL |
+| ---- | ------ | ---- | --- |
+| `lc-prod` | `main` | GitHub Pages | Custom domain (production) |
+| `lc-dev` | `dev` | Netlify | Staging URL |
+
+**Production** deploys automatically on push to `main` via `.github/workflows/pages-main.yml`.
+
+**Staging** deploys automatically on push to `dev` via Netlify's branch deploy.
 
 Netlify features in use:
 
@@ -137,7 +151,6 @@ Netlify features in use:
 
 ## Notes
 
-- Umami analytics ID must be set in `src/_includes/partials/head.njk` (search `YOUR_WEBSITE_ID`)
+- To enable Umami analytics, add `"umamiId": "your-id-here"` to `src/_data/site.json`
 - `site.url` is defined in both `.eleventy.js` (as `addGlobalData`) and `src/_data/site.json` — keep these in sync
-
-
+- `PATH_PREFIX` env var is set in the GitHub Actions workflow to match the Pages deployment path; change to `/` when deploying to a custom domain
