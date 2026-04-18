@@ -18,8 +18,8 @@ announcement:
   link_url: "https://www.ada.gov/resources/web-rule-first-steps/"
 stats_heading: "Most Organizations Don't Know They Have Accessibility Gaps."
 stats:
-  - value: "98%"
-    label: "of websites have detectable WCAG accessibility failures (WebAIM)"
+  - value: "95.9%"
+    label: "of home pages had detectable WCAG failures in 2026 (WebAIM Million)"
   - value: "April 2027"
     label: "ADA Title II compliance deadline for large public entities (50,000+ population)"
   - value: "30–40%"
