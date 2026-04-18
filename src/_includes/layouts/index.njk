@@ -14,7 +14,7 @@ layout: base.njk
       <h1 class="hero__heading">{{ hero.heading }}</h1>
       <p class="hero__subheading">{{ hero.subheading }}</p>
       <div class="hero__actions">
-        <a href="{{ hero.cta_primary_url }}" class="btn btn--primary" target="_blank" rel="noopener">{{ hero.cta_primary_text }}</a>
+        <a href="{{ hero.cta_primary_url }}" class="btn btn--primary" target="_blank" rel="noopener noreferrer">{{ hero.cta_primary_text }}</a>
         <a href="{{ hero.cta_secondary_url | url }}" class="btn btn--primary">{{ hero.cta_secondary_text }}</a>
       </div>
     </div>
@@ -27,7 +27,7 @@ layout: base.njk
       <h2 class="page-intro__heading text-titlecase">{{ announcement.heading }}</h2>
       <p>{{ announcement.subheading | safe }}</p>
       <p>{{ announcement.body }}</p>
-      <a href="{{ announcement.link_url }}" class="btn btn--ghost" target="_blank" rel="noopener">{{ announcement.link_text }}</a>
+      <a href="{{ announcement.link_url }}" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">{{ announcement.link_text }}</a>
     </div>
   </div>
 </section>
