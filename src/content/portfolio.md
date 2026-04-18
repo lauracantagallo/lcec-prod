@@ -15,5 +15,4 @@ cta:
   heading: "Contact Us"
   subheading: "Ready to get started? Book a Free 30-Minute Discovery Call."
   button_text: "Schedule Call"
-  button_url: "https://calendar.app.google/1HUZPbZWSLjXKS9b6"
 ---
