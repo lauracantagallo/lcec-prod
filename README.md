@@ -20,9 +20,12 @@ Source repository for the LC Education Consulting website, built with Eleventy, 
 lcec/
 ├── src/
 │   ├── _data/
-│   │   ├── site.json              # Global site metadata (URL, phone, email, etc.)
+│   │   ├── site.json              # Global site metadata (URL, phone, email, gaId, etc.)
 │   │   ├── navigation.json        # Nav link data (desktop + mobile navs)
-│   │   └── cta.json               # Default CTA block content
+│   │   ├── cta.json               # Default CTA block content
+│   │   ├── announcement.json      # Announcement bar text (empty string = hidden)
+│   │   ├── office.json            # Office location data
+│   │   └── testimonials.json      # Testimonial content
 │   ├── _includes/
 │   │   ├── layouts/               # Page-level Nunjucks layouts
 │   │   │   ├── base.njk           # Base HTML shell
@@ -76,9 +79,14 @@ lcec/
 │       └── contact-success.md
 ├── build/
 │   ├── js.js                      # esbuild script (minifies on build, watches on dev)
+│   ├── images.js                  # Sharp script — converts src/img/ JPGs to WebP
 │   └── clean.js                   # Cleans dist/ before build
 ├── dist/                          # Compiled output (not committed)
-├── .eleventy.js                   # Eleventy config (HTML minification, passthrough)
+├── .eleventy.js                   # Eleventy config (filters, HTML minification, passthrough)
+├── eslint.config.js               # ESLint flat config (v9) for src/js and build/
+├── .stylelintrc.json              # Stylelint config extending stylelint-config-standard-scss
+├── .husky/
+│   └── pre-commit                 # Runs lint-staged before every commit
 ├── manifest.webmanifest           # PWA manifest
 └── package.json
 ```
@@ -114,6 +122,7 @@ npm run build
 2. Eleventy compiles templates → minifies HTML (removes comments, collapses whitespace, minifies inline CSS/JS)
 3. Sass compiles → compressed CSS (comments stripped)
 4. esbuild bundles → minified JS (no source maps)
+5. Run `npm run build:images` separately to convert `src/img/` JPGs → WebP (Sharp). Only needed when images change.
 
 ## Design Tokens
 
@@ -128,8 +137,19 @@ Key tokens:
 | `$color-primary-light` | `#e3fcc2` | Light green — card backgrounds |
 | `$color-accent` | `#1e4d7b` | Steel blue — banner sections |
 | `$font-size-page-title` | `1.875rem` | Page/section title headings |
-| `$space-4` | `24px` | Standard component spacing |
-| `$space-5` | `32px` | Section-level spacing |
+| `$space-24px` | `24px` | Standard component spacing |
+| `$space-32px` | `32px` | Section-level spacing |
+| `$space-48px` | `48px` | Large section padding |
+
+## Linting
+
+```bash
+npm run lint        # run both JS and CSS linters
+npm run lint:js     # ESLint (flat config v9) — src/js/ and build/
+npm run lint:css    # Stylelint — src/scss/**/*.scss
+```
+
+Pre-commit hooks (Husky + lint-staged) run automatically on staged files before each commit.
 
 ## Deployment
 
@@ -153,4 +173,5 @@ Netlify features in use:
 
 - To enable Google Analytics, set `"gaId": "G-XXXXXXXXXX"` in `src/_data/site.json`
 - `site.url` is defined in both `.eleventy.js` (as `addGlobalData`) and `src/_data/site.json` — keep these in sync
-- `PATH_PREFIX` env var is set in the GitHub Actions workflow to match the Pages deployment path; change to `/` when deploying to a custom domain
+- `PATH_PREFIX` env var is set in `.github/workflows/pages-main.yml`. Set to `/lcec-a11y-rebuild/` for the `mikeyil` GitHub Pages repo; change to `/` when deploying under a custom domain on `lc-prod`
+- A pull request template lives at `.github/pull_request_template.md` — includes accessibility and SEO checklist items
