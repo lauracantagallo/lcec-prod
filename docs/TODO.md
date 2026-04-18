@@ -21,18 +21,11 @@
 
 ## DRY Opportunities
 
-### Critical — Data duplication in front matter
-
-- [ ] **Phone/email/contact info** repeated in `contact.md` and `contact-success.md` front matter; already in `_data/site.json`. Reference `site.phone` etc. in layouts instead.
-- [ ] **CTA block** defined in 6 `.md` files with content nearly identical to `_data/cta.json`. Pages where the CTA matches the default can drop the front matter block entirely — `cta.njk` already falls back to the global data.
-
-### High — SCSS
-
-- [ ] **`.form-input` and `.form-textarea`** share 10 identical properties. A shared base style or `@extend` removes the duplication.
-
-### Medium — Markup
-
-- [ ] **Contact block** (`<h2>`, phone, email) duplicated in `contact.njk` and `contact-success.njk`. Extract to `partials/contact-block.njk`.
+- [x] **Calendar URL** repeated 4× — centralized in `site.json` as `calendar_url`; templates use `{{ cta.button_url or site.calendar_url }}`
+- [x] **`.heading--section` / `.detail-heading`** — shared `%heading-section-base` placeholder in `_typography.scss`; classes now only override the mobile `font-size`
+- [x] **Phone/email in front matter** — never was; layouts already reference `office.*` from `_data/office.json`
+- [x] **`.form-input` / `.form-textarea`** — `%form-field-base` placeholder already existed in `_forms.scss`
+- ~~**Contact block partial**~~ — `contact.njk` and `contact-success.njk` use different section classes and link styles throughout; a partial would require too many parameters to be cleaner than the current two small blocks
 
 ---
 

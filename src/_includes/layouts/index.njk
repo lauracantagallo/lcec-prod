@@ -14,7 +14,7 @@ layout: base.njk
       <h1 class="hero__heading">{{ hero.heading }}</h1>
       <p class="hero__subheading">{{ hero.subheading }}</p>
       <div class="hero__actions">
-        <a href="{{ hero.cta_primary_url }}" class="btn btn--primary" target="_blank" rel="noopener noreferrer">{{ hero.cta_primary_text }}</a>
+        <a href="{{ hero.cta_primary_url or site.calendar_url }}" class="btn btn--primary" target="_blank" rel="noopener noreferrer">{{ hero.cta_primary_text }}</a>
         <a href="{{ hero.cta_secondary_url | url }}" class="btn btn--primary">{{ hero.cta_secondary_text }}</a>
       </div>
     </div>

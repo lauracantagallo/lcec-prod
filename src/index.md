@@ -7,7 +7,6 @@ hero:
   heading: "Breaking Barriers. Building Access. Empowering Every Learner."
   subheading: "Accessibility reviews, training, and digital accessibility support rooted in 16 years of special education experience."
   cta_primary_text: "Book a Free 30-Minute Discovery Call"
-  cta_primary_url: "https://calendar.app.google/1HUZPbZWSLjXKS9b6"
   cta_secondary_text: "See Our Services"
   cta_secondary_url: "/accessibility-services/"
 announcement:
