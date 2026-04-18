@@ -86,5 +86,7 @@
   }
 </style>
 <link rel="stylesheet" href="{{ '/css/main.css' | url }}" />
-<!-- Umami Analytics — replace YOUR_WEBSITE_ID with your site's ID from the Umami dashboard -->
-<script defer src="https://cloud.umami.is/script.js" data-website-id="YOUR_WEBSITE_ID"></script>
+{% if site.umamiId %}
+<link rel="preconnect" href="https://cloud.umami.is" />
+<script defer src="https://cloud.umami.is/script.js" data-website-id="{{ site.umamiId }}"></script>
+{% endif %}

@@ -20,6 +20,10 @@ export default function (eleventyConfig) {
         collapseWhitespace: true,
         useShortDoctype: true,
         collapseBooleanAttributes: true,
+        removeRedundantAttributes: true,
+        removeEmptyAttributes: true,
+        minifyCSS: true,
+        minifyJS: true,
       });
     }
     return content;

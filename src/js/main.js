@@ -3,6 +3,13 @@
 import { toggleClass, setAria, onEscape } from './utils/dom.js';
 import { formatPhoneNumber } from './utils/form.js';
 
+function storageGet(key) {
+  try { return storageGet(key); } catch { return null; }
+}
+function storageSet(key, value) {
+  try { storageSet(key, value); } catch { /* unavailable */ }
+}
+
 // ─── Navigation (Mobile & Dropdown) ─────────────────────────────────────────-
 function initNavigation() {
   // Mobile Nav
@@ -131,7 +138,7 @@ const COOKIE_KEY   = 'lc_cookie_accepted';
 const ONE_YEAR_MS  = 365 * 24 * 60 * 60 * 1000;
 
 function cookieConsentAccepted() {
-  const stored = localStorage.getItem(COOKIE_KEY);
+  const stored = storageGet(COOKIE_KEY);
   if (!stored) return false;
   try {
     const { expiry } = JSON.parse(stored);
@@ -150,7 +157,7 @@ function initCookieBanner() {
     banner.classList.add('is-visible');
   }
   acceptBtn.addEventListener('click', () => {
-    localStorage.setItem(COOKIE_KEY, JSON.stringify({ expiry: Date.now() + ONE_YEAR_MS }));
+    storageSet(COOKIE_KEY, JSON.stringify({ expiry: Date.now() + ONE_YEAR_MS }));
     banner.classList.remove('is-visible');
   });
 }
@@ -265,11 +272,11 @@ function initAnnouncementToggle() {
     bar.classList.toggle('is-collapsed', collapsed);
     btn.setAttribute('aria-expanded', String(!collapsed));
     btn.setAttribute('aria-label', collapsed ? 'Expand announcement' : 'Collapse announcement');
-    localStorage.setItem(ANNOUNCE_COLLAPSED_KEY, collapsed ? '1' : '0');
+    storageSet(ANNOUNCE_COLLAPSED_KEY, collapsed ? '1' : '0');
   }
 
   // Restore persisted state before first paint
-  if (localStorage.getItem(ANNOUNCE_COLLAPSED_KEY) === '1') setCollapsed(true);
+  if (storageGet(ANNOUNCE_COLLAPSED_KEY) === '1') setCollapsed(true);
 
   btn.addEventListener('click', () => setCollapsed(!bar.classList.contains('is-collapsed')));
 }
@@ -287,11 +294,11 @@ function initFooterNavToggle() {
     btn.classList.toggle('is-collapsed', collapsed);
     btn.setAttribute('aria-expanded', String(!collapsed));
     btn.setAttribute('aria-label', collapsed ? 'Expand footer navigation' : 'Collapse footer navigation');
-    localStorage.setItem(FOOTER_NAV_COLLAPSED_KEY, collapsed ? '1' : '0');
+    storageSet(FOOTER_NAV_COLLAPSED_KEY, collapsed ? '1' : '0');
   }
 
   // Restore persisted state before first paint
-  if (localStorage.getItem(FOOTER_NAV_COLLAPSED_KEY) === '1') setCollapsed(true);
+  if (storageGet(FOOTER_NAV_COLLAPSED_KEY) === '1') setCollapsed(true);
 
   btn.addEventListener('click', () => setCollapsed(!wrapper.classList.contains('is-collapsed')));
 }
