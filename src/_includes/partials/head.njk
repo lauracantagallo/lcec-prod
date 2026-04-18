@@ -13,8 +13,8 @@
 <meta property="og:title" content="LC Education Consulting{% if _pageTitle %} - {{ _pageTitle }}{% endif %}" />
 <meta property="og:description" content="{% if description %}{{ description }}{% else %}Accessibility reviews, training, and digital accessibility support rooted in 16 years of special education experience.{% endif %}" />
 <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
-<meta property="og:image" content="{{ site.url }}/img/og-image.png" />
-<meta property="og:image:alt" content="LC Education Consulting" />
+<meta property="og:image" content="{{ site.url }}{% if og_image %}{{ og_image }}{% else %}/img/og-image.png{% endif %}" />
+<meta property="og:image:alt" content="{% if og_image_alt %}{{ og_image_alt }}{% else %}LC Education Consulting{% endif %}" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content="en_US" />
@@ -23,8 +23,8 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="LC Education Consulting{% if _pageTitle %} - {{ _pageTitle }}{% endif %}" />
 <meta name="twitter:description" content="{% if description %}{{ description }}{% else %}Accessibility reviews, training, and digital accessibility support rooted in 16 years of special education experience.{% endif %}" />
-<meta name="twitter:image" content="{{ site.url }}/img/og-image.png" />
-<meta name="twitter:image:alt" content="LC Education Consulting" />
+<meta name="twitter:image" content="{{ site.url }}{% if og_image %}{{ og_image }}{% else %}/img/og-image.png{% endif %}" />
+<meta name="twitter:image:alt" content="{% if og_image_alt %}{{ og_image_alt }}{% else %}LC Education Consulting{% endif %}" />
 
 <!-- JSON-LD: Business schema -->
 <script type="application/ld+json">
@@ -61,11 +61,41 @@
   }
 }
 </script>
+{% if page.url and page.url !== "/" %}
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.url }}/" },
+    { "@type": "ListItem", "position": 2, "name": "{{ page.url | pathToTitle }}", "item": "{{ site.url }}{{ page.url }}" }
+  ]
+}
+</script>
+{% endif %}
+{% if services %}
+<!-- JSON-LD: Services -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "{{ services_heading }}",
+  "itemListElement": [
+    {% for service in services %}
+    { "@type": "ListItem", "position": {{ loop.index }}, "item": { "@type": "Service", "name": "{{ service.heading }}", "description": "{{ service.description }}", "provider": { "@type": "ProfessionalService", "name": "{{ site.name }}" } } }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}
 
 <link rel="manifest" href="{{ '/manifest.webmanifest' | url }}" />
 <link rel="icon" type="image/svg+xml" href="{{ '/img/favicon.svg' | url }}" />
 <link rel="apple-touch-icon" sizes="180x180" href="{{ '/img/icon-192.png' | url }}" />
 <meta name="theme-color" content="#556b2f" />
+<link rel="preconnect" href="https://calendar.app.google" />
+<link rel="dns-prefetch" href="https://www.linkedin.com" />
 <link rel="preload" href="{{ '/fonts/lato-400.woff2' | url }}" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="{{ '/fonts/lato-700.woff2' | url }}" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="{{ '/css/main.css' | url }}" as="style" />

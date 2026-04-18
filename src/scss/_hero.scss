@@ -8,14 +8,17 @@
   color: $color-text;
   padding-bottom: $space-24px;
   padding-top: 0;
+
   // No top padding at any breakpoint to keep hero flush with subnav
 
   &__inner {
     @include flexbox(column, center);
+
     text-align: center;
 
     @media (min-width: #{$bp-tablet + 1px}) {
       @include flexbox(row, stretch, center);
+
       padding-bottom: $space-48px;
     }
   }
@@ -55,6 +58,7 @@
 
     @media (min-width: #{$bp-tablet + 1px}) {
       @include flexbox(column);
+
       max-width: $max-width-600px;
       justify-content: center;
       padding: $space-40px;
@@ -111,6 +115,7 @@
     @media (min-width: #{$bp-tablet + 1px}) {
       align-items: center;
       flex-direction: row;
+
       .btn {
         display: inline-flex;
         width: auto;

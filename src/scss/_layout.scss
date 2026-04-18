@@ -17,6 +17,7 @@
   @media (min-width: #{$bp-tablet + 1px}) {
     max-width: $container-md;
   }
+
   @media (min-width: #{$bp-desktop + 1px}) {
     max-width: $container-lg;
   }
@@ -28,6 +29,7 @@
   &:first-child + .section {
     padding-top: 0;
   }
+
   padding: $space-16px 0;
 
   @media (min-width: #{$bp-tablet + 1px}) {

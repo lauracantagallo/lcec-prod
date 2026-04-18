@@ -6,10 +6,9 @@
 
 @mixin flexbox($direction: row, $align: stretch, $justify: flex-start, $wrap: nowrap) {
   display: flex;
-  flex-direction: $direction;
+  flex-flow: $direction $wrap;
   align-items: $align;
   justify-content: $justify;
-  flex-wrap: $wrap;
 }
 
 @mixin transition($property: all, $duration: 0.3s, $timing: ease) {
@@ -26,25 +25,31 @@
 .section--flush-bottom {
   padding-bottom: 0;
 }
+
 .container + .section--flush-top {
   padding-top: 0;
   border-top: none;
 }
+
 .section--flush-top {
   padding-top: 1rem;
   border-top: solid 1px $color-primary-dark;
+
   .heading--section {
     margin-top: 0;
   }
+
   @media (min-width: #{$bp-tablet + 1px}) {
     padding-top: 0;
     border-top: none;
   }
 }
+
 .divider {
   border: none;
   border-top: 1px solid $color-primary-dark;
   margin: 0 0 $space-16px;
+
   @media (min-width: #{$bp-tablet + 1px}) {
     margin: 0 0 $space-32px;
   }
@@ -73,6 +78,7 @@
 
 .bp-desktop-only {
   display: none;
+
   @media (min-width: #{$bp-tablet + 1px}) {
     display: block;
   }
@@ -80,8 +86,9 @@
 
 // Skip link for accessibility
 .skip-link {
-  @extend .btn;
-  @extend .btn--primary;
+  @extend .btn; /* stylelint-disable-line scss/at-extend-no-missing-placeholder */
+  @extend .btn--primary; /* stylelint-disable-line scss/at-extend-no-missing-placeholder */
+
   font-size: $font-size-sm;
   font-weight: 400;
   left: 0;
@@ -91,6 +98,7 @@
   text-transform: uppercase;
   top: -100%;
   z-index: 5;
+
   &:focus {
     top: 0;
     outline-offset: 0;

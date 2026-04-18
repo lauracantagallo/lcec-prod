@@ -45,6 +45,7 @@
     text-transform: uppercase;
     transition: $transition-base;
     width: 100%;
+
     @media (min-width: #{$bp-tablet + 1px}) {
       width: auto;
     }
@@ -57,6 +58,7 @@
       @include focus-outline($color-white);
     }
   }
+
   @media (min-width: #{$bp-tablet + 1px}) {
     bottom: $space-24px;
     box-shadow: $shadow-card;

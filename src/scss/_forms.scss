@@ -72,6 +72,7 @@
 
 .form-input {
   @extend %form-field-base;
+
   line-height: normal;
 
   &::placeholder {
@@ -81,6 +82,7 @@
 
 .form-textarea {
   @extend %form-field-base;
+
   line-height: $line-height-loose;
   resize: vertical;
 
@@ -99,6 +101,7 @@
   font-weight: 700;
   margin: $space-16px auto 0;
   width: 100%;
+
   &:focus {
     outline: 2px solid $color-primary;
     outline-offset: $focus-outline-offset;

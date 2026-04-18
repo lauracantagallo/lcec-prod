@@ -8,6 +8,12 @@ export default function (eleventyConfig) {
     return segment.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
   });
 
+  // Convert image path to WebP equivalent, e.g. /img/logo.jpg → /img/logo.webp
+  eleventyConfig.addFilter("toWebP", function (src) {
+    if (!src) return src;
+    return src.replace(/\.(jpg|jpeg|png)$/i, ".webp");
+  });
+
   // Format a date as YYYY-MM-DD for sitemaps
   eleventyConfig.addFilter("toISODate", function (date) {
     return new Date(date).toISOString().split("T")[0];

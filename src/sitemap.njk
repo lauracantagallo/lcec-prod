@@ -8,9 +8,7 @@ eleventyExcludeFromCollections: true
   {%- if page.url and not page.url.includes('404') and not page.url.includes('contact-success') %}
   <url>
     <loc>{{ site.url }}{{ page.url }}</loc>
-    {%- if page.date %}
     <lastmod>{{ page.date | toISODate }}</lastmod>
-    {%- endif %}
   </url>
   {%- endif %}
 {%- endfor %}

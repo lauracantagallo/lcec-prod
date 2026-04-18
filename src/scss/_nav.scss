@@ -5,8 +5,10 @@
 
 .site-header {
   z-index: $nav-dropdown-z;
+
   @media (min-width: #{$bp-tablet + 1px}) {
     padding: $space-32px 0;
+
     &.container {
       border: none;
       margin-bottom: 0;
@@ -20,6 +22,7 @@
   padding: 0;
   position: relative;
   width: 100%;
+
   @media (min-width: #{$bp-tablet + 1px}) {
     align-items: stretch;
     display: flex;
@@ -29,6 +32,7 @@
     padding-left: 0;
     padding-right: 0;
   }
+
   @media (min-width: #{$bp-desktop + 1px}) {
     max-width: $container-lg;
   }
@@ -61,13 +65,17 @@
   white-space: normal;
   width: 80%;
   margin-left: 10%;
+
   &:focus span {
     color: $color-primary-dark;
+
     @include focus-outline($color-primary, $radius: true);
   }
+
   &:focus-visible {
     outline: none;
   }
+
   @media (min-width: #{$bp-tablet + 1px}) {
     display: block;
     margin: 0;
@@ -86,6 +94,7 @@
   line-height: $line-height-tight;
   margin: 0;
   text-transform: uppercase;
+
   @media (min-width: #{$bp-tablet + 1px}) {
     font-size: $font-size-site-title;
   }
@@ -93,14 +102,15 @@
 
 .header-phone {
   display: none;
-  a {
 
+  a {
     &:hover {
       color: $color-primary-dark;
     }
 
     &:focus {
       color: $color-primary-dark;
+
       @include focus-outline($color-primary, $radius: true);
     }
   }
@@ -133,6 +143,7 @@
   margin-left: 0;
   margin-right: 0;
   width: auto;
+
   @media (min-width: #{$bp-tablet + 1px}) {
     justify-content: center;
     margin-bottom: 0;
@@ -183,6 +194,7 @@
 
   &:focus {
     color: $color-primary;
+
     @include focus-outline($color-primary);
   }
 
@@ -216,6 +228,7 @@
 
   &:focus {
     color: $color-primary;
+
     @include focus-outline($color-primary);
   }
 
@@ -229,6 +242,7 @@
   &[aria-expanded="false"] svg {
     transform: rotate(0deg);
   }
+
   &[aria-expanded="true"] svg {
     transform: rotate(180deg);
   }
@@ -280,6 +294,7 @@
 
   &:focus {
     color: $color-primary;
+
     @include focus-outline($color-primary);
   }
 
@@ -329,8 +344,7 @@
   height: 100%;
   left: 0;
   max-width: 75%;
-  overflow-x: clip;
-  overflow-y: auto;
+  overflow: clip auto;
   overscroll-behavior: contain;
   padding-top: $nav-height;
   position: fixed;
@@ -393,6 +407,7 @@
 
   &:focus {
     color: $color-primary;
+
     @include focus-outline($color-primary);
   }
 

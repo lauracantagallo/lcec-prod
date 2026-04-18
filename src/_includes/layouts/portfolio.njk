@@ -18,7 +18,10 @@ layout: base.njk
       {% for project in projects %}
       <article class="content-blocks__block">
         {% if project.image %}
-        <img src="{{ project.image | url }}" alt="" class="content-blocks__image" aria-hidden="true" loading="lazy" />
+        <picture>
+          <source srcset="{{ project.image | toWebP | url }}" type="image/webp" />
+          <img src="{{ project.image | url }}" alt="" class="content-blocks__image" width="600" height="400" aria-hidden="true" loading="lazy" />
+        </picture>
         {% endif %}
         <p>{{ project.title }}</p>
       </article>

@@ -11,22 +11,38 @@
     "dev:11ty": "eleventy --serve --incremental --port 8080",
     "dev:sass": "sass src/scss/main.scss dist/css/main.css --watch --style=expanded --source-map",
     "dev:js": "node build/js.js --watch",
-    "build": "npm run build:clean && npm run build:11ty && npm run build:sass && npm run build:js",
+    "build": "npm run build:clean && npm run build:11ty && npm run build:sass && npm run build:js && npm run build:images",
+    "build:images": "node build/images.js",
     "build:clean": "node build/clean.js",
     "build:11ty": "eleventy",
     "build:sass": "sass src/scss/main.scss dist/css/main.css --style=compressed --no-source-map",
-    "build:js": "node build/js.js"
+    "build:js": "node build/js.js",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "eslint src/js/**/*.js",
+    "lint:css": "stylelint \"src/scss/**/*.scss\"",
+    "prepare": "husky"
   },
   "engines": {
     "node": ">=20.0.0",
     "npm": ">=10.0.0"
   },
+  "lint-staged": {
+    "src/js/**/*.js": "eslint",
+    "src/scss/**/*.scss": "stylelint"
+  },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
+    "@eslint/js": "^10.0.1",
     "concurrently": "^9.0.0",
     "decap-server": "^3.6.0",
     "esbuild": "^0.28.0",
+    "eslint": "^10.2.1",
     "html-minifier-terser": "^7.2.0",
-    "sass": "^1.99.0"
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "sass": "^1.99.0",
+    "sharp": "^0.34.5",
+    "stylelint": "^17.8.0",
+    "stylelint-config-standard-scss": "^17.0.0"
   }
 }

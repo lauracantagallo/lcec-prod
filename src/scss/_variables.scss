@@ -1,67 +1,63 @@
 // ─── Colors ───────────────────────────────────────────────────────────────────
-$color-primary:        #556b2f;   // rgb(85,107,47) — olive green
-$color-primary-dark:   #364519;   // rgb(54,69,28)
-$color-primary-light:  #e3fcc2;   // rgb(227,252,194) — light green tint
-$color-accent:         #1e4d7b;   // rgb(30,77,123) — steel blue (CTA alt), darkened for WCAG AA
-$color-white:          #ffffff;
-$color-gray:           #a9a9a9;   // rgb(169,169,169) — stat boxes (used with dark text)
+$color-primary: #556b2f;   // rgb(85,107,47) — olive green
+$color-primary-dark: #364519;   // rgb(54,69,28)
+$color-primary-light: #e3fcc2;   // rgb(227,252,194) — light green tint
+$color-accent: #1e4d7b;   // rgb(30,77,123) — steel blue (CTA alt), darkened for WCAG AA
+$color-white: #fff;
+$color-gray: #a9a9a9;   // rgb(169,169,169) — stat boxes (used with dark text)
 $color-bg-testimonial: #3d3d3d;   // rgb(61,61,61) — quote/testimonial section bg, white text at ~10:1
-$color-text:           #151515;   // rgb(21,21,21)
-$color-text-medium:    #575757;   // rgb(87,87,87)
-$color-text-on-dark:   #f7f7f6;   // rgb(247,247,246)
-$color-border:         rgba(185, 185, 185, 0.5);
-$color-overlay:        rgba(0, 0, 0, 0.4);
-$color-error:          #b91c1c;   // accessible red against white, WCAG AA
-$color-linkedin:       #0a66c2;
-$color-linkedin-dark:  #084e96;
+$color-text: #151515;   // rgb(21,21,21)
+$color-text-medium: #575757;   // rgb(87,87,87)
+$color-text-on-dark: #f7f7f6;   // rgb(247,247,246)
+$color-border: rgb(185 185 185 / 50%);
+$color-overlay: rgb(0 0 0 / 40%);
+$color-error: #b91c1c;   // accessible red against white, WCAG AA
+$color-linkedin: #0a66c2;
+$color-linkedin-dark: #084e96;
 
 // ─── Typography ───────────────────────────────────────────────────────────────
 $font: 'Lato', arial, sans-serif;
-
-$font-size-sm:         0.875rem;
-$font-size-base:       1rem;
-$font-size-lg:         1.125rem;
-$font-size-xl:         1.25rem;
-$font-size-3xl:        1.75rem;
+$font-size-sm: 0.875rem;
+$font-size-base: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.25rem;
+$font-size-3xl: 1.75rem;
 $font-size-page-title: 1.875rem; // 30px — page/section title headings
 $font-size-site-title: 2.25rem;  // 40px — site title in nav
-$font-size-display:    2.75rem;
-
-$line-height-tight:  1;
-$line-height-snug:   1.25;
-$line-height-loose:  1.5;
-
-$letter-spacing-body:  0.12em;  // WCAG 1.4.12 minimum
-$letter-spacing-nav:   0.214em;
+$font-size-display: 2.75rem;
+$line-height-tight: 1;
+$line-height-snug: 1.25;
+$line-height-loose: 1.5;
+$letter-spacing-body: 0.12em;  // WCAG 1.4.12 minimum
+$letter-spacing-nav: 0.214em;
 $letter-spacing-wider: 0.125em;
-
-$word-spacing-body:    0.16em;  // WCAG 1.4.12 minimum
-$paragraph-spacing:    2em;     // WCAG 1.4.12 minimum (2× font size)
+$word-spacing-body: 0.16em;  // WCAG 1.4.12 minimum
+$paragraph-spacing: 2em;     // WCAG 1.4.12 minimum (2× font size)
 
 // ─── Spacing ──────────────────────────────────────────────────────────────────
-$space-4px:   4px;
-$space-8px:   8px;
-$space-16px:   16px;
-$space-24px:   24px;
-$space-32px:   32px;
-$space-40px:   40px;
-$space-48px:   48px;
-$space-56px:   56px;
+$space-4px: 4px;
+$space-8px: 8px;
+$space-16px: 16px;
+$space-24px: 24px;
+$space-32px: 32px;
+$space-40px: 40px;
+$space-48px: 48px;
+$space-56px: 56px;
 
 // ─── Layout ───────────────────────────────────────────────────────────────────
-$container-md:     984px;
-$container-lg:    1140px;
-$max-width-720px:  720px;
-$max-width-600px:  600px;
+$container-md: 984px;
+$container-lg: 1140px;
+$max-width-720px: 720px;
+$max-width-600px: 600px;
 
 // ─── Breakpoints ──────────────────────────────────────────────────────────────
-$bp-tablet:  1023px;
+$bp-tablet: 1023px;
 $bp-desktop: 1279px;
 
 // ─── Nav ──────────────────────────────────────────────────────────────────────
-$nav-height:        $space-56px;
-$nav-dropdown-z:    1;
-$nav-mobile-z:      3;
+$nav-height: $space-56px;
+$nav-dropdown-z: 1;
+$nav-mobile-z: 3;
 
 // ─── Focus ────────────────────────────────────────────────────────────────────
 $focus-outline-stroke: 2px solid;
@@ -69,13 +65,13 @@ $focus-outline-offset: 2px;
 $focus-outline-radius: $letter-spacing-body;
 
 // ─── Transitions ──────────────────────────────────────────────────────────────
-$transition-base:   all 0.3s ease;
-$transition-quick:  0.2s ease;
+$transition-base: all 0.3s ease;
+$transition-quick: 0.2s ease;
 
 // ─── Shadows ──────────────────────────────────────────────────────────────────
-$shadow-card:       0 2px 6px 0 rgba(0, 0, 0, 0.2);
-$shadow-sheet:      0 0 6px 0 rgba(0, 0, 0, 0.6);
-$shadow-dropdown:   0 3px 6px 3px rgba(0, 0, 0, 0.16);
+$shadow-card: 0 2px 6px 0 rgb(0 0 0 / 20%);
+$shadow-sheet: 0 0 6px 0 rgb(0 0 0 / 60%);
+$shadow-dropdown: 0 3px 6px 3px rgb(0 0 0 / 16%);
 
 // ─── Corner Radius ──────────────────────────────────────────────────────────────────
 $radius-primary: 0.5em;
@@ -84,6 +80,7 @@ $radius-primary: 0.5em;
 @mixin focus-outline($color, $radius: false) {
   outline: $focus-outline-stroke $color;
   outline-offset: $focus-outline-offset;
+
   @if $radius {
     border-radius: $focus-outline-radius;
   }

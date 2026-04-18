@@ -11,7 +11,10 @@ layout: page-with-intro.njk
         <p class="training-card__description">{{ training.description }}</p>
         {% endfor %}
       </div>
-      <img src="{{ '/img/webinars-and-training.jpg' | url }}" alt="" class="credentials-layout__photo" aria-hidden="true" loading="lazy" />
+      <picture>
+        <source srcset="{{ '/img/webinars-and-training.webp' | url }}" type="image/webp" />
+        <img src="{{ '/img/webinars-and-training.jpg' | url }}" alt="" class="credentials-layout__photo" aria-hidden="true" loading="lazy" />
+      </picture>
     </div>
   </div>
 </section>

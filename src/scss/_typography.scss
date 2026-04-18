@@ -86,12 +86,14 @@ address a {
   line-height: $line-height-snug;
   margin: $space-16px 0;
   text-align: center;
+
   /* No uppercase, no letter-spacing */
 
   // Contextual override for blue sections
   .section--blue & {
     color: $color-white;
   }
+
   :first-child & {
     margin-top: 0;
   }
@@ -122,6 +124,7 @@ address a {
   margin: $space-16px 0;
   text-align: center;
   text-transform: uppercase;
+
   @media (min-width: #{$bp-tablet + 1px}) {
     font-size: $font-size-page-title;
     font-weight: 400;

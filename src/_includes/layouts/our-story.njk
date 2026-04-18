@@ -19,7 +19,10 @@ layout: base.njk
       {% for block in philosophy.blocks %}
       <article class="content-blocks__block">
         <h3 class="content-blocks__block-heading">{{ block.heading }}</h3>
-        <img src="{{ block.image | url }}" alt="" class="content-blocks__image" width="16" height="9" aria-hidden="true" loading="lazy">
+        <picture>
+          <source srcset="{{ block.image | toWebP | url }}" type="image/webp" />
+          <img src="{{ block.image | url }}" alt="" class="content-blocks__image" width="600" height="400" aria-hidden="true" loading="lazy" />
+        </picture>
         <p>{{ block.body }}</p>
       </article>
       {% endfor %}
