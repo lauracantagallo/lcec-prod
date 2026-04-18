@@ -1,4 +1,4 @@
-name: Deploy Production (main)
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -16,7 +16,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Cache node_modules for faster builds
       - name: Cache node modules
         uses: actions/cache@v4
         with:
@@ -29,7 +28,7 @@ jobs:
         run: npm ci
 
       - name: Build site
-        run: npx @11ty/eleventy
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -40,7 +39,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     environment:
-      name: github-pages-main
+      name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
