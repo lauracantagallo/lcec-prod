@@ -139,3 +139,5 @@ Netlify features in use:
 
 - Umami analytics ID must be set in `src/_includes/partials/head.njk` (search `YOUR_WEBSITE_ID`)
 - `site.url` is defined in both `.eleventy.js` (as `addGlobalData`) and `src/_data/site.json` — keep these in sync
+
+
