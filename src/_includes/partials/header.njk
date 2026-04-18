@@ -32,7 +32,7 @@
                 </ul>
               </div>
             {% elif link.external %}
-              <a href="{{ link.url }}" class="nav__link" target="_blank" rel="noopener">{{ link.text }}</a>
+              <a href="{{ link.url }}" class="nav__link" target="_blank" rel="noopener noreferrer">{{ link.text }}</a>
             {% else %}
               <a href="{{ link.url | url }}" class="nav__link" {% if page.url == link.url %}aria-current="page"{% endif %}>{{ link.text }}</a>
             {% endif %}
@@ -67,7 +67,7 @@
         {% endfor %}
       {% elif link.external %}
         <li>
-          <a href="{{ link.url }}" class="mobile-nav__link" target="_blank" rel="noopener">{{ link.text }}</a>
+          <a href="{{ link.url }}" class="mobile-nav__link" target="_blank" rel="noopener noreferrer">{{ link.text }}</a>
         </li>
       {% else %}
         <li>
