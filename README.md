@@ -169,19 +169,19 @@ This project uses two repositories for separate environments:
 
 | Repo | Branch | Host | URL |
 | ---- | ------ | ---- | --- |
-| `lc-prod` | `main` | GitHub Pages | Custom domain (production) |
-| `lc-dev` | `dev` | Netlify | Staging URL |
+| `lcec-prod` | `main` | GitHub Pages | Custom domain (production) |
+| `lcec-dev` | `dev` | Netlify | Staging URL |
 
 **Production** deploys automatically on push to `main` via `.github/workflows/pages-main.yml`.
 
 **Staging** deploys automatically on push to `dev` via Netlify's branch deploy.
 
-Netlify features in use on staging (`lc-dev`):
+Netlify features in use on staging (`lcec-dev`):
 
 - **Headers** — Custom HTTP cache and security headers via `src/static/_headers` (GitHub Pages ignores this file)
 
 ## Notes
 
 - `site.url` in `src/_data/site.json` and `.eleventy.js` must be kept in sync
-- `PATH_PREFIX` in `.github/workflows/pages-main.yml` must match the deployment path — set to `/lcec-a11y-rebuild/` for the `mikeyil` test repo, change to `/` when deploying under a custom domain on `lc-prod`
+- `PATH_PREFIX` in `.github/workflows/pages-main.yml` must match the deployment path — set to `/lcec-a11y-rebuild/` for the `mikeyil` test repo, change to `/` when deploying under a custom domain on `lcec-prod`
 - A pull request template lives at `.github/pull_request_template.md` — includes accessibility and SEO checklist items
