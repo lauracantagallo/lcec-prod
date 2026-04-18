@@ -419,5 +419,14 @@
 
   &:focus {
     color: $color-primary-dark;
+
+    @include focus-outline($color-primary, $radius: true);
+  }
+}
+
+// ─── Forced Colors (Windows High Contrast) ────────────────────────────────────
+@media (forced-colors: active) {
+  .btn {
+    border-color: ButtonText;
   }
 }

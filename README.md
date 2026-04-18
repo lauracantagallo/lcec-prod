@@ -90,6 +90,11 @@ lcec/
 │   ├── workflows/
 │   │   └── pages-main.yml         # GitHub Actions — build and deploy to GitHub Pages
 │   └── pull_request_template.md   # PR checklist (accessibility + SEO)
+├── docs/
+│   ├── TODO.md                        # Prioritised task list
+│   ├── CONTENT_SUGGESTIONS.md         # Tracked copy and content improvement suggestions
+│   ├── setup-github.md                # Client guide — GitHub account and repo setup
+│   └── setup-netlify.md               # Client guide — Netlify account and staging setup
 ├── dist/                          # Compiled output (not committed)
 ├── .eleventy.js                   # Eleventy config (filters, HTML minification, passthrough)
 ├── eslint.config.js               # ESLint flat config (v9) for src/js and build/

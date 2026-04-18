@@ -163,3 +163,22 @@
 input[name="bot-field"] {
   display: none;
 }
+
+// ─── High Contrast & Forced Colors ───────────────────────────────────────────
+@media (prefers-contrast: more) {
+  .form-input,
+  .form-textarea {
+    border: 2px solid $color-text;
+  }
+}
+
+@media (forced-colors: active) {
+  .form-input,
+  .form-textarea {
+    border-color: ButtonText;
+  }
+
+  .contact-form .btn[type="submit"] {
+    border-color: ButtonText;
+  }
+}
