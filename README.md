@@ -10,7 +10,7 @@ Source repository for the LC Education Consulting website, built with Eleventy, 
 | Templating | Nunjucks (`.njk`) |
 | CSS | Sass (SCSS) → compiled to `dist/css/main.css` |
 | JavaScript | esbuild → compiled to `dist/js/main.js` |
-| Forms | Netlify Forms with reCAPTCHA |
+| Forms | Web3Forms (access key in `src/_data/site.json`) |
 | Fonts | Self-hosted — Lato 400 & 700 (woff2) |
 | Analytics | Google Analytics 4 (optional — set `gaId` in `src/_data/site.json`) |
 
@@ -20,7 +20,7 @@ Source repository for the LC Education Consulting website, built with Eleventy, 
 lcec/
 ├── src/
 │   ├── _data/
-│   │   ├── site.json              # Global site metadata (URL, phone, email, gaId, etc.)
+│   │   ├── site.json              # Global site metadata (URL, phone, email, gaId, web3formsKey)
 │   │   ├── navigation.json        # Nav link data (desktop + mobile navs)
 │   │   ├── cta.json               # Default CTA block content
 │   │   ├── announcement.json      # Announcement bar text (empty string = hidden)
@@ -46,7 +46,7 @@ lcec/
 │   │       └── cookie-banner.njk  # Cookie consent banner
 │   ├── scss/
 │   │   ├── main.scss              # Entry point — imports all partials
-│   │   ├── _variables.scss        # Design tokens (colors, spacing, type)
+│   │   ├── _variables.scss        # Design tokens (colors, spacing, type) + focus mixin
 │   │   ├── _reset.scss            # CSS reset and base element styles
 │   │   ├── _layout.scss           # Page wrap, container, section modifiers
 │   │   ├── _typography.scss       # Heading scale, body link styles
@@ -63,9 +63,9 @@ lcec/
 │   │   └── utils/
 │   │       ├── dom.js             # toggleClass, setAria, onEscape helpers
 │   │       └── form.js            # formatPhoneNumber helper
-│   ├── img/                       # Images (copied to dist/img at build)
+│   ├── img/                       # Source images (JPG + generated WebP)
 │   ├── static/
-│   │   ├── _headers               # HTTP headers config (Netlify / Cloudflare)
+│   │   ├── _headers               # HTTP headers config (Netlify / Cloudflare Pages only)
 │   │   ├── robots.txt
 │   │   └── fonts/                 # Self-hosted Lato woff2 files
 │   └── content/
@@ -80,13 +80,19 @@ lcec/
 ├── build/
 │   ├── js.js                      # esbuild script (minifies on build, watches on dev)
 │   ├── images.js                  # Sharp script — converts src/img/ JPGs to WebP
+│   ├── a11y.js                    # axe-core scanner — runs against built HTML in dist/
 │   └── clean.js                   # Cleans dist/ before build
+├── .github/
+│   ├── workflows/
+│   │   └── pages-main.yml         # GitHub Actions — build and deploy to GitHub Pages
+│   └── pull_request_template.md   # PR checklist (accessibility + SEO)
 ├── dist/                          # Compiled output (not committed)
 ├── .eleventy.js                   # Eleventy config (filters, HTML minification, passthrough)
 ├── eslint.config.js               # ESLint flat config (v9) for src/js and build/
 ├── .stylelintrc.json              # Stylelint config extending stylelint-config-standard-scss
 ├── .husky/
 │   └── pre-commit                 # Runs lint-staged before every commit
+├── netlify.toml                   # Netlify build config (used by lc-dev staging repo)
 ├── manifest.webmanifest           # PWA manifest
 └── package.json
 ```
@@ -97,7 +103,7 @@ Pages that define a `cta:` block in their frontmatter use that content in the CT
 
 Nav links (desktop and mobile) are defined once in `src/_data/navigation.json`.
 
-Global data shared across all pages (site URL, phone, email, founder info) is in `src/_data/site.json`.
+Global data shared across all pages (site URL, phone, email, founder info, API keys) is in `src/_data/site.json`.
 
 ## Development
 
@@ -122,7 +128,18 @@ npm run build
 2. Eleventy compiles templates → minifies HTML (removes comments, collapses whitespace, minifies inline CSS/JS)
 3. Sass compiles → compressed CSS (comments stripped)
 4. esbuild bundles → minified JS (no source maps)
-5. Run `npm run build:images` separately to convert `src/img/` JPGs → WebP (Sharp). Only needed when images change.
+5. Sharp converts `src/img/` JPGs → WebP (run `npm run build:images` separately when images change)
+
+## Linting
+
+```bash
+npm run lint        # JS + CSS linters together
+npm run lint:js     # ESLint (flat config v9) — src/js/ and build/
+npm run lint:css    # Stylelint — src/scss/**/*.scss
+npm run lint:a11y   # axe-core a11y scan — requires a fresh build first
+```
+
+Pre-commit hooks (Husky + lint-staged) run ESLint and Stylelint automatically on staged files before each commit.
 
 ## Design Tokens
 
@@ -141,17 +158,6 @@ Key tokens:
 | `$space-32px` | `32px` | Section-level spacing |
 | `$space-48px` | `48px` | Large section padding |
 
-## Linting
-
-```bash
-npm run lint        # run both JS and CSS linters
-npm run lint:js     # ESLint (flat config v9) — src/js/ and build/
-npm run lint:css    # Stylelint — src/scss/**/*.scss
-npm run lint:a11y   # axe-core scan — runs against built HTML in dist/ (run npm run build first)
-```
-
-Pre-commit hooks (Husky + lint-staged) run automatically on staged files before each commit.
-
 ## Deployment
 
 This project uses two repositories for separate environments:
@@ -165,14 +171,14 @@ This project uses two repositories for separate environments:
 
 **Staging** deploys automatically on push to `dev` via Netlify's branch deploy.
 
-Netlify features in use:
+Netlify features in use on staging (`lc-dev`):
 
-- **Forms** — Contact form with reCAPTCHA (enable reCAPTCHA in Netlify dashboard under Site configuration → Forms → Spam filters)
-- **Headers** — Custom HTTP headers via `src/static/_headers`
+- **Headers** — Custom HTTP cache and security headers via `src/static/_headers` (GitHub Pages ignores this file)
 
 ## Notes
 
 - To enable Google Analytics, set `"gaId": "G-XXXXXXXXXX"` in `src/_data/site.json`
-- `site.url` is defined in both `.eleventy.js` (as `addGlobalData`) and `src/_data/site.json` — keep these in sync
-- `PATH_PREFIX` env var is set in `.github/workflows/pages-main.yml`. Set to `/lcec-a11y-rebuild/` for the `mikeyil` GitHub Pages repo; change to `/` when deploying under a custom domain on `lc-prod`
+- To enable the contact form, get a free access key at [web3forms.com](https://web3forms.com) and set `"web3formsKey"` in `src/_data/site.json`
+- `site.url` in `src/_data/site.json` and `.eleventy.js` must be kept in sync
+- `PATH_PREFIX` in `.github/workflows/pages-main.yml` must match the deployment path — set to `/lcec-a11y-rebuild/` for the `mikeyil` test repo, change to `/` when deploying under a custom domain on `lc-prod`
 - A pull request template lives at `.github/pull_request_template.md` — includes accessibility and SEO checklist items
