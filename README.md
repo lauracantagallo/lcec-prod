@@ -177,8 +177,6 @@ Netlify features in use on staging (`lc-dev`):
 
 ## Notes
 
-- To enable Google Analytics, set `"gaId": "G-XXXXXXXXXX"` in `src/_data/site.json`
-- To enable the contact form, get a free access key at [web3forms.com](https://web3forms.com) and set `"web3formsKey"` in `src/_data/site.json`
 - `site.url` in `src/_data/site.json` and `.eleventy.js` must be kept in sync
 - `PATH_PREFIX` in `.github/workflows/pages-main.yml` must match the deployment path — set to `/lcec-a11y-rebuild/` for the `mikeyil` test repo, change to `/` when deploying under a custom domain on `lc-prod`
 - A pull request template lives at `.github/pull_request_template.md` — includes accessibility and SEO checklist items
