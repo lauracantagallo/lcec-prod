@@ -4,8 +4,11 @@ export default function (eleventyConfig) {
   // Convert URL path to title-cased page name, e.g. /accessibility-services/ → "Accessibility Services"
   eleventyConfig.addFilter("pathToTitle", function (url) {
     if (!url || url === "/") return "";
+    const minor = new Set(["a","an","the","and","but","or","for","nor","on","at","to","by","in","of","up","as","is"]);
     const segment = url.replace(/^\/|\/$/g, "").split("/").pop();
-    return segment.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+    return segment.split("-").map((w, i) =>
+      (i === 0 || !minor.has(w)) ? w.charAt(0).toUpperCase() + w.slice(1) : w
+    ).join(" ");
   });
 
   // Convert image path to WebP equivalent, e.g. /img/logo.jpg → /img/logo.webp

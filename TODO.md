@@ -1,17 +1,23 @@
 # Site TODO
 
-## Open
+## Before Launch — Blockers
 
-- [ ] Style 404 page
-- [ ] Wire up contact form — Web3Forms is wired up; get access key at web3forms.com and set `"web3formsKey"` in `src/_data/site.json`, then test end-to-end
-- [ ] Add Decap CMS (?)
-- [ ] Screen reader testing
-- [ ] Add dynamic VCF contact card download?
-- [ ] Configure GA4 — get tracking ID from Google Analytics, set `"gaId": "G-XXXXXXXXXX"` in `src/_data/site.json`
 - [ ] Configure Web3Forms — get free access key at web3forms.com (use Laura's email), set `"web3formsKey"` in `src/_data/site.json`
+- [ ] Configure GA4 — get tracking ID from Google Analytics, set `"gaId": "G-XXXXXXXXXX"` in `src/_data/site.json`
+- [ ] GA4 consent gating — GA4 currently fires before cookie consent is checked; implement GA4 Consent Mode or delay script load until accept is clicked (GDPR concern)
+- [ ] Test contact form end-to-end — submit a real entry and confirm Laura receives the email with correct reply-to
+
+## Before Launch — Should Do
+
 - [ ] Review `contact-success` page — visual check that it renders cleanly and has a clear next step for the user
-- [ ] GA4 consent gating — GA4 currently fires before cookie consent is checked; implement GA4 Consent Mode or delay script load until accept is clicked (GDPR concern, address before launch)
-- [ ] Web3Forms `from_name` — hardcoded to "LC Education Consulting"; use a small JS snippet to sync the `your_name` field into the hidden `from_name` input before submit so Laura's inbox shows the submitter's name
+- [ ] Style 404 page
+- [ ] Screen reader testing
+
+## Nice to Have
+
+- [ ] Web3Forms `from_name` — use a JS snippet to sync the `your_name` field into the hidden `from_name` input before submit so Laura's inbox shows the submitter's name instead of "LC Education Consulting"
+- [ ] Add dynamic VCF contact card download?
+- [ ] Add Decap CMS (?)
 
 ## DRY Opportunities
 
@@ -36,7 +42,6 @@
 - [x] Add axe-core a11y linting — `npm run lint:a11y` scans all built HTML in `dist/` using axe-core + jsdom
 - [x] Web3Forms reply-to — email field renamed to `name="replyto"`; `from_name` set to "LC Education Consulting"
 - [x] Pre-launch checklist documented — set `PATH_PREFIX: /` in workflow, replace GA4 + Web3Forms key placeholders, verify `robots.txt` sitemap URL matches domain
-
 - [x] Cleanup services subpages designs
 - [x] Make mobile icon more prominent
 - [x] Mobile menu current page indicator
