@@ -7,7 +7,8 @@
 - [ ] Add Decap CMS (?)
 - [ ] Screen reader testing
 - [ ] Add dynamic VCF contact card download?
-- [ ] Configure GA4 — set `"gaId": "G-XXXXXXXXXX"` in `src/_data/site.json`
+- [ ] Configure GA4 — get tracking ID from Google Analytics, set `"gaId": "G-XXXXXXXXXX"` in `src/_data/site.json`
+- [ ] Configure Web3Forms — get free access key at web3forms.com (use Laura's email), set `"web3formsKey"` in `src/_data/site.json`
 
 ## DRY Opportunities
 
