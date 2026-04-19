@@ -431,29 +431,6 @@ function initExitModal() {
       }, link);
     });
   });
-
-  // Intercept vCard download
-  document.querySelectorAll('.social-link--vcard').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const href = link.href;
-      openModal({
-        title: 'Downloading contact card',
-        message: 'A .vcf contact file will be saved to your device.',
-        hint: 'Open the file to add Laura Cantagallo to your contacts.',
-        countdown: false,
-        action: () => {
-          const a = document.createElement('a');
-          a.href = href;
-          a.download = 'laura-cantagallo.vcf';
-          document.body.appendChild(a);
-          a.click();
-
-          document.body.removeChild(a);
-        }
-      }, link);
-    });
-  });
 }
 
 // ─── Single Init Function ─────────────────────────────────────────────────--
