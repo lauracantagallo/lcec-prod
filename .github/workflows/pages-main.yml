@@ -39,7 +39,7 @@ jobs:
       - name: Build site
         run: npm run build
         env:
-          PATH_PREFIX: ${{ vars.PATH_PREFIX }}
+          PATH_PREFIX: /lcec-dev/
           WEB3FORMS_KEY: ${{ secrets.WEB3FORMS_KEY }}
 
       - name: Upload artifact

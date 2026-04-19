@@ -6,7 +6,7 @@ intro:
   heading: "Our Story"
   body:
     - "LC Education Consulting was founded in 2014 in Pike Creek, Delaware as a consulting service focused on assistive technology evaluations for K–12 schools."
-    - "In 2025, LC Education Consulting reopened with a new website, rebranded logo, and an expanded range of services, including web accessibility evaluations, webinars, and consulting rooted in even more years of experience. Today, the company supports organizations with practical, thoughtful services focused on accessibility, assistive technology, and inclusive practice."
+    - "In 2025, LC Education Consulting reopened with a new website, rebranded logo, and an expanded range of services, including <a href=\"/accessibility-services/\">web accessibility evaluations</a>, <a href=\"/webinars-and-training/\">webinars and training</a>, and consulting rooted in even more years of experience. Today, the company supports organizations with practical, thoughtful services focused on accessibility, assistive technology, and inclusive practice."
 philosophy:
   heading: "Our Philosophy"
   blocks:

@@ -148,3 +148,15 @@ input[type="radio"] {
   background-color: var(--lcec-green);
 }
 
+/* ── Center main content area ────────────────────────────────────────────── */
+[class*="App-main"],
+[class*="AppMainContainer"],
+[class*="main-container"],
+[class*="EditorContainer"],
+[class*="CollectionView"],
+[class*="WorkflowContainer"] {
+  max-width: 1200px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+

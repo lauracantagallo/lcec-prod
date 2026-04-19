@@ -8,7 +8,7 @@ page_title:
 body:
   - "Most accessibility consultants come from a technology background. Laura Cantagallo's experience is rooted in special education and assistive technology."
   - "With 16 years of experience supporting students with diverse learning and access needs, Laura brings a perspective that many accessibility consultants do not. She has worked directly with students who use screen readers, AAC devices, and other assistive technologies, giving her a strong understanding of how digital barriers affect real people in real settings."
-  - "What sets LC Education Consulting apart is a combination of educational experience, assistive technology expertise, and digital accessibility knowledge grounded in real-world practice."
+  - "What sets LC Education Consulting apart is a combination of educational experience, assistive technology expertise, and <a href=\"/accessibility-services/\">digital accessibility knowledge</a> grounded in real-world practice."
 credentials_heading: "Professional Background"
 credentials:
   - "16+ years of experience in special education, assistive technology, and educational technology"

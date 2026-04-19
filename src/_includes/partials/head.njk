@@ -1,7 +1,8 @@
 <meta charset="utf-8" />
+{% if site.gscVerificationId %}<meta name="google-site-verification" content="{{ site.gscVerificationId }}" />{% endif %}
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 {% set _pageTitle = page.url | pathToTitle %}
-<title>LC Education Consulting{% if _pageTitle %} - {{ _pageTitle }}{% endif %}</title>
+<title>{% if _pageTitle %}{{ _pageTitle }} | LC Education Consulting{% else %}LC Education Consulting{% endif %}</title>
 <meta name="description" content="{% if description %}{{ description }}{% else %}Accessibility reviews, training, and digital accessibility support rooted in 16 years of special education experience.{% endif %}" />
 <meta name="author" content="LC Education Consulting" />
 <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
@@ -9,7 +10,7 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="LC Education Consulting" />
-<meta property="og:title" content="LC Education Consulting{% if _pageTitle %} - {{ _pageTitle }}{% endif %}" />
+<meta property="og:title" content="{% if _pageTitle %}{{ _pageTitle }} | LC Education Consulting{% else %}LC Education Consulting{% endif %}" />
 <meta property="og:description" content="{% if description %}{{ description }}{% else %}Accessibility reviews, training, and digital accessibility support rooted in 16 years of special education experience.{% endif %}" />
 <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
 <meta property="og:image" content="{{ site.url }}{% if og_image %}{{ og_image }}{% else %}/img/og-image.png{% endif %}" />
@@ -20,7 +21,7 @@
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="LC Education Consulting{% if _pageTitle %} - {{ _pageTitle }}{% endif %}" />
+<meta name="twitter:title" content="{% if _pageTitle %}{{ _pageTitle }} | LC Education Consulting{% else %}LC Education Consulting{% endif %}" />
 <meta name="twitter:description" content="{% if description %}{{ description }}{% else %}Accessibility reviews, training, and digital accessibility support rooted in 16 years of special education experience.{% endif %}" />
 <meta name="twitter:image" content="{{ site.url }}{% if og_image %}{{ og_image }}{% else %}/img/og-image.png{% endif %}" />
 <meta name="twitter:image:alt" content="{% if og_image_alt %}{{ og_image_alt }}{% else %}LC Education Consulting{% endif %}" />
@@ -46,7 +47,14 @@
     "addressRegion": "{{ site.state }}",
     "addressCountry": "{{ site.country }}"
   },
-  "areaServed": "US",
+  "sameAs": [
+    "{{ site.linkedinUrl }}"{% if site.googleBusinessUrl %},
+    "{{ site.googleBusinessUrl }}"{% endif %}
+  ],
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Accessibility Services",
@@ -57,6 +65,21 @@
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Remediation Roadmaps" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Accessibility Training and Webinars" } }
     ]
+  }
+}
+</script>
+<!-- JSON-LD: Person (Laura Cantagallo) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ site.founder }}",
+  "jobTitle": "Accessibility Consultant",
+  "url": "{{ site.founderUrl }}",
+  "worksFor": {
+    "@type": "ProfessionalService",
+    "name": "{{ site.name }}",
+    "url": "{{ site.url }}"
   }
 }
 </script>
@@ -93,7 +116,6 @@
 <link rel="icon" type="image/svg+xml" href="{{ '/img/favicon.svg' | url }}" />
 <link rel="apple-touch-icon" sizes="180x180" href="{{ '/img/icon-192.png' | url }}" />
 <meta name="theme-color" content="#556b2f" />
-<link rel="preconnect" href="https://calendar.app.google" />
 <link rel="preconnect" href="https://api.web3forms.com" />
 <link rel="dns-prefetch" href="https://www.linkedin.com" />
 <link rel="preload" href="{{ '/fonts/lato-400.woff2' | url }}" as="font" type="font/woff2" crossorigin />

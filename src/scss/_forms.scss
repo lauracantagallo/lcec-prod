@@ -87,7 +87,7 @@
   resize: vertical;
 
   &::placeholder {
-    color: $color-gray;
+    color: $color-placeholder;
     font-style: italic;
   }
 }

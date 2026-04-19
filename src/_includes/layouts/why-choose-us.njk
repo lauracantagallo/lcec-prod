@@ -9,7 +9,7 @@ layout: base.njk
       <div class="bio-layout__text">
         <h2 class="tagline">{{ page_title.subheading }}</h2>
         {% for paragraph in body %}
-        <p class="bio-layout__body">{{ paragraph }}</p>
+        <p class="bio-layout__body">{{ paragraph | safe }}</p>
         {% endfor %}
       </div>
     </div>
@@ -31,7 +31,7 @@ layout: base.njk
           {% endfor %}
         </ul>
       </div>
-      <img src="{{ '/img/about-career.webp' | url }}" alt="" class="credentials-layout__photo" aria-hidden="true" loading="lazy" />
+      <img src="{{ '/img/about-career.webp' | url }}" alt="" class="credentials-layout__photo" aria-hidden="true" loading="lazy" width="600" height="400" />
     </div>
   </div>
 </section>

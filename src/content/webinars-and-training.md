@@ -6,6 +6,7 @@ permalink: /webinars-and-training/
 intro:
   heading: "Webinars and Training"
   subheading: "Customized professional development for K–12 schools, higher education institutions, and organizations on assistive technology, digital accessibility, built-in accessibility features, and inclusive practices, available in-person in the New Jersey/Philadelphia area or virtually nationwide. Travel outside this area is available upon request."
+trainings_heading: "Training Topics"
 trainings:
   - heading: "Assistive Technology"
     description: "Practical training on tools and strategies that support access, participation, and independence across learning and work environments."

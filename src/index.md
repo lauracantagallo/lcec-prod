@@ -19,7 +19,7 @@ stats_heading: "Most Organizations Don't Know They Have Accessibility Gaps."
 stats:
   - value: "95.9%"
     label: "of home pages had detectable WCAG failures in 2026 (WebAIM Million)"
-  - value: "April 24, 2027"
+  - value: "April 26, 2027"
     label: "Extended ADA Title II deadline for large public entities (50,000+ population)"
   - value: "30–40%"
     label: "of accessibility issues are caught by automated tools. Manual testing finds the rest."
