@@ -149,14 +149,29 @@ input[type="radio"] {
 }
 
 /* ── Center main content area ────────────────────────────────────────────── */
-[class*="App-main"],
-[class*="AppMainContainer"],
-[class*="main-container"],
-[class*="EditorContainer"],
-[class*="CollectionView"],
-[class*="WorkflowContainer"] {
-  max-width: 1200px;
-  margin-left: auto !important;
-  margin-right: auto !important;
+/*
+  Decap mounts into #nc-root. The top bar is the first child; everything
+  after it is the page content. We leave the top bar full-width and
+  constrain subsequent siblings by making #nc-root a flex column and
+  centering children via align-items + a max-width cap on each child.
+  This is more reliable than margin:auto on unknown flex descendants.
+*/
+#nc-root {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+
+/* Full-width top bar — undo the centering for the first child (header) */
+#nc-root > *:first-child {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* All other direct children get a centered content column */
+#nc-root > *:not(:first-child) {
+  width: 100% !important;
+  max-width: 1200px !important;
 }
 
