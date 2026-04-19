@@ -58,10 +58,38 @@ header [role="button"]:hover {
   border-right: 1px solid #d6e4b8 !important;
 }
 
+/* Kill Decap's default blue border indicator on all states */
+[class*="NavLink"],
+[class*="CollectionLink"] {
+  border-left: none !important;
+}
+
 [class*="NavLink"][class*="isActive"],
 [class*="CollectionLink"][class*="isActive"] {
   background-color: var(--lcec-green-light) !important;
-  border-left: 3px solid var(--lcec-green) !important;
+}
+
+/* Hide the default folder/page SVG icon in sidebar links */
+[class*="Sidebar"] [class*="NavLink"] svg,
+[class*="Sidebar"] [class*="CollectionLink"] svg {
+  display: none !important;
+}
+
+/* Replace with a right-facing triangle that fills on active/hover */
+[class*="Sidebar"] [class*="NavLink"]::before,
+[class*="Sidebar"] [class*="CollectionLink"]::before {
+  content: "▷";
+  font-size: 0.65em;
+  margin-right: 0.4em;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+[class*="Sidebar"] [class*="NavLink"][class*="isActive"]::before,
+[class*="Sidebar"] [class*="CollectionLink"][class*="isActive"]::before,
+[class*="Sidebar"] [class*="NavLink"]:hover::before,
+[class*="Sidebar"] [class*="CollectionLink"]:hover::before {
+  content: "▶";
 }
 
 /* ── App header bar ──────────────────────────────────────────────────────── */
