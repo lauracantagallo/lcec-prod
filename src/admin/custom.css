@@ -10,6 +10,7 @@
   --lcec-green-dark:  #364519;
   --lcec-green-light: #e3fcc2;
   --lcec-focus:       2px solid #364519;
+  --lcec-blue:        #1e4d7b;
 }
 
 /* ── Primary action buttons ──────────────────────────────────────────────── */
@@ -206,5 +207,18 @@ input[type="radio"] {
 #nc-root > *:not(:first-child) {
   width: 100% !important;
   max-width: 1200px !important;
+}
+
+/* ── List / grid view toggle buttons ────────────────────────────────────── */
+[class*="ViewControls"] button[class*="active"],
+[class*="ViewControl"][class*="active"],
+[class*="ListControl"][class*="active"],
+[class*="GridControl"][class*="active"],
+[role="toolbar"] button[aria-pressed="true"],
+[role="group"] button[aria-pressed="true"] {
+  background-color: var(--lcec-blue) !important;
+  border: 1px solid var(--lcec-blue) !important;
+  border-radius: 4px !important;
+  color: #fff !important;
 }
 
