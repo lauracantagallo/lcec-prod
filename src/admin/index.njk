@@ -15,14 +15,95 @@ eleventyExcludeFromCollections: true
     <script src="decap-cms.js"></script>
     <script>
       (function () {
-        var lastText = '';
-        new MutationObserver(function () {
+        // ── H1 focus on navigation ───────────────────────────────────────────
+        var lastH1 = '';
+        function syncFocus() {
           var h1 = document.querySelector('#nc-root h1');
-          if (h1 && h1.textContent !== lastText) {
-            lastText = h1.textContent;
+          if (h1 && h1.textContent !== lastH1) {
+            lastH1 = h1.textContent;
             h1.setAttribute('tabindex', '-1');
             h1.focus({ preventScroll: false });
           }
+        }
+
+        // ── Active nav item: swap SVG icon → triangle ────────────────────────
+        // Decap's React Router NavLink sets aria-current="page" on the active link.
+        function syncNavIcon() {
+          // Clear any previously injected triangles
+          document.querySelectorAll('.lcec-nav-tri').forEach(function (el) { el.remove(); });
+          document.querySelectorAll('[data-lcec-hidden]').forEach(function (el) {
+            el.style.display = '';
+            el.removeAttribute('data-lcec-hidden');
+          });
+
+          var active = document.querySelector('[aria-current="page"]');
+          if (!active) return;
+          var icon = active.querySelector('svg');
+          if (icon) {
+            icon.style.display = 'none';
+            icon.setAttribute('data-lcec-hidden', '1');
+          }
+          var tri = document.createElement('span');
+          tri.className = 'lcec-nav-tri';
+          tri.setAttribute('aria-hidden', 'true');
+          tri.textContent = '\u25B6';
+          active.insertBefore(tri, active.firstChild);
+        }
+
+        // ── List / grid toggle: add .lcec-view-active on the pressed button ──
+        // The buttons have stable aria-labels but no aria-pressed; wire via clicks.
+        function syncViewButtons() {
+          var list = document.querySelector('button[aria-label="List view option"]');
+          var grid = document.querySelector('button[aria-label="Grid view option"]');
+          if (!list || !grid || list.dataset.lcecWired) return;
+
+          list.dataset.lcecWired = '1';
+          grid.dataset.lcecWired = '1';
+
+          // Detect initial active state: Decap colours the inactive button #b3b9c4
+          var INACTIVE = 'rgb(179, 185, 196)';
+          [list, grid].forEach(function (btn) {
+            if (getComputedStyle(btn).color !== INACTIVE) {
+              btn.classList.add('lcec-view-active');
+            }
+            btn.addEventListener('click', function () {
+              list.classList.remove('lcec-view-active');
+              grid.classList.remove('lcec-view-active');
+              btn.classList.add('lcec-view-active');
+            });
+          });
+        }
+
+        // ── Header icons: match text colour on hover via direct style ────────
+        // CSS fill rules are unreliable here; event delegation is simpler.
+        var header = null;
+        function getHeader() {
+          return header || (header = document.querySelector('#nc-root > *:first-child'));
+        }
+        document.addEventListener('mouseover', function (e) {
+          var h = getHeader();
+          if (!h) return;
+          var btn = e.target.closest('button, a, [role="button"]');
+          if (!btn || !h.contains(btn)) return;
+          btn.querySelectorAll('svg, svg *').forEach(function (el) {
+            el.style.setProperty('fill', '#364519', 'important');
+          });
+        });
+        document.addEventListener('mouseout', function (e) {
+          var h = getHeader();
+          if (!h) return;
+          var btn = e.target.closest('button, a, [role="button"]');
+          if (!btn || !h.contains(btn)) return;
+          btn.querySelectorAll('svg, svg *').forEach(function (el) {
+            el.style.removeProperty('fill');
+          });
+        });
+
+        // ── MutationObserver: runs all syncs on every DOM change ─────────────
+        new MutationObserver(function () {
+          syncFocus();
+          syncNavIcon();
+          syncViewButtons();
         }).observe(document.body, { childList: true, subtree: true, characterData: true });
       })();
     </script>

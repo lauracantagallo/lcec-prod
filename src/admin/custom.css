@@ -59,26 +59,14 @@ header [role="button"]:hover {
   border-right: 1px solid #d6e4b8 !important;
 }
 
-/* Remove blue border indicator; active state uses background + triangle only */
-[class*="NavLink"],
-[class*="CollectionLink"] {
+/* Active nav link — aria-current="page" is set by React Router on the active item */
+[aria-current="page"] {
+  background-color: var(--lcec-green-light) !important;
   border-left: none !important;
 }
 
-[class*="NavLink"][class*="isActive"],
-[class*="CollectionLink"][class*="isActive"] {
-  background-color: var(--lcec-green-light) !important;
-}
-
-/* Hide the SVG icon only on the active item, replace with a filled triangle */
-[class*="NavLink"][class*="isActive"] svg,
-[class*="CollectionLink"][class*="isActive"] svg {
-  display: none !important;
-}
-
-[class*="NavLink"][class*="isActive"]::before,
-[class*="CollectionLink"][class*="isActive"]::before {
-  content: "▶";
+/* Triangle injected by JS when a nav item is active */
+.lcec-nav-tri {
   font-size: 0.7em;
   margin-right: 0.4em;
   vertical-align: middle;
@@ -212,15 +200,17 @@ input[type="radio"] {
 }
 
 /* ── List / grid view toggle buttons ────────────────────────────────────── */
-button[aria-pressed="true"] {
+
+/* .lcec-view-active is added by JS (buttons have no aria-pressed in Decap) */
+button.lcec-view-active {
   background-color: var(--lcec-blue) !important;
   border: 1px solid var(--lcec-blue) !important;
   border-radius: 4px !important;
   color: #fff !important;
 }
 
-button[aria-pressed="true"] svg,
-button[aria-pressed="true"] svg * {
+button.lcec-view-active svg,
+button.lcec-view-active svg * {
   fill: #fff !important;
 }
 
