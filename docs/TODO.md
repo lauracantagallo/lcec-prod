@@ -16,6 +16,7 @@ Category tags: `[a11y]` `[seo]` `[optimization]` `[security]` `[content]`
 
 ## Before Launch — Should Do
 
+- [ ] **Fix Accessibility Services page bottom spacing** `[content]` — excess or missing space below the page content; audit padding/margin on the last section and align with other pages
 - [ ] **Google Business Profile** `[seo]` — create a profile for LC Education Consulting, then paste the URL into `site.json` → `"googleBusinessUrl"`; it will automatically appear in the business schema `sameAs` array
 - [ ] **Google Search Console** `[seo]` — verify ownership by pasting the GSC verification code into `site.json` → `"gscVerificationId"`; then submit the sitemap
 - [ ] **`og:image`** `[seo]` — currently uses a generic `/img/og-image.png`; a real branded image (1200×630) would improve link previews on LinkedIn, Slack, and iMessage
