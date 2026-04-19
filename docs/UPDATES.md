@@ -4,6 +4,29 @@ A plain-language record of what has changed on the site — features, content, a
 
 ---
 
+## April 19, 2026 — Content management system added to staging
+
+A content editor (Decap CMS) is now available on the staging site at `lauracantagallo.github.io/lcec-dev/admin`. Laura can log in with her GitHub account and edit site content directly — no code changes needed.
+
+### What can be edited through the CMS
+
+- **Site Info** — booking URL, phone, email, city, and other global settings
+- **Announcement Bar** — the slim banner at the top of every page; leave it blank to hide it
+- **Navigation** — the links in the top nav bar
+- **CTA Block** — the "Ready to Get Started?" section at the bottom of most pages
+- **All 9 pages** — Homepage, Our Story, Why Choose Us, Accessibility Services, Webinars & Training, Portfolio, Contact, Contact Success, and 404
+- **Testimonials** — client quotes used sitewide
+
+### How it works
+
+Changes saved in the CMS are committed directly to the production repository. The site rebuilds automatically — changes are live within 2–3 minutes of saving.
+
+### Getting started guide
+
+An in-app guide ("Getting Started / How to Use This CMS") is available in the CMS sidebar explaining how to save, what each section does, and what to do if something looks wrong after saving.
+
+---
+
 ## April 18, 2026 — Accessibility fixes and page improvements
 
 ### Accessibility fixes

@@ -52,7 +52,37 @@ lcec-dev    https://github.com/lauracantagallo/lcec-dev.git   # staging
 ### Push workflow
 
 ```bash
-git push lcec-dev dev:main    # staging
+git push lcec-dev dev         # staging (lcec-dev deploys from dev branch)
 git push lcec-prod main       # production
-git push origin dev           # personal backup
+git push origin main          # personal backup (main branch)
 ```
+
+---
+
+## Decap CMS
+
+The CMS lives on `lcec-dev` only. It is not deployed to `lcec-prod`.
+
+| File | Purpose |
+| ---- | ------- |
+| `src/admin/config.yml` | Backend config, collections, and field definitions |
+| `src/admin/custom.css` | UI branding overrides (olive green theme, WCAG focus rings) |
+| `src/admin/guide.md` | In-app Getting Started guide — committed to both dev and `lcec-prod/main` |
+| `src/admin/index.njk` | Admin shell page — loads self-hosted `decap-cms.js` |
+
+**CMS backend:** reads and writes `lcec-prod/main` directly via the GitHub API.
+
+**OAuth:** GitHub OAuth App "LCEC CMS" under Laura's account. Callback goes through a Cloudflare Worker (`lcec-cms-auth`) that holds the Client ID and Secret.
+
+**lcec-dev branch:** `dev` is the default and deploy branch. `main` was deleted to avoid confusion.
+
+### Local development with the CMS
+
+Run two processes in parallel:
+
+```bash
+npm run dev          # Eleventy dev server
+npx decap-server     # Local CMS backend (reads/writes local files)
+```
+
+Then open `http://localhost:8080/admin/`. The local backend bypasses GitHub OAuth — no login needed locally.

@@ -62,6 +62,13 @@ Category tags: `[a11y]` `[seo]` `[optimization]` `[security]` `[content]`
 
 ---
 
+## CMS
+
+- [ ] **Wire `testimonials.json` to templates** — CMS edits to Testimonials currently don't appear on the site; templates still pull quotes from page frontmatter. To fix: update `testimonial.njk` and the why-choose-us / homepage layouts to read from `testimonials.items` instead of hardcoded frontmatter fields.
+- [ ] **Test CMS end-to-end on staging** — log in to `lauracantagallo.github.io/lcec-dev/admin`, make a small edit (e.g. announcement bar text), save, confirm the site rebuilds and the change appears on the staging URL within ~3 minutes.
+
+---
+
 ## Nice to Have
 
 - [ ] **Web3Forms `from_name`** `[content]` — JS snippet to sync the `your_name` field into the hidden `from_name` input before submit, so Laura's inbox shows the submitter's name instead of "LC Education Consulting"

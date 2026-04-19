@@ -4,6 +4,53 @@ All significant changes to the LC Education Consulting site, newest first.
 
 ---
 
+## 2026-04-19 — Decap CMS setup, config audit, and UI fixes
+
+### `src/admin/config.yml` *(new on dev branch)*
+
+- Full collections config written from scratch: Getting Started, Settings (site, office, announcement, cta, navigation), Testimonials, Pages (all 9 content pages)
+- **Audit fixes:**
+  - Added `trainings_heading` field to webinars-and-training collection (was in frontmatter but missing from config — would have been silently dropped on CMS save)
+  - Added missing `site.json` fields: `calendar_url` (position 3), `gaId`, `linkedinUrl`, `googleBusinessUrl`, `founderUrl`, `gscVerificationId`
+  - Removed `cta_primary_url` from homepage hero (field does not exist in frontmatter)
+  - All CTA `button_url` fields: set `required: false`; updated hint to clarify fallback behavior
+  - Changed `announcement.body` from `widget: string` to `widget: text` (multiline)
+  - Added HTML preservation warnings to our-story and why-choose-us body paragraph hints
+- Added "Getting Started" as first collection with a single `guide.md` file entry
+
+### `src/admin/guide.md` *(new)*
+
+- CMS in-app guide: explains how to save, what each section does, tips for HTML-in-paragraphs fields, and developer contact
+- `permalink: false` + `eleventyExcludeFromCollections: true` prevent Eleventy from rendering it as a page
+- Body content is below the `---` delimiter (required for `widget: markdown` to read it)
+- Copied to `lcec-prod/main` so the GitHub-backed CMS can read it
+
+### `src/admin/custom.css` *(new on dev branch)*
+
+- Branding overrides: replaces Decap's default blue with LC Education Consulting olive green (`#556b2f`)
+- WCAG 2.2 AA focus indicators: `box-shadow` inset rings on buttons/links; white ring inside the olive header
+- **Centering fix:** replaced broken class-wildcard selectors (`[class*="AppMainContainer"]` etc.) with `#nc-root` flex column layout — makes `#nc-root` a `flex-direction: column; align-items: center` container; first child (header) stays full-width; all subsequent children capped at 1200px
+
+### `src/admin/index.njk` *(new on dev branch)*
+
+- CMS admin shell: loads self-hosted `decap-cms.js` (copied from node_modules at build time)
+- `<meta name="robots" content="noindex">` — excluded from search indexing
+
+### `.eleventy.js`
+
+- Added passthrough copies for `src/admin/config.yml`, `src/admin/custom.css`, and `node_modules/decap-cms/dist/decap-cms.js → admin/decap-cms.js`
+
+### `src/_data/testimonials.json`
+
+- Fixed structure from plain array `[...]` to `{ "items": [...] }` to match CMS config's `name: items` list mapping
+
+### `.github/workflows/pages-main.yml` (lcec-dev)
+
+- Changed trigger from `branches: ["main"]` to `branches: ["dev"]` — lcec-dev staging now deploys from the `dev` branch
+- lcec-dev/main deleted to avoid confusion; `dev` is the default branch
+
+---
+
 ## 2026-04-18 — A11y fixes, content links, and image improvements
 
 ### `src/_includes/layouts/webinars-and-training.njk`

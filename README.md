@@ -144,7 +144,8 @@ lcec/
 │   ├── admin/                     # Decap CMS (staging only — not deployed to lcec-prod)
 │   │   ├── index.njk              # CMS admin shell
 │   │   ├── config.yml             # Backend and collections config
-│   │   └── custom.css             # CMS UI overrides
+│   │   ├── custom.css             # CMS UI overrides (branding + centering)
+│   │   └── guide.md              # In-app Getting Started guide
 │   └── content/
 │       ├── index.md               # Homepage content (frontmatter-driven)
 │       ├── our-story.md
@@ -250,9 +251,9 @@ Two repositories on Laura's GitHub account (`lauracantagallo`), both hosted on G
 | `lcec-prod` | Production | Custom domain (TBD) |
 | `lcec-dev` | Staging | `https://lauracantagallo.github.io/lcec-dev/` |
 
-Both deploy automatically on push to `main` via `.github/workflows/pages-main.yml`. The `PATH_PREFIX` is set per-repo as a GitHub Actions repository variable so the same workflow serves both repos without modification.
+**`lcec-prod`** deploys automatically on push to `main`. **`lcec-dev`** deploys on push to `dev` (the default branch; `main` does not exist on this repo). The `PATH_PREFIX` is set per-repo as a GitHub Actions repository variable so the same workflow file serves both repos.
 
-The `lcec-dev` staging repo also includes Decap CMS for content editing. The CMS is not deployed to `lcec-prod`. See [`docs/setup-github.md`](docs/setup-github.md) for the full setup.
+The `lcec-dev` staging repo includes Decap CMS for content editing. The CMS is not deployed to `lcec-prod`. CMS edits write directly to `lcec-prod/main` via the GitHub API. See [`docs/setup-github.md`](docs/setup-github.md) for the full setup.
 
 ## Notes
 
