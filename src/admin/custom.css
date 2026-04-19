@@ -92,12 +92,12 @@ header [role="button"]:hover {
 }
 
 [class*="AppHeader"] * {
-  color: #ffffff !important;
+  color: #fff !important;
 }
 
 [class*="AppHeader"] svg,
 [class*="AppHeader"] svg * {
-  fill: currentColor !important;
+  fill: currentcolor !important;
 }
 
 header button:hover svg,
@@ -117,7 +117,7 @@ header [role="button"]:hover svg * {
 }
 
 /* ── Focus indicators — WCAG 2.2 AA ─────────────────────────────────────── */
-*:not(input):not(textarea):not(select):not(a):not(button):focus-visible {
+*:not(input, textarea, select, a, button):focus-visible {
   outline: var(--lcec-focus) !important;
   outline-offset: 2px !important;
 }
@@ -139,10 +139,11 @@ dialog button:focus-visible,
 /* Header — override to white so the ring is visible on the olive background */
 header a:focus-visible,
 header button:focus-visible {
-  box-shadow: inset 0 0 0 2px #ffffff !important;
+  box-shadow: inset 0 0 0 2px #fff !important;
 }
 
 /* ── Login page (Netlify Identity Widget) ────────────────────────────────── */
+
 /* The login modal is rendered by netlify-identity-widget.js */
 .netlify-identity-modal,
 [class*="modal-container"] {
@@ -183,6 +184,7 @@ input[type="radio"] {
 }
 
 /* ── Center main content area ────────────────────────────────────────────── */
+
 /*
   Decap mounts into #nc-root. The top bar is the first child; everything
   after it is the page content. We leave the top bar full-width and
