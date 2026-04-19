@@ -2,6 +2,8 @@
 
 Source repository for the LC Education Consulting website, built with Eleventy, Sass, and esbuild.
 
+**Developer:** Mikey Ilagan
+
 ## Tech Stack
 
 | Layer | Tool |
@@ -65,9 +67,12 @@ lcec/
 │   │       └── form.js            # formatPhoneNumber helper
 │   ├── img/                       # Source images (JPG + generated WebP)
 │   ├── static/
-│   │   ├── _headers               # HTTP headers config (Netlify / Cloudflare Pages only)
 │   │   ├── robots.txt
 │   │   └── fonts/                 # Self-hosted Lato woff2 files
+│   ├── admin/
+│   │   ├── index.njk              # Decap CMS admin shell (dev branch only)
+│   │   ├── config.yml             # Decap CMS backend and collections config
+│   │   └── custom.css             # Decap CMS UI overrides
 │   └── content/
 │       ├── index.md               # Homepage content (frontmatter data)
 │       ├── our-story.md
@@ -89,15 +94,13 @@ lcec/
 ├── docs/
 │   ├── TODO.md                        # Prioritised task list
 │   ├── CONTENT_SUGGESTIONS.md         # Tracked copy and content improvement suggestions
-│   ├── setup-github.md                # Client guide — GitHub account and repo setup
-│   └── setup-netlify.md               # Client guide — Netlify account and staging setup
+│   └── setup-github.md                # GitHub repos, Pages config, OAuth app, and push workflow
 ├── dist/                          # Compiled output (not committed)
 ├── .eleventy.js                   # Eleventy config (filters, HTML minification, passthrough)
 ├── eslint.config.js               # ESLint flat config (v9) for src/js and build/
 ├── .stylelintrc.json              # Stylelint config extending stylelint-config-standard-scss
 ├── .husky/
 │   └── pre-commit                 # Runs lint-staged before every commit
-├── netlify.toml                   # Netlify build config (used by lc-dev staging repo)
 ├── manifest.webmanifest           # PWA manifest
 └── package.json
 ```
@@ -165,20 +168,20 @@ Key tokens:
 
 ## Deployment
 
-This project uses two repositories for separate environments:
+This project uses two repositories on Laura's GitHub account (`lauracantagallo`), both hosted on GitHub Pages:
 
 | Repo | Branch | Host | URL |
 | ---- | ------ | ---- | --- |
 | `lcec-prod` | `main` | GitHub Pages | Custom domain (production) |
 | `lcec-dev` | `main` | Netlify | Staging URL |
 
-**Production** deploys automatically on push to `main` via `.github/workflows/pages-main.yml`.
+Both repos deploy automatically on push to `main` via `.github/workflows/pages-main.yml`. The `PATH_PREFIX` is set per-repo as a GitHub Actions repository variable (`/lcec-prod/` and `/lcec-dev/` respectively).
 
 **Staging** deploys automatically on push to `main` via Netlify's branch deploy.
 
 Netlify features in use on staging (`lcec-dev`):
 
-- **Headers** — Custom HTTP cache and security headers via `src/static/_headers` (GitHub Pages ignores this file)
+### Decap CMS Auth (staging only)
 
 ## Notes
 

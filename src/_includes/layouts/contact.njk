@@ -45,7 +45,7 @@ layout: base.njk
     <h2 class="heading--section">{{ contact_section.heading }}</h2>
     <div role="status" aria-live="polite" aria-atomic="true"></div>
     <form class="contact-form" action="https://api.web3forms.com/submit" method="post" novalidate>
-      <input type="hidden" name="access_key" value="{{ site.web3formsKey }}" />
+      <input type="hidden" name="access_key" value="{{ env.web3formsKey }}" />
       <input type="hidden" name="subject" value="New contact form submission — LC Education Consulting" />
       <input type="hidden" name="redirect" value="{{ site.url }}/contact-success/" />
       <input type="hidden" name="from_name" value="LC Education Consulting" />

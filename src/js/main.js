@@ -254,7 +254,23 @@ function initExternalLinks() {
     const icon = document.createElement('span');
     icon.className = 'external-link-icon';
     icon.setAttribute('aria-hidden', 'true');
-    icon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
+    const ns = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('fill', 'none');
+    svg.setAttribute('stroke', 'currentColor');
+    svg.setAttribute('stroke-width', '2.5');
+    svg.setAttribute('stroke-linecap', 'round');
+    svg.setAttribute('stroke-linejoin', 'round');
+    const path = document.createElementNS(ns, 'path');
+    path.setAttribute('d', 'M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6');
+    const poly = document.createElementNS(ns, 'polyline');
+    poly.setAttribute('points', '15 3 21 3 21 9');
+    const line = document.createElementNS(ns, 'line');
+    line.setAttribute('x1', '10'); line.setAttribute('y1', '14');
+    line.setAttribute('x2', '21'); line.setAttribute('y2', '3');
+    svg.append(path, poly, line);
+    icon.appendChild(svg);
     link.appendChild(icon);
   });
 }
