@@ -71,3 +71,4 @@ The `docs/` directory is maintained as a first-class part of the project, not an
 | [`docs/CONTENT_SUGGESTIONS.md`](CONTENT_SUGGESTIONS.md) | Prioritized copy review — grammar, accuracy, jargon, ESL/readability flags |
 | [`docs/setup-github.md`](setup-github.md) | Deployment setup — GitHub repos, Pages config, OAuth app, Cloudflare Worker, push workflow |
 | [`docs/workflow.md`](workflow.md) | Collaboration guide — how Laura requests edits, changes, and features via GitHub |
+| [`docs/MAINTENANCE.md`](MAINTENANCE.md) | Periodic maintenance checklist — CSS, JS, templates, a11y, content, SEO, docs, deps |
