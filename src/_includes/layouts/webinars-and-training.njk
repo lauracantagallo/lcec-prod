@@ -8,7 +8,7 @@ layout: page-with-intro.njk
         <h2 class="content-blocks__heading text-uppercase">{{ trainings_heading }}</h2>
         {% for training in trainings %}
         <h3 class="detail-subheading">{{ training.heading }}</h3>
-        <p class="training-card__description">{{ training.description }}</p>
+        <p class="training-card__description">{{ training.description | safe }}</p>
         {% endfor %}
       </div>
       <picture>

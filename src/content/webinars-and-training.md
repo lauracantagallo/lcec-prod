@@ -11,7 +11,7 @@ trainings:
   - heading: "Assistive Technology"
     description: "Practical training on tools and strategies that support access, participation, and independence across learning and work environments."
   - heading: "Digital Accessibility"
-    description: "Training on accessible documents, inclusive digital content, and WCAG principles."
+    description: "Training on accessible documents, inclusive digital content, and WCAG principles. Need an audit first? See our <a href=\"/accessibility-services/\">accessibility services</a>."
   - heading: "Built-In Accessibility Features"
     description: "Training on accessibility features available in computers, tablets, and mobile devices, including tools that support reading, writing, communication, and access."
   - heading: "Inclusive Practices"
