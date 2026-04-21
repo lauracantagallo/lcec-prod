@@ -4,6 +4,44 @@ All significant changes to the LC Education Consulting site, newest first.
 
 ---
 
+## 2026-04-21 — UI fixes, accessibility, and code consolidation
+
+### Accessibility
+
+- `_layout.scss` — Links inside `.section--blue p` now use `$color-primary-light` (#e3fcc2) — 7.9:1 contrast against the blue background; hover goes to white
+- `_hero.scss` — `.btn--primary:focus` inside `.hero__actions` now uses a white outline (was dark green, low contrast against the olive background)
+- `_components.scss` — `.btn--ghost:focus` now uses a white outline; `.btn--outline:focus` now fills with `$color-primary-dark` and sets `border-color` to match, consistent with hover
+
+### Visual fixes
+
+- `src/_includes/layouts/*.njk` — Six section headings across four pages (Our Philosophy, Professional Background, Why LC Education Consulting, Training Topics, Start a Conversation, Contact Us) changed to `content-blocks__heading text-uppercase` to match the "Featured Projects" reference style
+- `_utilities.scss` — `.section--flush-top .content-blocks__heading` now has `margin-top: 0` so headings on flush sections (Why Choose Us, Contact) don't add unwanted top gap
+- `_sections.scss` — `content-blocks__grid` spacing changed from `padding-bottom` to `margin-bottom: $space-32px` for consistent spacing below service grids
+- `_sections.scss` — `credentials-layout__photo` now has `margin-top: $space-32px` at all sizes, aligning the photo with the heading on the text side
+- `_forms.scss` — Removed top padding from `.contact-form-section`; added `.contact-office` block for spacing around the office/phone/email heading
+
+### Data fixes
+
+- `partials/social-section.njk` — LinkedIn URL was hardcoded; now uses `{{ site.linkedinUrl }}` from `site.json`
+
+### CSS consolidation
+
+- `_typography.scss` — Removed unused `%heading-section-base`, `.heading--section`, and `.detail-heading` (all templates migrated to `content-blocks__heading`)
+- `_components.scss` — Removed unused `.card` class
+- `_components.scss` — Removed redundant `padding` declaration from `.btn` desktop media query (identical to base)
+- `_components.scss` — Moved floating `.section--blue .cta-block__subheading` rule inside `.cta-block` as a contextual modifier; simplified desktop padding shorthand
+- `_forms.scss` — Submit button `:focus` now uses `@include focus-outline($color-primary, $radius: true)` instead of raw properties
+- `_sections.scss` — Replaced five hard-coded spacing values (`1rem`, `1.5rem`, `0.5rem`) with `$space-*` tokens
+- `_sections.scss` — Removed redundant `font-size: $font-size-base` in `bio-layout__body` desktop breakpoint (same as base value); `margin-top: 1rem` → `$space-16px`
+- `_layout.scss` — Removed redundant `padding: $space-16px 0` from `.section--blue` (already provided by `.section`)
+
+### JS consolidation
+
+- `utils/dom.js` — Added `handleFocusTrap(container, event, selector?)` utility
+- `main.js` — Both `initNavigation` and `initExitModal` now use `handleFocusTrap` instead of duplicated inline focus-trap logic
+
+---
+
 ## 2026-04-18 — A11y fixes, content links, and image improvements
 
 ### `src/_includes/layouts/webinars-and-training.njk`

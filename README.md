@@ -135,7 +135,7 @@ lcec/
 │   ├── js/
 │   │   ├── main.js                # Nav, cookie banner, form validation, external links, exit modal
 │   │   └── utils/
-│   │       ├── dom.js             # toggleClass, setAria, onEscape helpers
+│   │       ├── dom.js             # toggleClass, setAria, onEscape, handleFocusTrap helpers
 │   │       └── form.js            # formatPhoneNumber helper
 │   ├── img/                       # Source images (JPG + generated WebP)
 │   ├── static/

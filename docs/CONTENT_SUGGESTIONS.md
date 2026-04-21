@@ -14,13 +14,13 @@ Suggested copy updates flagged during a content review (April 2026). Organized b
 
 **File:** `src/_includes/partials/footer.njk`
 
-**Current:** `302-750-7443` (Delaware area code)
+**Footer:** `302-750-7443` (Delaware area code) — hardcoded intentionally; this matches the number currently on the live site.
 
 **Everywhere else (`office.json`, header, contact page):** `856-310-4483` (South NJ, Collingswood)
 
-**Suggested:** Confirm the correct number with Laura and update the footer to match.
+**Note:** The two numbers may be intentional — both may be valid numbers Laura uses. The footer currently preserves the number from the previous site version. Before launch, confirm with Laura which number should appear where, and whether both should be listed or consolidated to one.
 
-**Why:** A visitor who finds the site in a Google search and sees two different phone numbers will question the credibility of the business.
+**Why this matters:** A visitor who sees two different phone numbers will question the credibility of the business. Both numbers should be correct, but having two without explanation can be confusing.
 
 ---
 

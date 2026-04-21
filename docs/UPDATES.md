@@ -4,6 +4,30 @@ A plain-language record of what has changed on the site — features, content, a
 
 ---
 
+## April 21, 2026 — Visual fixes and accessibility improvements
+
+### Link colors on blue sections
+
+Links inside the blue introduction banners (for example, on the Our Story page) were appearing in olive green, which did not meet minimum color contrast requirements against the blue background. They now appear in the light green used elsewhere on dark backgrounds, which has a contrast ratio of nearly 8:1 — well above the required 4.5:1.
+
+### Focus indicators
+
+Three buttons — "Book a Free 30-Minute Discovery Call," "See Our Services," and the ADA Title II resource link — were showing dark green focus outlines against dark backgrounds, making them hard to see. These now display white focus outlines, consistent with the rest of the site's dark-section buttons.
+
+When pressing Tab to reach the Map, Call Now, or Email buttons on the Contact page, the button border now turns dark green to match the filled background — previously the border stayed light green while the fill changed, making the focused state look mismatched.
+
+### Heading sizes
+
+Several section headings had the wrong visual size. The following headings now match the style used by "Featured Projects" on the Portfolio page: Our Philosophy, Professional Background, Why LC Education Consulting, Training Topics, Start a Conversation, and Contact Us.
+
+### Spacing
+
+- The image on the Webinars & Training page now has proper top spacing, so it no longer appears pushed up against the top of its section.
+- Service cards on the Accessibility Services page now have proper spacing below the grid.
+- The Contact page form section starts closer to the blue intro banner above it, eliminating the extra gap.
+
+---
+
 ## April 18, 2026 — Accessibility fixes and page improvements
 
 ### Accessibility fixes
