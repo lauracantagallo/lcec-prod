@@ -3,7 +3,7 @@ layout: base.njk
 ---
 <section class="section section--white section--flush-top section--flush-bottom">
   <div class="container">
-    <h1 class="heading--section">{{ page_title.heading }}</h1>
+    <h1 class="content-blocks__heading text-uppercase">{{ page_title.heading }}</h1>
     <div class="bio-layout">
       <img src="{{ '/img/about-laura-cantagallo.webp' | url }}" alt="Laura Cantagallo, founder of LC Education Consulting" class="bio-layout__photo" width="400" height="400" loading="lazy" />
       <div class="bio-layout__text">
@@ -24,7 +24,7 @@ layout: base.njk
   <div class="container">
     <div class="credentials-layout">
       <div class="credentials-layout__text">
-        <h2 class="detail-heading">{{ credentials_heading }}</h2>
+        <h2 class="content-blocks__heading text-uppercase">{{ credentials_heading }}</h2>
         <ul class="credentials-list">
           {% for item in credentials %}
           <li>{{ item }}</li>

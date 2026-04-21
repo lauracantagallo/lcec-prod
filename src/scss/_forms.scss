@@ -6,10 +6,10 @@
 .contact-form-section {
   background-color: $color-white;
   color: $color-text;
-  padding: $space-24px $space-16px 0;
+  padding: 0 $space-16px;
 
   @media (min-width: #{$bp-tablet + 1px}) {
-    padding: $space-40px $space-24px 0;
+    padding: 0 $space-24px;
   }
 }
 
@@ -154,6 +154,15 @@
       outline: $focus-outline-stroke $color-primary;
       outline-offset: $focus-outline-offset;
     }
+  }
+}
+
+.contact-office {
+  margin-bottom: $space-24px;
+  margin-top: $space-24px;
+
+  .section-heading {
+    margin: 0;
   }
 }
 

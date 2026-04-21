@@ -100,12 +100,7 @@
     display: grid;
     gap: $space-24px;
     grid-template-columns: 1fr;
-    padding-bottom: $space-32px;
-
-    &:last-child,
-    .section--flush-bottom & {
-      padding-bottom: 0;
-    }
+    margin-bottom: $space-32px;
 
     @media (min-width: #{$bp-tablet + 1px}) {
       gap: $space-32px;
@@ -130,7 +125,7 @@
     font-size: $font-size-base;
     font-weight: 700;
     letter-spacing: $letter-spacing-wider;
-    margin: 1.5rem 1rem;
+    margin: $space-24px $space-16px;
 
     @media (min-width: #{$bp-tablet + 1px}) {
       font-size: $font-size-xl;
@@ -170,12 +165,12 @@
     color: $color-text;
     font-size: $font-size-sm;
     line-height: $line-height-loose;
-    margin: auto 1rem 0;
+    margin: auto $space-16px 0;
     overflow-wrap: break-word;
-    padding: 0 0.5rem 1.5rem;
+    padding: 0 $space-8px $space-24px;
 
     &:last-child {
-      padding-bottom: 1.5rem;
+      padding-bottom: $space-24px;
     }
 
     @media (min-width: #{$bp-tablet + 1px}) {
@@ -190,7 +185,7 @@
   }
 
   &__block ul {
-    margin: auto 1.5rem 1.5rem;
+    margin: auto $space-24px $space-24px;
 
     li {
       color: $color-text;
@@ -231,12 +226,8 @@
     font-size: $font-size-base;
     line-height: $line-height-loose;
 
-    @media (min-width: #{$bp-tablet + 1px}) {
-      font-size: $font-size-base;
-    }
-
     & + & {
-      margin-top: 1rem;
+      margin-top: $space-16px;
     }
   }
 
@@ -310,6 +301,7 @@
     display: block;
     flex-shrink: 0;
     height: auto;
+    margin-top: $space-32px;
     object-fit: cover;
     order: 1;
     width: 100%;

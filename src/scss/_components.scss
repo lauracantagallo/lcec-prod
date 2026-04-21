@@ -71,18 +71,12 @@
     color: inherit;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: $color-primary-dark;
+    border-color: $color-primary-dark;
     color: $color-white;
   }
-}
-
-// ─── Card Base ───────────────────────────────────────────────────────────────
-.card {
-  background-color: $color-white;
-  box-shadow: $shadow-card;
-  color: $color-text;
-  padding: $space-32px;
 }
 
 // ─── List Utility ────────────────────────────────────────────────────────────

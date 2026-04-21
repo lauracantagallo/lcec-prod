@@ -3,7 +3,7 @@ layout: base.njk
 ---
 <section class="section section--white section--flush-top section--flush-bottom">
   <div class="container">
-    <h1 class="heading--section">{{ page_title.heading }}</h1>
+    <h1 class="content-blocks__heading text-uppercase">{{ page_title.heading }}</h1>
   </div>
 </section>
 
@@ -42,7 +42,7 @@ layout: base.njk
 
 <section class="contact-form-section">
   <div class="container">
-    <h2 class="heading--section">{{ contact_section.heading }}</h2>
+    <h2 class="content-blocks__heading text-uppercase">{{ contact_section.heading }}</h2>
     <div role="status" aria-live="polite" aria-atomic="true"></div>
     <form class="contact-form" action="https://api.web3forms.com/submit" method="post" novalidate>
       <input type="hidden" name="access_key" value="{{ env.web3formsKey }}" />
@@ -124,7 +124,7 @@ layout: base.njk
 <div class="container">
   <hr class="divider">
 </div>
-  <div class="container">
+  <div class="container contact-office">
     <h2 class="section-heading">{{ office.heading }}</h2>
     <p><a href="{{ office.phone_href }}">{{ office.phone }}</a>
     <br /><a href="{{ office.email_href }}">{{ office.email }}</a></p>

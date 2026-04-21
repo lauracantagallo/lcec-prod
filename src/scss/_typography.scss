@@ -113,43 +113,6 @@ address a {
   }
 }
 
-// ─── Section Heading Utility ─────────────────────────────────────────────────
-// Uppercase, letter-spaced heading used across section patterns.
-// Use .section-heading for title-case, non-uppercase variant.
-
-// Shared base: both .heading--section and .detail-heading are identical at desktop;
-// they differ only in mobile font-size (lg vs base respectively).
-%heading-section-base {
-  font-weight: 700;
-  letter-spacing: $letter-spacing-body;
-  line-height: $line-height-snug;
-  margin: $space-16px 0;
-  text-align: center;
-  text-transform: uppercase;
-
-  @media (min-width: #{$bp-tablet + 1px}) {
-    font-size: $font-size-page-title;
-    font-weight: 400;
-    text-align: left;
-    margin: $space-32px 0;
-  }
-}
-
-.heading--section {
-  @extend %heading-section-base;
-
-  font-size: $font-size-lg;
-}
-
-// ─── Detail Headings ─────────────────────────────────────────────────────────
-// h2/h3 pair for split-layout content columns (bio, credentials, etc.)
-
-.detail-heading {
-  @extend %heading-section-base;
-
-  font-size: $font-size-base;
-}
-
 // Bold tagline/subheading — appears as intro text in split-layout columns.
 // Bold on mobile, normal weight on desktop; no uppercase or centering.
 .tagline {
