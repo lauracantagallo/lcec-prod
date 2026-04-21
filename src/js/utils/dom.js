@@ -27,3 +27,22 @@ export function onEscape(callback) {
     if (e.key === 'Escape') callback(e);
   });
 }
+
+/**
+ * Handle Tab key focus trapping within a container.
+ * Pass as a keydown handler; does nothing unless key is Tab.
+ */
+export function handleFocusTrap(container, e, selector = 'a, button, textarea, input, select, [tabindex]:not([tabindex="-1"])') {
+  if (e.key !== 'Tab') return;
+  const focusable = Array.from(container.querySelectorAll(selector)).filter(el => !el.disabled);
+  if (!focusable.length) return;
+  const first = focusable[0];
+  const last  = focusable[focusable.length - 1];
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault();
+    last.focus();
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault();
+    first.focus();
+  }
+}

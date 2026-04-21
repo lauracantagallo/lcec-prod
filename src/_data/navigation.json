@@ -1,6 +1,6 @@
 {
   "links": [
-    { "text": "Home", "url": "/" },
+    { "text": "Home", "url": "/", "hideFromFooter": true },
     { "text": "Our Story", "url": "/our-story/" },
     { "text": "About", "url": "https://www.lauracantagallosportfolio.com/", "external": true },
     { "text": "Why Choose Us", "url": "/why-choose-us/" },

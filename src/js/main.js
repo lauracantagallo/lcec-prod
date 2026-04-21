@@ -1,6 +1,6 @@
 
 // ─── Utility Functions (imported) ─────────────────────────────────────────--
-import { toggleClass, setAria, onEscape } from './utils/dom.js';
+import { toggleClass, setAria, onEscape, handleFocusTrap } from './utils/dom.js';
 import { formatPhoneNumber } from './utils/form.js';
 
 function storageGet(key) {
@@ -45,23 +45,7 @@ function initNavigation() {
       // Focus trap: keep focus inside mobile nav
       function trapFocus(e) {
         if (!nav.classList.contains('is-open')) return;
-        const focusable = nav.querySelectorAll('a, button, textarea, input, select, [tabindex]:not([tabindex="-1"])');
-        if (!focusable.length) return;
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-        if (e.key === 'Tab') {
-          if (e.shiftKey) {
-            if (document.activeElement === first) {
-              e.preventDefault();
-              last.focus();
-            }
-          } else {
-            if (document.activeElement === last) {
-              e.preventDefault();
-              first.focus();
-            }
-          }
-        }
+        handleFocusTrap(nav, e);
       }
       nav.addEventListener('keydown', trapFocus);
       nav._trapFocusHandler = trapFocus;
@@ -407,15 +391,8 @@ function initExitModal() {
 
   // Focus trap
   modal.addEventListener('keydown', e => {
-    if (e.key !== 'Tab' || !modal.classList.contains('is-visible')) return;
-    const focusable = Array.from(modal.querySelectorAll('button'));
-    const first = focusable[0];
-    const last  = focusable[focusable.length - 1];
-    if (e.shiftKey && document.activeElement === first) {
-      e.preventDefault(); last.focus();
-    } else if (!e.shiftKey && document.activeElement === last) {
-      e.preventDefault(); first.focus();
-    }
+    if (!modal.classList.contains('is-visible')) return;
+    handleFocusTrap(modal, e, 'button');
   });
 
   // Intercept LinkedIn links
