@@ -52,9 +52,9 @@ lcec-dev    https://github.com/lauracantagallo/lcec-dev.git   # staging
 ### Push workflow
 
 ```bash
-git push lcec-dev dev         # staging (lcec-dev deploys from dev branch)
 git push lcec-prod main       # production
-git push origin main          # personal backup (main branch)
+git push lcec-dev dev         # staging (lcec-dev deploys from dev branch)
+git push origin dev           # personal backup (dev branch)
 ```
 
 ---
