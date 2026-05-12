@@ -13,6 +13,11 @@ export default function (eleventyConfig) {
     return new Date(date).toISOString().split("T")[0];
   });
 
+  // Replace image extension with .webp, e.g. /img/photo.jpg → /img/photo.webp
+  eleventyConfig.addFilter("toWebP", function (path) {
+    return path.replace(/\.(jpe?g|png|gif)$/i, ".webp");
+  });
+
   eleventyConfig.addTransform("htmlmin", async function (content) {
     if ((this.page.outputPath || "").endsWith(".html")) {
       return await minify(content, {
