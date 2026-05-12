@@ -6,10 +6,7 @@ Category tags: `[a11y]` `[seo]` `[optimization]` `[security]` `[content]`
 
 ## Before Launch — Blockers
 
-- [x] **Configure Web3Forms** `[security]` — real key in `site.json` and injected via `WEB3FORMS_KEY` GitHub Actions secret
-- [x] **Configure GA4** `[seo]` — real tracking ID `G-QX0EYR2295` set in `src/_data/site.json`
-- [x] **GA4 consent gating** `[security]` — GA4 now loads from JS only after cookie consent is accepted; `data-ga-id` on `<body>` passes the ID to JS; preconnect hint kept in `<head>`
-- [ ] **Custom domain on `lcec-prod`** `[seo]` — configure DNS (CNAME/A record pointing to `lauracantagallo.github.io`), then set the `PATH_PREFIX` repo variable to `/` in `lcec-prod` so asset paths resolve correctly
+- [ ] **Custom domain on `lcec-prod`** `[seo]` — configure DNS (CNAME/A record pointing to `lauracantagallo.github.io`), then confirm `PATH_PREFIX` repo variable is `/` in `lcec-prod`
 - [ ] **Test contact form end-to-end** `[content]` — submit a real entry and confirm Laura receives the email with correct reply-to
 - [ ] **Style 404 page** `[content]`
 - [ ] **Screen reader testing** `[a11y]`
@@ -18,14 +15,11 @@ Category tags: `[a11y]` `[seo]` `[optimization]` `[security]` `[content]`
 
 ## Before Launch — Should Do
 
-- [x] **Confirm phone numbers with Laura** `[content]` — confirmed to use `856-310-4483` (Google Voice) everywhere; removed old personal cell number `302-750-7443` from footer
-- [x] **Google Business Profile** `[seo]` — URL confirmed in `site.json` → `"googleBusinessUrl"`
 - [ ] **Google Search Console** `[seo]` — verify ownership by pasting the GSC verification code into `site.json` → `"gscVerificationId"`; then submit the sitemap
 - [ ] **`og:image`** `[seo]` — currently uses a generic `/img/og-image.png`; a real branded image (1200×630) would improve link previews on LinkedIn, Slack, and iMessage
 - [ ] **Laura's personal LinkedIn** `[seo]` — if she has one, add the URL to the `Person` schema `sameAs` in `head.njk` (or add a `founderLinkedinUrl` field to `site.json`)
 - [ ] **Business hours** `[seo]` — confirm with Laura, then add `openingHoursSpecification` to the `ProfessionalService` schema in `head.njk`
-- [ ] Review `contact-success` page `[content]` — visual check that it renders cleanly and has a clear next step for the user
-- [x] **Review CONTENT_SUGGESTIONS with Laura** `[content]` — items #2–22 resolved; #23–28 deferred to post-launch with dev plans in place
+- [ ] **Review `contact-success` page** `[content]` — visual check that it renders cleanly and has a clear next step for the user
 
 ---
 
@@ -65,8 +59,7 @@ Category tags: `[a11y]` `[seo]` `[optimization]` `[security]` `[content]`
 
 ## CMS
 
-- [x] **Wire `testimonials.json` to templates** — `testimonial.njk` now reads `testimonials.items[0]`; homepage uses `short` field, why-choose-us uses full `text`; `quote:` blocks removed from both content files
-- [ ] **Test CMS end-to-end on staging** — log in to `lauracantagallo.github.io/lcec-dev/admin`, make a small edit (e.g. announcement bar text), save, confirm the site rebuilds and the change appears on the staging URL within ~3 minutes.
+- [ ] **Test CMS end-to-end on staging** — log in to `mikeyil.github.io/lcec-dev/admin`, make a small edit (e.g. announcement bar text), save, confirm the site rebuilds and the change appears on the staging URL within ~3 minutes.
 
 ---
 
@@ -89,67 +82,62 @@ Category tags: `[a11y]` `[seo]` `[optimization]` `[security]` `[content]`
 
 ---
 
-## Code Quality
-
-- [x] Fix `storageGet`/`storageSet` infinite recursion — both functions called themselves instead of `localStorage`; cookie consent, announcement, and footer nav state never persisted
-- [x] Fix unclosed `<a>` tag in `footer.njk` footer brand link
-- [x] Dereference hardcoded phone in `header.njk` — now uses `{{ office.phone_href }}` / `{{ office.phone }}`
-- [x] Dereference hardcoded phone in `footer.njk` — now uses `{{ office.phone_href }}` / `{{ office.phone }}`
-- [x] Extract `makeCollapseToggle` factory in `main.js` — shared by `initAnnouncementToggle` and `initFooterNavToggle`
-- [x] Replace `innerHTML` SVG injection in `initExternalLinks` with `createElementNS` DOM API calls
-- [x] Remove dead `.social-link--vcard` handler from `main.js` (dev-branch contamination)
-- [x] `_reset.scss` refactor — removed dead rules, fixed `scroll-behavior` reduced-motion guard, removed `textarea:focus { outline: none }` a11y violation, cleared fieldset magic numbers, fixed `appearance: auto → none` on buttons
-- [x] Wire `@a11yfred/neighbor` Stylelint plugin — `no-outline-none`, `no-forced-colors-none`, `user-preferences` rules active
-
-## DRY Opportunities
-
-- [x] **Calendar URL** repeated 4× — centralized in `site.json` as `calendar_url`; templates use `{{ cta.button_url or site.calendar_url }}`
-- [x] **`.heading--section` / `.detail-heading`** — placeholder and both classes removed entirely from `_typography.scss`; all templates migrated to `content-blocks__heading text-uppercase`
-- [x] **Phone/email in front matter** — never was; layouts already reference `office.*` from `_data/office.json`
-- [x] **`.form-input` / `.form-textarea`** — `%form-field-base` placeholder already existed in `_forms.scss`
-- ~~**Contact block partial**~~ — `contact.njk` and `contact-success.njk` use different section classes and link styles throughout; a partial would require too many parameters to be cleaner than the current two small blocks
-
----
-
 ## Resolved
 
-- [x] Accessibility Services page bottom spacing — `content-blocks__grid` now uses `margin-bottom: $space-32px` for consistent spacing below service grids
-- [x] Footer nav driven from `navigation.json` — single source of truth; `hideFromFooter: true` flag skips Home; dropdown children flattened
-- [x] Social section on/off toggle — `showSocial` boolean and `socialHeading` string added to `site.json`; `social-section.njk` wrapped in `{% if site.showSocial %}`
-- [x] `handleFocusTrap` shared utility — extracted to `utils/dom.js`; used by both `initNavigation` and `initExitModal`
-- [x] Hardcoded `"LC Education Consulting"` replaced with `{{ site.name }}` in header logo, footer brand, footer copyright, and Web3Forms hidden inputs
-- [x] `@mixin link-state-primary` and `@mixin link-state-on-dark` added to `_variables.scss`; applied across nav and footer link hover/focus blocks
-- [x] Internal links added to Our Story, Why Choose Us, Portfolio, and Webinars & Training body copy; `| safe` filter added to all four layout templates to render anchor tags in frontmatter strings
-- [x] Heading hierarchy fix — Webinars & Training page was rendering the same text at both `<h1>` and `<h2>`; fixed by adding `trainings_heading: "Training Topics"` to front matter
-- [x] Placeholder text contrast — `#a9a9a9` (~2.35:1 on white, WCAG fail) replaced with `$color-placeholder: #6b6b6b` (~5.3:1 on white, WCAG AA pass)
-- [x] Removed `twitterHandle` from `site.json` and `twitter:site` meta tag from `head.njk` — Laura does not use Twitter
-- [x] `loading="lazy"` — added to `webinars-and-training.njk` image (already present on all other below-fold images)
-- [x] Image `width`/`height` attributes — added `width="600" height="400"` to `webinars-and-training.njk` and `why-choose-us.njk` career photo to prevent layout shift (CLS)
-- [x] `<picture>` WebP wrapper — `webinars-and-training.njk` now serves `.webp` with `.jpg` fallback; career and Laura headshot images already serve `.webp` directly (no `.jpg` originals exist)
-- [x] Google Search Console verification — conditional `<meta name="google-site-verification">` tag added; populate `"gscVerificationId"` in `site.json` to activate
-- [x] `robots.txt` sitemap URL verified — points to `https://www.lceducationconsulting.com/sitemap.xml`, matches `site.url`; correct for production
-- [x] `<meta name="description">` per page — all pages have unique `description` in front matter; `head.njk` uses it with a site-level fallback
-- [x] Sitemap `priority` and `changefreq` — homepage `1.0`/`weekly`, all other pages `0.8`/`monthly`
-- [x] Decap CMS — implemented on `lcec-dev` only; not part of `main`/`lcec-prod` (see `CHANGELOG.md`)
-- [x] Move `web3formsKey` out of `site.json` — now injected at build time via `src/_data/env.js`; secret stored in GitHub Actions as `WEB3FORMS_KEY`
-- [x] SEO enhancements — page-first titles, `sameAs`, Person schema, structured `areaServed`, removed dead preconnect (see `CHANGELOG.md`)
-- [x] Replace Netlify Forms with Web3Forms — `contact.njk` updated; access key via `{{ env.web3formsKey }}`
-- [x] Add axe-core a11y linting — `npm run lint:a11y` scans all built HTML in `dist/` using axe-core + jsdom
-- [x] Web3Forms reply-to — email field `name="replyto"`; `from_name` set to "LC Education Consulting"
-- [x] Pre-launch checklist documented — set `PATH_PREFIX: /` in workflow, replace GA4 + Web3Forms key placeholders, verify `robots.txt` sitemap URL matches domain
-- [x] Cleanup services subpages designs
-- [x] Make mobile icon more prominent
-- [x] Mobile menu current page indicator
-- [x] Ensure invisible controls are not keyboard accessible
-- [x] Ensure mobile menu traps keyboard
-- [x] Remove dead code
-- [x] Fix ghost button focus style
-- [x] Ensure WCAG text spacing is fully implemented (line height 1.5×, paragraph spacing 2×, letter spacing 0.12em, word spacing 0.16em)
-- [x] Focus outline mixin — `@mixin focus-outline($color)` implemented in `src/scss/_variables.scss`
-- [x] `prefers-reduced-motion`, `prefers-contrast`, `forced-colors` — all respected in CSS
+- [x] **Configure Web3Forms** `[security]` — real key injected via `WEB3FORMS_KEY` GitHub Actions secret
+- [x] **Configure GA4** `[seo]` — tracking ID `G-QX0EYR2295` set in `src/_data/site.json`
+- [x] **GA4 consent gating** `[security]` — GA4 loads from JS only after cookie consent; `data-ga-id` on `<body>` passes the ID
+- [x] **Confirm phone numbers with Laura** `[content]` — using `856-310-4483` (Google Voice) everywhere; removed old personal cell `302-750-7443`
+- [x] **Google Business Profile** `[seo]` — URL confirmed in `site.json` → `"googleBusinessUrl"`
+- [x] **Review CONTENT_SUGGESTIONS with Laura** `[content]` — items #2–22 resolved; #23–28 deferred to post-launch
+- [x] **Wire `testimonials.json` to templates** — `testimonial.njk` reads `testimonials.items[0]`; homepage uses `short` field, why-choose-us uses full `text`
+- [x] Fix `storageGet`/`storageSet` infinite recursion — cookie consent, announcement, and footer nav state now persist correctly
+- [x] Fix unclosed `<a>` tag in `footer.njk` footer brand link
+- [x] Dereference hardcoded phone in `header.njk` and `footer.njk` — now uses `{{ office.phone_href }}` / `{{ office.phone }}`
+- [x] Extract `makeCollapseToggle` factory in `main.js` — shared by `initAnnouncementToggle` and `initFooterNavToggle`
+- [x] Replace `innerHTML` SVG injection in `initExternalLinks` with `createElementNS` DOM API calls
+- [x] Remove dead `.social-link--vcard` handler from `main.js`
+- [x] `_reset.scss` refactor — removed dead rules, fixed `scroll-behavior` reduced-motion guard, removed `textarea:focus { outline: none }` a11y violation, cleared fieldset magic numbers
+- [x] Wire `@a11yfred/neighbor` Stylelint plugin — `no-outline-none`, `no-forced-colors-none`, `user-preferences` rules active
+- [x] **Calendar URL** — centralized in `site.json` as `calendar_url`
+- [x] **`.heading--section` / `.detail-heading`** — removed from `_typography.scss`; templates migrated to `content-blocks__heading text-uppercase`
+- [x] **`.form-input` / `.form-textarea`** — `%form-field-base` placeholder shared between both
+- [x] Register `toWebP` filter in `.eleventy.js` — used by `our-story.njk` and `portfolio.njk` `<picture>` elements
+- [x] Fix `site.url` mismatch — aligned `.eleventy.js` with `site.json` (`www.lceducationconsulting.com`)
+- [x] npm audit fix — fast-uri path traversal vulnerabilities patched
+- [x] Regenerate `package-lock.json` — resolved `npm ci` sync errors blocking CI builds
+- [x] Accessibility Services page bottom spacing — `content-blocks__grid` uses `margin-bottom: $space-32px`
+- [x] Footer nav driven from `navigation.json` — single source of truth; `hideFromFooter: true` skips Home
+- [x] Social section on/off toggle — `showSocial` boolean and `socialHeading` in `site.json`
+- [x] `handleFocusTrap` shared utility — extracted to `utils/dom.js`
+- [x] Hardcoded `"LC Education Consulting"` replaced with `{{ site.name }}` sitewide
+- [x] `@mixin link-state-primary` and `@mixin link-state-on-dark` — applied across nav and footer
+- [x] Internal links added to Our Story, Why Choose Us, Portfolio, and Webinars & Training body copy
+- [x] Heading hierarchy fix — Webinars & Training `<h2>` now renders `trainings_heading`
+- [x] Placeholder text contrast — `$color-placeholder: #6b6b6b` (~5.3:1 on white, WCAG AA pass)
+- [x] Removed `twitterHandle` from `site.json` and `twitter:site` meta tag
+- [x] `loading="lazy"` on all below-fold images
+- [x] Image `width`/`height` attributes on Webinars & Training and Why Choose Us photos
+- [x] `<picture>` WebP wrapper on `webinars-and-training.njk`
+- [x] Google Search Console verification meta tag — conditional on `site.gscVerificationId`
+- [x] `robots.txt` sitemap URL verified — matches `site.url`
+- [x] Per-page `<meta name="description">` — all pages have unique descriptions
+- [x] Sitemap `priority` and `changefreq` per URL
+- [x] Decap CMS — on `mikeyil/lcec-dev` staging only
+- [x] Move `web3formsKey` out of `site.json` — injected at build time via `src/_data/env.js`
+- [x] SEO enhancements — page-first titles, `sameAs`, Person schema, structured `areaServed`
+- [x] Replace Netlify Forms with Web3Forms
+- [x] axe-core a11y linting — `npm run lint:a11y`
+- [x] Web3Forms reply-to — email field `name="replyto"`
+- [x] Mobile nav animation, overlay, focus trap, Escape key, current-page indicator
+- [x] Ghost button focus style fix
+- [x] WCAG text spacing fully implemented
+- [x] `@mixin focus-outline($color)` implemented
+- [x] `prefers-reduced-motion`, `prefers-contrast`, `forced-colors` respected in CSS
 
 ---
 
 ## Obsolete
 
-- ~~Wire up Umami~~ — removed; GA4 added in its place (see Configure GA4 above)
+- ~~Wire up Umami~~ — removed; GA4 added in its place
+- ~~Contact block partial~~ — `contact.njk` and `contact-success.njk` too divergent; partial not worth the parameters
