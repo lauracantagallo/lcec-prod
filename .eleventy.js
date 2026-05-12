@@ -37,7 +37,7 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addGlobalData("site", {
     name: "LC Education Consulting",
-    url: "https://lceducationconsulting.com",
+    url: "https://www.lceducationconsulting.com",
     description: "Accessibility reviews, training, and digital accessibility support rooted in 16 years of special education experience.",
   });
 
