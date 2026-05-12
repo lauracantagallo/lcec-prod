@@ -6,11 +6,11 @@ Category tags: `[a11y]` `[seo]` `[optimization]` `[security]` `[content]`
 
 ## Before Launch — Blockers
 
-- [ ] **Configure Web3Forms** `[security]` — create a free account at web3forms.com (use Laura's email), get the access key, then add it as a GitHub Actions secret named `WEB3FORMS_KEY` in both `lcec-prod` and `lcec-dev` repos (Settings → Secrets and variables → Actions)
-- [ ] **Configure GA4** `[seo]` — get tracking ID from Google Analytics, set `"gaId": "G-XXXXXXXXXX"` in `src/_data/site.json`
-- [ ] **GA4 consent gating** `[security]` — GA4 fires before cookie consent is acknowledged; implement GA4 Consent Mode or delay `gtag` init until the accept button is clicked
+- [x] **Configure Web3Forms** `[security]` — real key in `site.json` and injected via `WEB3FORMS_KEY` GitHub Actions secret
+- [x] **Configure GA4** `[seo]` — real tracking ID `G-QX0EYR2295` set in `src/_data/site.json`
+- [x] **GA4 consent gating** `[security]` — GA4 now loads from JS only after cookie consent is accepted; `data-ga-id` on `<body>` passes the ID to JS; preconnect hint kept in `<head>`
 - [ ] **Custom domain on `lcec-prod`** `[seo]` — configure DNS (CNAME/A record pointing to `lauracantagallo.github.io`), then set the `PATH_PREFIX` repo variable to `/` in `lcec-prod` so asset paths resolve correctly
-- [ ] **Test contact form end-to-end** `[content]` — submit a real entry and confirm Laura receives the email with correct reply-to (requires Web3Forms key above)
+- [ ] **Test contact form end-to-end** `[content]` — submit a real entry and confirm Laura receives the email with correct reply-to
 - [ ] **Style 404 page** `[content]`
 - [ ] **Screen reader testing** `[a11y]`
 
@@ -19,7 +19,7 @@ Category tags: `[a11y]` `[seo]` `[optimization]` `[security]` `[content]`
 ## Before Launch — Should Do
 
 - [x] **Confirm phone numbers with Laura** `[content]` — confirmed to use `856-310-4483` (Google Voice) everywhere; removed old personal cell number `302-750-7443` from footer
-- [ ] **Google Business Profile** `[seo]` — create a profile for LC Education Consulting, then paste the URL into `site.json` → `"googleBusinessUrl"`; it will automatically appear in the business schema `sameAs` array
+- [x] **Google Business Profile** `[seo]` — URL confirmed in `site.json` → `"googleBusinessUrl"`
 - [ ] **Google Search Console** `[seo]` — verify ownership by pasting the GSC verification code into `site.json` → `"gscVerificationId"`; then submit the sitemap
 - [ ] **`og:image`** `[seo]` — currently uses a generic `/img/og-image.png`; a real branded image (1200×630) would improve link previews on LinkedIn, Slack, and iMessage
 - [ ] **Laura's personal LinkedIn** `[seo]` — if she has one, add the URL to the `Person` schema `sameAs` in `head.njk` (or add a `founderLinkedinUrl` field to `site.json`)
@@ -94,9 +94,12 @@ Category tags: `[a11y]` `[seo]` `[optimization]` `[security]` `[content]`
 - [x] Fix `storageGet`/`storageSet` infinite recursion — both functions called themselves instead of `localStorage`; cookie consent, announcement, and footer nav state never persisted
 - [x] Fix unclosed `<a>` tag in `footer.njk` footer brand link
 - [x] Dereference hardcoded phone in `header.njk` — now uses `{{ office.phone_href }}` / `{{ office.phone }}`
+- [x] Dereference hardcoded phone in `footer.njk` — now uses `{{ office.phone_href }}` / `{{ office.phone }}`
 - [x] Extract `makeCollapseToggle` factory in `main.js` — shared by `initAnnouncementToggle` and `initFooterNavToggle`
 - [x] Replace `innerHTML` SVG injection in `initExternalLinks` with `createElementNS` DOM API calls
 - [x] Remove dead `.social-link--vcard` handler from `main.js` (dev-branch contamination)
+- [x] `_reset.scss` refactor — removed dead rules, fixed `scroll-behavior` reduced-motion guard, removed `textarea:focus { outline: none }` a11y violation, cleared fieldset magic numbers, fixed `appearance: auto → none` on buttons
+- [x] Wire `@a11yfred/neighbor` Stylelint plugin — `no-outline-none`, `no-forced-colors-none`, `user-preferences` rules active
 
 ## DRY Opportunities
 

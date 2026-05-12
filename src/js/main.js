@@ -133,16 +133,33 @@ function cookieConsentAccepted() {
   }
 }
 
+function loadGA4() {
+  const gaId = document.body.dataset.gaId;
+  if (!gaId || document.getElementById('ga4-script')) return;
+  const script = document.createElement('script');
+  script.id = 'ga4-script';
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+  document.head.appendChild(script);
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { window.dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', gaId);
+}
+
 function initCookieBanner() {
   const banner    = document.getElementById('cookie-banner');
   const acceptBtn = document.getElementById('cookie-banner-accept');
   if (!banner || !acceptBtn) return;
-  if (!cookieConsentAccepted()) {
+  if (cookieConsentAccepted()) {
+    loadGA4();
+  } else {
     banner.classList.add('is-visible');
   }
   acceptBtn.addEventListener('click', () => {
     storageSet(COOKIE_KEY, JSON.stringify({ expiry: Date.now() + ONE_YEAR_MS }));
     banner.classList.remove('is-visible');
+    loadGA4();
   });
 }
 
