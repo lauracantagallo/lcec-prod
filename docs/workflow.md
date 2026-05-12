@@ -21,7 +21,7 @@ How LC Education Consulting website changes are requested, reviewed, and deploye
 The staging site has a content management system (CMS) at:
 
 ```
-https://lauracantagallo.github.io/lcec-dev/admin/
+https://mikeyil.github.io/lcec-dev/admin/
 ```
 
 Log in with your GitHub account. From there you can edit any page's text, headings, stats, and images without touching code.
@@ -30,7 +30,7 @@ Log in with your GitHub account. From there you can edit any page's text, headin
 1. Log in to the CMS
 2. Make your edits and click Save
 3. The change is committed to the staging repo automatically
-4. The staging site rebuilds and you can preview it at `https://lauracantagallo.github.io/lcec-dev/`
+4. The staging site rebuilds and you can preview it at `https://mikeyil.github.io/lcec-dev/`
 5. When you're happy with it, let Mikey know and he will push the change to production
 
 > The CMS is available on staging only. Changes do not go to the live site automatically — Mikey reviews and deploys them.
@@ -88,8 +88,8 @@ Approved → pushed to production (lcec-prod)
 Issue closed
 ```
 
-**Staging URL:** `https://lauracantagallo.github.io/lcec-dev/`
-**Production URL:** custom domain (TBD) or `https://lauracantagallo.github.io/lcec-prod/`
+**Staging URL:** `https://mikeyil.github.io/lcec-dev/`
+**Production URL:** `https://www.lceducationconsulting.com` (custom domain, pending DNS)
 
 ---
 
