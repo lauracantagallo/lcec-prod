@@ -161,6 +161,8 @@ npm run lint:css    # Stylelint — src/scss/**/*.scss
 npm run lint:a11y   # axe-core a11y scan — requires a fresh build first
 ```
 
+Stylelint runs with the [`@a11yfred/neighbor`](https://www.npmjs.com/package/@a11yfred/neighbor) plugin, which enforces three accessibility rules: no `outline: none/0` without a replacement, no `forced-colors: none`, and flagging user preference overrides (`prefers-reduced-motion`, `prefers-contrast`).
+
 Pre-commit hooks (Husky + lint-staged) run ESLint and Stylelint automatically on staged files before each commit.
 
 ## Design Tokens
