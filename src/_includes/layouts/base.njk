@@ -3,7 +3,7 @@
   <head>
     {% include "partials/head.njk" %}
   </head>
-  <body>
+  <body{% if site.gaId %} data-ga-id="{{ site.gaId }}"{% endif %}>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     {% if announcement.announcement %}{% include "partials/announcement-bar.njk" %}{% endif %}
     <div class="page-wrap">
