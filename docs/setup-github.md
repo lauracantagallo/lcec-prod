@@ -54,7 +54,14 @@ lcec-dev    https://github.com/lauracantagallo/lcec-dev.git   # staging
 ```bash
 git push lcec-prod main       # production
 git push lcec-dev dev         # staging (lcec-dev deploys from dev branch)
+git push origin main          # personal backup (main branch)
 git push origin dev           # personal backup (dev branch)
+```
+
+Or chain them together:
+
+```bash
+git push lcec-prod main && git push lcec-dev dev && git push origin main && git push origin dev
 ```
 
 ---

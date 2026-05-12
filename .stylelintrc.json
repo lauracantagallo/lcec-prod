@@ -1,9 +1,13 @@
 {
   "extends": ["stylelint-config-standard-scss"],
+  "plugins": ["@a11yfred/neighbor"],
   "rules": {
     "selector-class-pattern": null,
     "custom-property-pattern": null,
     "scss/dollar-variable-pattern": null,
-    "no-descending-specificity": null
+    "no-descending-specificity": null,
+    "neighbor/no-outline-none": true,
+    "neighbor/no-forced-colors-none": true,
+    "neighbor/user-preferences": true
   }
 }

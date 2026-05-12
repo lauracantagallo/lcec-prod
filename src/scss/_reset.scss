@@ -9,8 +9,11 @@
 
 html {
   -webkit-tap-highlight-color: rgb(0 0 0 / 0%);
-  scroll-behavior: smooth;
   text-size-adjust: 100%;
+
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -22,12 +25,6 @@ body {
   line-height: $line-height-loose;
   margin: 0;
   word-spacing: $word-spacing-body;
-}
-
-// Block-level semantics for HTML5 elements
-article, aside, details, figcaption, figure,
-footer, header, hgroup, main, menu, nav, section, summary {
-  display: block;
 }
 
 // Media
@@ -93,13 +90,14 @@ address {
 
 // Links
 a {
-  background-color: transparent;
   color: inherit;
   text-decoration: inherit;
 
-  &:active,
-  &:hover {
-    outline: 0;
+  @media (pointer: fine), (pointer: coarse) {
+    &:active,
+    &:hover {
+      outline: 0;
+    }
   }
 }
 
@@ -123,7 +121,7 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  appearance: auto;
+  appearance: none;
   cursor: pointer;
 }
 
@@ -133,7 +131,7 @@ input:disabled {
 }
 
 input {
-  border-style: none;
+  border: 0;
   line-height: normal;
   padding: 0.5rem;
   vertical-align: middle;
@@ -160,10 +158,6 @@ textarea {
   line-height: $line-height-loose;
   overflow: auto;
   padding: 0.5rem;
-
-  &:focus {
-    outline: none;
-  }
 }
 
 label {
@@ -171,9 +165,9 @@ label {
 }
 
 fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35rem 0.625rem 0.75rem;
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 legend {
@@ -234,10 +228,6 @@ b, strong {
 
 // ─── Reduced Motion ───────────────────────────────────────────────────────────
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
   *,
   *::before,
   *::after {

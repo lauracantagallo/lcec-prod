@@ -98,7 +98,6 @@
   &__list {
     @include flexbox(column);
 
-    gap: $space-8px;
     margin: $space-8px 0 0;
     padding: 0;
 

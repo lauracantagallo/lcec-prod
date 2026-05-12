@@ -25,17 +25,9 @@ Suggested copy updates flagged during a content review (April 2026). Organized b
 > LC Comment:   My google voice number is 856-310-4483.   I do not want to use my personal cell number (302-750-7443).  We talked about setting up a new number. Working on this.... but for now use the google voice number.
 ---
 
-### 2. "16 years" may be inaccurate and appears inconsistently
+### ~~2. "16 years" may be inaccurate and appears inconsistently~~ ✓ Fixed 2026-05-12
 
-**Files:** `src/index.md`, `src/content/why-choose-us.md`, `src/_includes/partials/head.njk`
-
-**Current:** Multiple references to "16 years of special education experience."
-
-**Suggested:** Confirm the accurate number with Laura. The company was founded in 2014 — 12 years ago. If "16 years" counts experience before founding, clarify: "rooted in 16+ years of experience in special education and assistive technology." Update all instances to match.
-
-**Why:** A visible conflict between "founded 2014" and "16 years of experience" is the first thing a procurement officer fact-checking the vendor will notice.
-
-> LC Comment:  I have 16 years of experience in Special Education.   Company was actually founded in 2016 or 2017!  I'd go with 2017.   I move to NJ the year after in 2018.  Change where ever you see fit on the site!
+Confirmed with Laura: 16 years of special education experience is accurate. Company was founded in 2017. All references to founding year already read 2017 (`our-story.md`, `site.json`). "16 years" copy in `why-choose-us.md`, `index.md`, and `site.json` is correct and consistent.
 ---
 
 ### 3. Grammar error in VPAT service feature **[readability]**
@@ -337,9 +329,11 @@ Suggested copy updates flagged during a content review (April 2026). Organized b
 
 **Current:** Projects are listed with a title and image only.
 
-**Suggested:** Add 2–3 sentences per project: what the client needed, what was done, and what the result was. The intro already promises "context about the goals, approach, and impact" — the projects themselves do not deliver on that yet.
+**Suggested:** Add 2–3 sentences per project describing what the client needed, what was done, and what the result was. The intro already promises "context about the goals, approach, and impact" — the projects themselves do not deliver on that yet.
 
-> LC Comment:  I definitely want to add 2-3 sentences per project.  The best way to do this would be to add information in our google docs. Do you agree?
+> LC Comment: I definitely want to add 2-3 sentences per project. The best way to do this would be to add information in our google docs. Do you agree?
+
+**Post-launch plan:** Template the portfolio cards to support an optional `outcome` field in `portfolio.md` front matter. Each card will render the text when present and collapse gracefully when absent. Laura can fill in outcomes incrementally via the CMS without a code change.
 
 ---
 
@@ -347,11 +341,13 @@ Suggested copy updates flagged during a content review (April 2026). Organized b
 
 **File:** `src/content/webinars-and-training.md`
 
-**Suggested:** Add 2–3 example session titles under each training category — for example, under Assistive Technology: "Introduction to AAC for Classroom Teams," "Screen Readers in K–12: What Teachers Need to Know."
+**Suggested:** Add 2–3 example session titles under each training category.
 
 **Why:** Broad category names do not help a prospective client decide whether Laura is the right fit for their staff. Specific topics do.
 
-> LC Comment:  I agree on this. I'll add a list of webinar topics to google docs.
+> LC Comment: I agree on this. I'll add a list of webinar topics to google docs.
+
+**Post-launch plan:** Add an optional `examples` list field to each training category in `webinars-and-training.md` front matter. The template will render them as a bulleted sub-list when present. Starter topics can be drafted from the existing category names and filled in by Laura via the CMS.
 
 ---
 
@@ -359,11 +355,13 @@ Suggested copy updates flagged during a content review (April 2026). Organized b
 
 **File:** `src/content/accessibility-services.md`
 
-**Suggested:** Add a brief "What you receive" line per service — for example: "You'll receive a prioritized findings report with screenshots, remediation guidance, and an executive summary."
+**Suggested:** Add a brief "What you receive" line per service.
 
 **Why:** Clients comparing vendors need to know exactly what they are buying. Deliverable clarity reduces friction before a contact.
 
-> LC Comment:  I agree with this.   Should we add this to the google doc or do you feel comfortable changing it?  We can definitely collaborate on this!
+> LC Comment: I agree with this. Should we add this to the google doc or do you feel comfortable changing it? We can definitely collaborate on this!
+
+**Post-launch plan:** Add an optional `deliverable` field to each service block in `accessibility-services.md`. The template will render it as a small callout line ("What you receive: …") beneath the service description when present. Copy can be drafted from standard accessibility consulting deliverables and refined with Laura.
 
 ---
 
@@ -371,26 +369,32 @@ Suggested copy updates flagged during a content review (April 2026). Organized b
 
 **File:** `src/_data/testimonials.json`
 
-**Suggested:** Collect 2–3 more short testimonials (2–3 sentences each) from past clients — ideally from different sectors: K–12, higher ed, and nonprofit or corporate.
+**Suggested:** Collect 2–3 more short testimonials from past clients across different sectors.
 
-**Why:** A single testimonial can read as cherry-picked. Multiple voices from different client types builds trust across all of the site's target audiences.
+**Why:** A single testimonial can read as cherry-picked. Multiple voices build trust across target audiences.
 
-> LC Comment:  Yes... I am trying!   I will have a friend write one up.  I've also had a parent write one and need to ask the people I did webinars for write testimonials.
+> LC Comment: Yes... I am trying! I will have a friend write one up. I've also had a parent write one and need to ask the people I did webinars for write testimonials.
+
+**Post-launch plan:** `testimonials.json` already supports multiple entries and the template loops over them. As Laura collects new testimonials, they can be added to the JSON (or via CMS) and will appear automatically — no code change needed.
 
 ---
 
 ### 27. No FAQ content on the site
 
-**Suggested:** Add a short FAQ section to the accessibility services page or a standalone page. Starting questions:
+**Suggested:** Add a short FAQ section to the accessibility services page or a standalone page.
 
+**Why:** Answering common questions on the page reduces back-and-forth before a first call and opens the door to FAQ rich results in search.
+
+> LC Comment: I agree this would be helpful! We can add this to the site and add more FAQ's to the google doc.
+
+**Post-launch plan:** Add a `faq` data file (`src/_data/faq.json`) and a reusable `faq.njk` partial that renders an accordion using the existing collapse toggle JS. Seed it with four starter questions answerable without Laura's input:
 - "What is the difference between an automated scan and a manual audit?"
-- "What is a VPAT, and when do I need one?"
+- "What is a VPAT / Accessibility Conformance Report (ACR)?"
 - "Do you work with organizations outside New Jersey?"
 - "How long does an accessibility audit take?"
 
-**Why:** These are the first questions a prospective client has. Answering them on the page reduces back-and-forth before a first call and opens the door to FAQ rich results in search.
+Laura can add more entries via the CMS after launch.
 
-> LC Comment:  I agree this would be helpful!  We can add this to the site and add more FAQ's to the google doc.
 ---
 
 ### 28. Hero has no option for visitors not ready to book
@@ -399,11 +403,13 @@ Suggested copy updates flagged during a content review (April 2026). Organized b
 
 **Current:** Primary CTA is the calendar booking link. Secondary is "See Our Services."
 
-**Suggested:** Add a third lower-commitment CTA — for example, a one-page PDF services overview that visitors can download without scheduling anything.
+**Suggested:** Add a lower-commitment third option for visitors not ready to schedule.
 
 **Why:** Not every first-time visitor is ready to book a call. A soft option captures interest that would otherwise leave.
 
-> LC Comment:  I agree with this.  Great suggestion!   I like the suggestion you provided.  Do you have any other ideas in mind?
+> LC Comment: I agree with this. Great suggestion! I like the suggestion you provided. Do you have any other ideas in mind?
+
+**Post-launch plan:** Add a third CTA linking to the contact page with anchor text like "Send Us a Message" — no new asset needed, uses the existing contact form. This is the lowest-friction option and can be implemented now without waiting on a downloadable PDF. A services overview PDF can be layered in later if Laura wants it.
 
 ---
 

@@ -25,7 +25,7 @@ Category tags: `[a11y]` `[seo]` `[optimization]` `[security]` `[content]`
 - [ ] **Laura's personal LinkedIn** `[seo]` — if she has one, add the URL to the `Person` schema `sameAs` in `head.njk` (or add a `founderLinkedinUrl` field to `site.json`)
 - [ ] **Business hours** `[seo]` — confirm with Laura, then add `openingHoursSpecification` to the `ProfessionalService` schema in `head.njk`
 - [ ] Review `contact-success` page `[content]` — visual check that it renders cleanly and has a clear next step for the user
-- [ ] **Review CONTENT_SUGGESTIONS with Laura** `[content]` — work through open copy items, confirm or dismiss each, and close resolved ones
+- [x] **Review CONTENT_SUGGESTIONS with Laura** `[content]` — items #2–22 resolved; #23–28 deferred to post-launch with dev plans in place
 
 ---
 
@@ -67,6 +67,17 @@ Category tags: `[a11y]` `[seo]` `[optimization]` `[security]` `[content]`
 
 - [x] **Wire `testimonials.json` to templates** — `testimonial.njk` now reads `testimonials.items[0]`; homepage uses `short` field, why-choose-us uses full `text`; `quote:` blocks removed from both content files
 - [ ] **Test CMS end-to-end on staging** — log in to `lauracantagallo.github.io/lcec-dev/admin`, make a small edit (e.g. announcement bar text), save, confirm the site rebuilds and the change appears on the staging URL within ~3 minutes.
+
+---
+
+## Post-Launch — Content
+
+- [ ] **Portfolio project outcomes** `[content]` — add optional `outcome` field to portfolio card template; Laura fills in 2–3 sentences per project via CMS (see CONTENT_SUGGESTIONS #23)
+- [ ] **Webinar example topics** `[content]` — add optional `examples` sub-list to each training category in front matter; Laura supplies topic titles via CMS (see CONTENT_SUGGESTIONS #24)
+- [ ] **Service deliverable lines** `[content]` — add optional `deliverable` field per service block; draft from standard consulting deliverables, refine with Laura (see CONTENT_SUGGESTIONS #25)
+- [ ] **Additional testimonials** `[content]` — `testimonials.json` already supports multiple entries; add new ones via CMS as Laura collects them (see CONTENT_SUGGESTIONS #26)
+- [ ] **FAQ section** `[content]` — add `src/_data/faq.json` and a `faq.njk` accordion partial using existing collapse-toggle JS; seed with 4 starter questions (see CONTENT_SUGGESTIONS #27)
+- [ ] **Third hero CTA** `[content]` — add "Send Us a Message" link to hero as a low-commitment option for visitors not ready to book; no new assets needed (see CONTENT_SUGGESTIONS #28)
 
 ---
 
