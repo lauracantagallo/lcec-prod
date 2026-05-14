@@ -6,7 +6,7 @@ Category tags: `[a11y]` `[seo]` `[optimization]` `[security]` `[content]`
 
 ## Before Launch — Blockers
 
-- [ ] **Custom domain on `lcec-prod`** `[seo]` — configure DNS (CNAME/A record pointing to `lauracantagallo.github.io`), then confirm `PATH_PREFIX` repo variable is `/` in `lcec-prod`
+- [ ] **Custom domain on `lced-prod`** `[seo]` — configure DNS (CNAME/A record pointing to `lauracantagallo.github.io`), then confirm `PATH_PREFIX` repo variable is `/` in `lced-prod`
 - [ ] **Test contact form end-to-end** `[content]` — submit a real entry and confirm Laura receives the email with correct reply-to
 - [ ] **Style 404 page** `[content]`
 - [ ] **Screen reader testing** `[a11y]`
@@ -59,7 +59,7 @@ Category tags: `[a11y]` `[seo]` `[optimization]` `[security]` `[content]`
 
 ## CMS
 
-- [ ] **Test CMS end-to-end on staging** — log in to `mikeyil.github.io/lcec-dev/admin`, make a small edit (e.g. announcement bar text), save, confirm the site rebuilds and the change appears on the staging URL within ~3 minutes.
+- [ ] **Test CMS end-to-end on staging** — log in to `mikeyil.github.io/lced-dev/admin`, make a small edit (e.g. announcement bar text), save, confirm the site rebuilds and the change appears on the staging URL within ~3 minutes.
 
 ---
 
@@ -123,7 +123,7 @@ Category tags: `[a11y]` `[seo]` `[optimization]` `[security]` `[content]`
 - [x] `robots.txt` sitemap URL verified — matches `site.url`
 - [x] Per-page `<meta name="description">` — all pages have unique descriptions
 - [x] Sitemap `priority` and `changefreq` per URL
-- [x] Decap CMS — on `mikeyil/lcec-dev` staging only
+- [x] Decap CMS — on `mikeyil/lced-dev` staging only
 - [x] Move `web3formsKey` out of `site.json` — injected at build time via `src/_data/env.js`
 - [x] SEO enhancements — page-first titles, `sameAs`, Person schema, structured `areaServed`
 - [x] Replace Netlify Forms with Web3Forms

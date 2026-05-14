@@ -78,7 +78,7 @@ lcec/
 │   ├── static/
 │   │   ├── robots.txt
 │   │   └── fonts/                 # Self-hosted Lato woff2 files
-│   ├── admin/                     # Decap CMS (staging only — not deployed to lcec-prod)
+│   ├── admin/                     # Decap CMS (staging only — not deployed to lced-prod)
 │   │   ├── index.njk              # CMS admin shell
 │   │   ├── config.yml             # Backend and collections config
 │   │   ├── custom.css             # CMS UI overrides (branding + centering)
@@ -187,13 +187,12 @@ Two repositories on Laura's GitHub account (`lauracantagallo`), both hosted on G
 
 | Repo | Purpose | URL |
 | ---- | ------- | --- |
-| `lcec-prod` | Production | `https://www.lceducationconsulting.com` (custom domain) |
-| `lcec-dev` | Staging | `https://lauracantagallo.github.io/lcec-dev/` |
+| `lced-prod` | Production | `https://www.lceducationconsulting.com` (custom domain) |
+| `lced-dev` | Staging | `https://mikeyil.github.io/lced-dev/` |
 
-**`lcec-prod`** deploys automatically on push to `main`. **`lcec-dev`** deploys on push to `dev` (the default branch; `main` does not exist on this repo). The `PATH_PREFIX` is set per-repo as a GitHub Actions repository variable so the same workflow file serves both repos.
+**`lced-prod`** deploys automatically on push to `main`. **`lced-dev`** deploys on push to `dev` (the default branch; `main` does not exist on this repo). The `PATH_PREFIX` is set per-repo as a GitHub Actions repository variable so the same workflow file serves both repos.
 
-
-The `lcec-dev` staging repo also includes Decap CMS for content editing. The CMS is not deployed to `lcec-prod`. Laura can edit content directly via the CMS at `https://lauracantagallo.github.io/lcec-dev/admin/` (GitHub OAuth required).
+The `lced-dev` staging repo also includes Decap CMS for content editing. The CMS is not deployed to `lced-prod`. Laura can edit content directly via the CMS at `https://mikeyil.github.io/lced-dev/admin/` (GitHub OAuth required).
 
 For the complete deployment setup, repository configuration, and content workflow, see:
 
@@ -204,12 +203,12 @@ For the complete deployment setup, repository configuration, and content workflo
 
 Critical items that must be completed before going live:
 
-- [ ] **Contact form testing** — Submit a test entry and verify Laura receives the email with correct reply-to address (requires `WEB3FORMS_KEY` GitHub Actions secret in both repos)
+- [x] **Contact form testing** — Submit a test entry and verify Laura receives the email with correct reply-to address (requires `WEB3FORMS_KEY` GitHub Actions secret in both repos)
 
 - [ ] **Screen reader testing** — Test core user flows with NVDA, JAWS, VoiceOver, and TalkBack
-- [ ] **Custom domain setup** — Configure DNS (CNAME/A record), then set `PATH_PREFIX: /` in `lcec-prod` repo variable so asset paths resolve correctly
-- [ ] **GA4 configuration** — Add tracking ID to `gaId` in `src/_data/site.json`
-- [ ] **GA4 consent mode** — Implement GA4 Consent Mode or delay `gtag` initialization until cookie consent is accepted
+- [ ] **Custom domain setup** — Configure DNS (CNAME/A record), then set `PATH_PREFIX: /` in `lced-prod` repo variable so asset paths resolve correctly
+- [x] **GA4 configuration** — Add tracking ID to `gaId` in `src/_data/site.json`
+- [x] **GA4 consent mode** — Implement GA4 Consent Mode or delay `gtag` initialization until cookie consent is accepted
 
 See [`docs/TODO.md`](docs/TODO.md) for the full checklist (Blockers, Before Launch, Security, Optimization, etc.).
 
@@ -217,8 +216,8 @@ See [`docs/TODO.md`](docs/TODO.md) for the full checklist (Blockers, Before Laun
 
 Laura can request site changes in two ways:
 
-1. **Content edits** (text, images, page copy) — Edit directly in the CMS at `https://lauracantagallo.github.io/lcec-dev/admin/`
-2. **Code changes** (design, layout, new features, bug fixes) — Open an issue on the production repo at [`github.com/lauracantagallo/lcec-prod/issues`](https://github.com/lauracantagallo/lcec-prod/issues)
+1. **Content edits** (text, images, page copy) — Edit directly in the CMS at `https://mikeyil.github.io/lced-dev/admin/`
+2. **Code changes** (design, layout, new features, bug fixes) — Open an issue on the production repo at [`github.com/lauracantagallo/lced-prod/issues`](https://github.com/lauracantagallo/lced-prod/issues)
 
 See [`docs/workflow.md`](docs/workflow.md) for detailed instructions.
 
@@ -240,7 +239,7 @@ The `docs/` directory is maintained as a first-class part of the project:
 ## Implementation Notes
 
 - `site.url` in `src/_data/site.json` must match the live domain
-- When `lcec-prod` is pointed at a custom domain, set the `PATH_PREFIX` repo variable to `/` (not `/lcec-prod/`)
+- When `lced-prod` is pointed at a custom domain, set the `PATH_PREFIX` repo variable to `/` (not `/lced-prod/`)
 - `WEB3FORMS_KEY` must be added as a GitHub Actions secret in both repos before the contact form will work
 - A pull request template lives at `.github/pull_request_template.md` — includes accessibility and SEO checklist items
 - Pre-commit hooks (Husky + lint-staged) run ESLint and Stylelint on staged files before each commit

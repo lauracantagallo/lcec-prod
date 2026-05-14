@@ -21,7 +21,7 @@ How LC Education Consulting website changes are requested, reviewed, and deploye
 The staging site has a content management system (CMS) at:
 
 ```
-https://mikeyil.github.io/lcec-dev/admin/
+https://mikeyil.github.io/lced-dev/admin/
 ```
 
 Log in with your GitHub account. From there you can edit any page's text, headings, stats, and images without touching code.
@@ -30,7 +30,7 @@ Log in with your GitHub account. From there you can edit any page's text, headin
 1. Log in to the CMS
 2. Make your edits and click Save
 3. The change is committed to the staging repo automatically
-4. The staging site rebuilds and you can preview it at `https://mikeyil.github.io/lcec-dev/`
+4. The staging site rebuilds and you can preview it at `https://mikeyil.github.io/lced-dev/`
 5. When you're happy with it, let Mikey know and he will push the change to production
 
 > The CMS is available on staging only. Changes do not go to the live site automatically — Mikey reviews and deploys them.
@@ -41,7 +41,7 @@ Log in with your GitHub account. From there you can edit any page's text, headin
 
 For anything that requires code changes (design updates, new sections, bug reports, feature requests), open an issue on the production repo:
 
-**→ [github.com/lauracantagallo/lcec-prod/issues/new](https://github.com/lauracantagallo/lcec-prod/issues/new)**
+**→ [github.com/lauracantagallo/lced-prod/issues/new](https://github.com/lauracantagallo/lced-prod/issues/new)**
 
 ### What to include in your issue
 
@@ -83,12 +83,12 @@ Work is built on the dev branch and deployed to staging
     ↓
 Laura reviews on the staging site
     ↓
-Approved → pushed to production (lcec-prod)
+Approved → pushed to production (lced-prod)
     ↓
 Issue closed
 ```
 
-**Staging URL:** `https://mikeyil.github.io/lcec-dev/`
+**Staging URL:** `https://mikeyil.github.io/lced-dev/`
 **Production URL:** `https://www.lceducationconsulting.com` (custom domain, pending DNS)
 
 ---
@@ -113,7 +113,7 @@ Some changes require information only Laura can provide. This is the most common
 
 All open requests are visible at:
 
-**→ [github.com/lauracantagallo/lcec-prod/issues](https://github.com/lauracantagallo/lcec-prod/issues)**
+**→ [github.com/lauracantagallo/lced-prod/issues](https://github.com/lauracantagallo/lced-prod/issues)**
 
 If an issue has no activity after a few days, leave a comment on it. Avoid sending changes by email or text — keeping everything in GitHub means there is a clear record and nothing gets lost.
 

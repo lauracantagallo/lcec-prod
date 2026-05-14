@@ -215,7 +215,7 @@ All significant changes to the LC Education Consulting site, newest first.
 
 ### Deployment
 
-- Removed Netlify; both `lcec-prod` and `lcec-dev` deploy via GitHub Pages + GitHub Actions
+- Removed Netlify; both `lced-prod` and `lced-dev` deploy via GitHub Pages + GitHub Actions
 - `PATH_PREFIX` moved to a per-repo GitHub Actions variable so the same workflow file serves both repos without modification
 - Removed `netlify.toml` and `docs/setup-netlify.md`
 

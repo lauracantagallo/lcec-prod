@@ -8,8 +8,8 @@ This documents the GitHub setup for the LCEC website.
 
 | Repo | Owner | Purpose | URL |
 | ---- | ----- | ------- | --- |
-| `lcec-dev` | `mikeyil` | Staging / development | `github.com/mikeyil/lcec-dev` |
-| `lcec-prod` | `lauracantagallo` | Production site | `github.com/lauracantagallo/lcec-prod` |
+| `lced-dev` | `mikeyil` | Staging / development | `github.com/mikeyil/lced-dev` |
+| `lced-prod` | `lauracantagallo` | Production site | `github.com/lauracantagallo/lced-prod` |
 
 ---
 
@@ -18,9 +18,9 @@ This documents the GitHub setup for the LCEC website.
 | Branch | Purpose |
 | ------ | ------- |
 | `dev` | Active development; deploys to mikeyil GitHub Pages (staging) |
-| `main` | Clean release branch; kept in sync with `lauracantagallo/lcec-prod/main` |
+| `main` | Clean release branch; kept in sync with `lauracantagallo/lced-prod/main` |
 
-`dev` is the default branch on `mikeyil/lcec-dev`. `main` is never committed to directly — changes are cherry-picked from `dev` or PRs are merged into it before pushing to production.
+`dev` is the default branch on `mikeyil/lced-dev`. `main` is never committed to directly — changes are cherry-picked from `dev` or PRs are merged into it before pushing to production.
 
 ---
 
@@ -28,8 +28,8 @@ This documents the GitHub setup for the LCEC website.
 
 | Repo | URL | PATH_PREFIX |
 | ---- | --- | ----------- |
-| `mikeyil/lcec-dev` | `https://mikeyil.github.io/lcec-dev/` | `/lcec-dev/` |
-| `lauracantagallo/lcec-prod` | custom domain `lceducationconsulting.com` | `/` |
+| `mikeyil/lced-dev` | `https://mikeyil.github.io/lced-dev/` | `/lced-dev/` |
+| `lauracantagallo/lced-prod` | custom domain `lceducationconsulting.com` | `/` |
 
 GitHub Pages is enabled on both repos under **Settings → Pages → Source: GitHub Actions**.
 
@@ -42,7 +42,7 @@ Each repo has a repository variable `PATH_PREFIX` set under **Settings → Secre
 A GitHub OAuth App is registered under Laura's account for Decap CMS authentication:
 
 - **App name:** LCEC CMS
-- **Homepage URL:** `https://mikeyil.github.io/lcec-dev`
+- **Homepage URL:** `https://mikeyil.github.io/lced-dev`
 - **Callback URL:** `https://lcec-cms-auth.royal-queen-bb70.workers.dev/callback`
 - The Client ID and Secret are stored in the Cloudflare Worker (`lcec-cms-auth`)
 
@@ -55,15 +55,15 @@ To regenerate the secret: **github.com/settings/developers** → LCEC CMS → Ge
 The developer (`mikeyil`) has the following git remotes configured locally:
 
 ```bash
-origin      https://github.com/mikeyil/lcec-dev.git       # staging / dev
-lcec-prod   https://github.com/lauracantagallo/lcec-prod.git  # production
+origin      https://github.com/mikeyil/lced-dev.git       # staging / dev
+lced-prod   https://github.com/lauracantagallo/lced-prod.git  # production
 ```
 
 ### Push workflow
 
 ```bash
 git push origin dev           # staging (triggers mikeyil GitHub Pages build)
-git push lcec-prod main       # production (triggers lauracantagallo Pages build)
+git push lced-prod main       # production (triggers lauracantagallo Pages build)
 ```
 
 To ship a fix to both at once, cherry-pick the commit from `dev` onto `main` then push both:
@@ -71,7 +71,7 @@ To ship a fix to both at once, cherry-pick the commit from `dev` onto `main` the
 ```bash
 git checkout main
 git cherry-pick <commit-hash>
-git push lcec-prod main
+git push lced-prod main
 git checkout dev
 ```
 
@@ -79,7 +79,7 @@ git checkout dev
 
 ## Decap CMS
 
-The CMS lives on `mikeyil/lcec-dev` (staging) only. It is not deployed to `lcec-prod`.
+The CMS lives on `mikeyil/lced-dev` (staging) only. It is not deployed to `lced-prod`.
 
 | File | Purpose |
 | ---- | ------- |
@@ -88,7 +88,7 @@ The CMS lives on `mikeyil/lcec-dev` (staging) only. It is not deployed to `lcec-
 | `src/admin/guide.md` | In-app Getting Started guide |
 | `src/admin/index.njk` | Admin shell page — loads self-hosted `decap-cms.js` |
 
-**CMS backend:** reads and writes `lauracantagallo/lcec-prod/main` directly via the GitHub API.
+**CMS backend:** reads and writes `lauracantagallo/lced-prod/main` directly via the GitHub API.
 
 **OAuth:** GitHub OAuth App "LCEC CMS" under Laura's account. Callback goes through a Cloudflare Worker (`lcec-cms-auth`) that holds the Client ID and Secret.
 
